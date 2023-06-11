@@ -1,0 +1,4 @@
+{
+  "pre-commit": "pnpm lint && pnpm typecheck",
+  "commit-msg": "npx --no -- commitlint --config .commitlint.config.json --edit $1"
+}
