@@ -9,7 +9,9 @@
     ".": {
       "require": "./dist/unuse-ui.umd.cjs",
       "import": "./dist/unuse-ui.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./src/config/index.ts": "./src/config/index.ts"
   },
   "main": "./dist/unuse-ui.umd.cjs",
   "module": "./dist/unuse-ui.js",
@@ -31,6 +33,7 @@
     "up": "taze major -r -I"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.14",
     "@vueuse/core": "^10.1.2",
     "defu": "^6.1.2",
     "lodash-es": "^4.17.21"

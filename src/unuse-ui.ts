@@ -2,16 +2,19 @@ import type { App, Plugin } from 'vue'
 
 import '@unocss/reset/tailwind.css'
 
-import UButton from './components/button/UButton.vue'
+import UIcon from './components/icon/UIcon.vue'
+import UToggle from './components/toggle/UToggle.vue'
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface GlobalComponents {
-    UButton: typeof UButton
+    UIcon: typeof UIcon
+    UToggle: typeof UToggle
   }
 }
 
 const components = {
-  UButton,
+  UIcon,
+  UToggle,
 }
 
 const plugin: Plugin = {
@@ -22,13 +25,10 @@ const plugin: Plugin = {
   },
 }
 
-export type {
-  UButtonVariant,
-} from './types'
-
 export {
-  UButton,
+  UIcon,
+  UToggle,
 }
 
-export { plugin as UnuseUi }
+export { plugin as UnuseUI }
 export default plugin
