@@ -12,7 +12,9 @@ const config = defineConfig({
   },
   plugins: [
     Vue({ script: { defineModel: true, propsDestructure: true } }),
-    dts(),
+    dts({
+      include: ['src/**'],
+    }),
     AutoImport({
       imports: [
         'vue',

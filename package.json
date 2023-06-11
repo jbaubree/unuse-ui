@@ -13,15 +13,17 @@
   },
   "main": "./dist/unuse-ui.umd.cjs",
   "module": "./dist/unuse-ui.js",
-  "types": "./dist/src/types.d.ts",
+  "types": "./dist/unuse-ui.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite build --watch",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:docs": "vitepress dev docs",
+    "dev:lib": "vite build --watch",
+    "build": "npm-run-all build:*",
+    "build:lib": "vite build",
+    "build:docs": "vitepress build docs",
     "lint": "eslint . --max-warnings 0",
     "postinstall": "npx simple-git-hooks",
     "release": "bumpp --commit --push --tag",
