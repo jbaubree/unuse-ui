@@ -5,4 +5,7 @@ export default defineConfig({
   plugins: [
     Unocss(),
   ],
+  server: {
+    port: 5555,
+  },
 })

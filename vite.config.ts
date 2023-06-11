@@ -25,6 +25,7 @@ const config = defineConfig({
     }),
   ],
   build: {
+    emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'src/unuse-ui.ts'),
       name: 'unuse-ui',

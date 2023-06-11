@@ -1,0 +1,16 @@
+{
+  "name": "playground",
+  "type": "module",
+  "version": "0.0.0",
+  "dependencies": {
+    "@vueuse/core": "10.1.2",
+    "unuse-ui": "workspace:*",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3",
+    "unplugin-vue-components": "^0.25.1",
+    "unplugin-vue-router": "^0.6.4"
+  }
+}
