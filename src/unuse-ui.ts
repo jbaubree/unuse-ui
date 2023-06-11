@@ -1,5 +1,7 @@
 import type { App, Plugin } from 'vue'
 
+import '@unocss/reset/tailwind.css'
+
 import UButton from './components/button/UButton.vue'
 
 declare module '@vue/runtime-core' {
