@@ -3,7 +3,7 @@ import { merge } from 'lodash-es'
 import { Switch } from '@headlessui/vue'
 import { appConfig } from '~/config'
 
-const { ui = appConfig.ui.toggle, label } = defineProps<{
+const { ui = appConfig.ui.toggle } = defineProps<{
   label?: string
   name?: string
   onIcon?: string

@@ -5,16 +5,16 @@ import '@unocss/reset/tailwind.css'
 import UIcon from './components/icon/UIcon.vue'
 import UToggle from './components/toggle/UToggle.vue'
 
-declare module 'vue' {
-  export interface GlobalComponents {
-    UIcon: typeof UIcon
-    UToggle: typeof UToggle
-  }
-}
-
 const components = {
   UIcon,
   UToggle,
+}
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    UIcon: typeof import('unuse-ui')['UIcon']
+    UToggle: typeof import('unuse-ui')['UToggle']
+  }
 }
 
 const plugin: Plugin = {
