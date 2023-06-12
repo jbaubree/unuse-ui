@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
-    "dev:playground": "vite dev playground",
+    "dev:playground": "cd playground && pnpm dev",
     "dev:docs": "vitepress dev docs",
     "dev:lib": "vite build --watch",
     "build": "npm-run-all build:*",
@@ -36,7 +36,6 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.14",
     "@vueuse/core": "^10.1.2",
-    "defu": "^6.1.2",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
@@ -44,6 +43,7 @@
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@iconify-json/ph": "^1.1.5",
+    "@types/lodash-es": "^4.17.7",
     "@unocss/eslint-config": "^0.53.1",
     "@unocss/preset-web-fonts": "^0.53.1",
     "@unocss/reset": "^0.53.1",

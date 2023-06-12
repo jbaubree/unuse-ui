@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import defu from 'defu'
+import { merge } from 'lodash-es'
 import { Switch } from '@headlessui/vue'
 import { appConfig } from '~/config'
 
@@ -13,7 +13,7 @@ const { ui = appConfig.ui.toggle, label } = defineProps<{
 
 const isActive = defineModel<boolean>({ default: false })
 
-const config = computed(() => defu({}, ui, appConfig.ui.toggle))
+const config = computed(() => merge({}, ui, appConfig.ui.toggle))
 </script>
 
 <template>

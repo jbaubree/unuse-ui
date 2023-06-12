@@ -2,6 +2,9 @@
   "name": "playground",
   "type": "module",
   "version": "0.0.0",
+  "scripts": {
+    "dev": "vite dev"
+  },
   "dependencies": {
     "@vueuse/core": "10.1.2",
     "unuse-ui": "workspace:*",
