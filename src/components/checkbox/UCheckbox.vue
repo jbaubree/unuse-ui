@@ -4,14 +4,12 @@ import { Switch } from '@headlessui/vue'
 import { appConfig } from '~/config'
 
 const { ui = appConfig.ui.checkbox, icon = 'i-ph-check-bold' } = defineProps<{
-  help?: string
   icon?: string
   isDisabled?: boolean
   isRequired?: boolean
   label?: string
   name?: string
   ui?: Partial<typeof appConfig.ui.checkbox>
-  value?: [string, number, boolean, object]
 }>()
 
 const isChecked = defineModel<boolean>({ default: false })
