@@ -4,6 +4,7 @@ import { Switch } from '@headlessui/vue'
 import { appConfig } from '~/config'
 
 const { ui = appConfig.ui.toggle } = defineProps<{
+  isDisabled?: boolean
   label?: string
   name?: string
   onIcon?: string
@@ -17,9 +18,9 @@ const config = computed(() => merge({}, ui, appConfig.ui.toggle))
 </script>
 
 <template>
-  <Switch v-model="isActive" :name="name" :class="config.wrapper">
+  <Switch v-model="isActive" :disabled="isDisabled" :name="name" :class="config.wrapper">
     <span v-if="label" :class="config.label">{{ label }}</span>
-    <div :class="[isActive ? config.button.active : config.button.inactive, config.button.base]">
+    <div :class="[isActive ? config.button.active : config.button.inactive, config.button.base, { [config.button.disabled]: isDisabled }]">
       <span :class="[isActive ? config.slider.active : config.slider.inactive, config.slider.base]">
         <span v-if="onIcon" :class="[isActive ? config.icon.active : config.icon.inactive, config.icon.base]" aria-hidden="true">
           <UIcon :name="onIcon" :class="config.icon.on" />
