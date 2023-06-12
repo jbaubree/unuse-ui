@@ -31,6 +31,9 @@ devDependencies:
   '@types/lodash-es':
     specifier: ^4.17.7
     version: 4.17.7
+  '@types/node':
+    specifier: ^20.3.0
+    version: 20.3.0
   '@unocss/eslint-config':
     specifier: ^0.53.1
     version: 0.53.1(eslint@8.42.0)(typescript@5.1.3)

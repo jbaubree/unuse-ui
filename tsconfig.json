@@ -12,8 +12,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "strictNullChecks": true,
+    "noUnusedLocals": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
+    "types": [
+      "node",
+      "vite/client"
+    ],
     "paths": {
       "~/*": ["src/*"]
     }
