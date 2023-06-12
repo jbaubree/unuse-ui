@@ -11,7 +11,7 @@ const config = defineConfig({
     },
   },
   plugins: [
-    Vue({ script: { defineModel: true, propsDestructure: true } }),
+    Vue({ script: { defineModel: true } }),
     dts({
       include: ['src/**'],
     }),
