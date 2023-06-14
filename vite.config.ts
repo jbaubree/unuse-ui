@@ -20,6 +20,9 @@ const config = defineConfig({
         'vue',
         '@vueuse/core',
       ],
+      dirs: [
+        'src/composables',
+      ],
       dts: 'src/auto-imports.d.ts',
       vueTemplate: true,
     }),

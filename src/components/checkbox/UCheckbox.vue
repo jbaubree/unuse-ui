@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { merge } from 'lodash-es'
 import { Switch } from '@headlessui/vue'
-import { appConfig } from '~/config'
+import { merge } from 'lodash-es'
+import type { appConfig } from '~/config'
 
 const props = withDefaults(defineProps<{
   icon?: string
@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
   name?: string
   ui?: Partial<typeof appConfig.ui.checkbox>
 }>(), {
-  ui: () => appConfig.ui.checkbox,
+  ui: () => useAppUi().checkbox,
   icon: 'i-ph-check-bold',
 })
 
@@ -19,7 +19,7 @@ const isChecked = defineModel<boolean>({ default: false })
 
 const slots = useSlots()
 
-const config = computed(() => merge({}, props.ui, appConfig.ui.checkbox))
+const config = computed(() => merge({}, useAppUi().checkbox, props.ui))
 </script>
 
 <template>

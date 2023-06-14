@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import { Switch } from '@headlessui/vue'
-import { appConfig } from '~/config'
+import type { appConfig } from '~/config'
 
 const props = withDefaults(defineProps<{
   isDisabled?: boolean
@@ -11,12 +11,12 @@ const props = withDefaults(defineProps<{
   offIcon?: string
   ui?: Partial<typeof appConfig.ui.toggle>
 }>(), {
-  ui: () => appConfig.ui.toggle,
+  ui: () => useAppUi().toggle,
 })
 
 const isActive = defineModel<boolean>({ default: false })
 
-const config = computed(() => merge({}, props.ui, appConfig.ui.toggle))
+const config = computed(() => merge({}, useAppUi().toggle, props.ui))
 </script>
 
 <template>
