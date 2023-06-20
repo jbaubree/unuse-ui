@@ -103,6 +103,7 @@ declare global {
   const until: typeof import('@vueuse/core')['until']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
+  const useAppConfig: typeof import('./composables/config')['useAppConfig']
   const useAppTheme: typeof import('./composables/config')['useAppTheme']
   const useAppUi: typeof import('./composables/config')['useAppUi']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']

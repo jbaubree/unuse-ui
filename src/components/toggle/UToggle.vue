@@ -24,10 +24,10 @@ const config = computed(() => merge({}, useAppUi().toggle, props.ui))
     <span v-if="label" :class="config.label">{{ label }}</span>
     <div :class="[isActive ? config.button.active : config.button.inactive, config.button.base, { [config.button.disabled]: isDisabled }]">
       <span :class="[isActive ? config.slider.active : config.slider.inactive, config.slider.base]">
-        <span v-if="onIcon" :class="[isActive ? config.icon.active : config.icon.inactive, config.icon.base]" aria-hidden="true">
+        <span v-if="onIcon" :class="[isActive ? config.icon.active : config.icon.inactive, config.icon.base]">
           <UIcon :name="onIcon" :class="config.icon.on" />
         </span>
-        <span v-if="offIcon" :class="[isActive ? config.icon.inactive : config.icon.active, config.icon.base]" aria-hidden="true">
+        <span v-if="offIcon" :class="[isActive ? config.icon.inactive : config.icon.active, config.icon.base]">
           <UIcon :name="offIcon" :class="config.icon.off" />
         </span>
       </span>

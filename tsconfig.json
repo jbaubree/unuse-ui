@@ -7,20 +7,22 @@
     "strict": true,
     "esModuleInterop": true,
     "jsx": "preserve",
+    "noStrictGenericChecks": false,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "isolatedModules": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
       "node",
       "vite/client"
     ],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "unuse-ui": ["./src/unuse-ui.ts"]
     }
   },
   "exclude": ["dist", "node_modules"]

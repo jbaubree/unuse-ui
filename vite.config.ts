@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 const config = defineConfig({
   resolve: {
@@ -25,6 +26,9 @@ const config = defineConfig({
       ],
       dts: 'src/auto-imports.d.ts',
       vueTemplate: true,
+    }),
+    Components({
+      dts: 'src/components.d.ts',
     }),
   ],
   build: {

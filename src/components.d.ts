@@ -9,8 +9,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    UButton: typeof import('unuse-ui')['UButton']
-    UCheckbox: typeof import('unuse-ui')['UCheckbox']
-    UToggle: typeof import('unuse-ui')['UToggle']
+    UButton: typeof import('./components/button/UButton.vue')['default']
+    UCheckbox: typeof import('./components/checkbox/UCheckbox.vue')['default']
+    UIcon: typeof import('./components/icon/UIcon.vue')['default']
+    UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }

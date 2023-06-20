@@ -22,6 +22,7 @@ const config = defineConfig({
         VueRouterAutoImports,
       ],
       dts: 'src/auto-imports.d.ts',
+      dirs: ['src/composables'],
       vueTemplate: true,
     }),
     Components({

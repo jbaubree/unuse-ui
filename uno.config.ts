@@ -1,5 +1,5 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
-import { colors } from './src/config'
+import { colors } from './src/preset'
 
 export default defineConfig({
   theme: {

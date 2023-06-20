@@ -1,8 +1,8 @@
 import { merge } from 'lodash-es'
 import type { App } from 'vue'
-
 import '@unocss/reset/tailwind.css'
 
+import UButton from './components/button/UButton.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UToggle from './components/toggle/UToggle.vue'
@@ -11,17 +11,10 @@ import { APP_UI } from './symbols'
 import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
 
 const components = {
+  UButton,
   UCheckbox,
   UIcon,
   UToggle,
-}
-
-declare module 'vue' {
-  export interface GlobalComponents {
-    UCheckbox: typeof import('unuse-ui')['UCheckbox']
-    UIcon: typeof import('unuse-ui')['UIcon']
-    UToggle: typeof import('unuse-ui')['UToggle']
-  }
 }
 
 const configDefaults: ResolvedPluginOptions = {
@@ -31,17 +24,20 @@ const configDefaults: ResolvedPluginOptions = {
 
 const plugin = {
   install(app: App, options: DeepPartial<PluginOptions> = {}) {
-    const theme: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
+    const config: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
 
-    Object.entries(components).forEach(([name, component]) => {
-      app.component(name, component)
-    })
+    if (options.registerComponents) {
+      Object.entries(components).forEach(([name, component]) => {
+        app.component(name, component)
+      })
+    }
 
-    app.provide(APP_UI, theme.ui)
+    app.provide(APP_UI, config.ui)
   },
 }
 
 export {
+  UButton,
   UCheckbox,
   UIcon,
   UToggle,

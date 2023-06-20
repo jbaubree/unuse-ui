@@ -25,7 +25,7 @@ const config = computed(() => merge({}, useAppUi().checkbox, props.ui))
 <template>
   <Switch v-model="isChecked" :disabled="isDisabled" :name="name" :class="config.wrapper">
     <div :class="[isChecked ? config.button.active : config.button.inactive, config.button.base, config.button.rounded, { [config.button.disabled]: isDisabled }]">
-      <UIcon v-if="isChecked" :class="[icon, config.icon]" />
+      <UIcon v-if="isChecked" :name="icon" :class="[config.icon]" />
     </div>
     <label v-if="label || slots.label" :for="name" :class="config.label">
       <slot name="label">{{ label }}</slot>
