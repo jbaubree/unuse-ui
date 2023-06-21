@@ -13,7 +13,6 @@ const props = withDefaults(defineProps<{
 }>(), {
   ui: () => useAppUi().toggle,
 })
-
 const isActive = defineModel<boolean>({ default: false })
 
 const config = computed(() => merge({}, useAppUi().toggle, props.ui))

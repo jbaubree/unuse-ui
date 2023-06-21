@@ -6,6 +6,7 @@ import { createHead } from '@vueuse/head'
 import UButton from './components/button/UButton.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UIcon from './components/icon/UIcon.vue'
+import UInput from './components/input/UInput.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
@@ -16,6 +17,7 @@ const components = {
   UButton,
   UCheckbox,
   UIcon,
+  UInput,
   UToggle,
 }
 
@@ -44,6 +46,7 @@ export {
   UButton,
   UCheckbox,
   UIcon,
+  UInput,
   UToggle,
   useAppTheme,
   useAppUi,

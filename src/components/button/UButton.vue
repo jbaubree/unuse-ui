@@ -49,6 +49,8 @@ const buttonProps = computed(() => props.to
 const isLeading = computed(() => (props.icon && props.isLeading) || (props.icon && !props.isTrailing) || (props.isLoading && !props.isTrailing) || props.leadingIcon)
 const isTrailing = computed(() => (props.icon && props.isTrailing) || (props.isLoading && props.isTrailing) || props.trailingIcon)
 const isSquare = computed(() => props.isSquare || (!slots.default && !props.label))
+const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)
+const trailingIconName = computed(() => (props.isLoading && !isLeading.value) ? props.loadingIcon : props.trailingIcon || props.icon)
 const buttonClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant] || config.value.variant[props.variant]
   return classNames(
@@ -62,8 +64,6 @@ const buttonClass = computed(() => {
     props.isBlock ? 'w-full flex justify-center items-center' : 'inline-flex items-center',
   )
 })
-const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)
-const trailingIconName = computed(() => (props.isLoading && !isLeading.value) ? props.loadingIcon : props.trailingIcon || props.icon)
 const leadingIconClass = computed(() => classNames(
   config.value.icon.base,
   config.value.icon.size[props.size],

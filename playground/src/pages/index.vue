@@ -6,6 +6,7 @@ import { useAppTheme } from 'unuse-ui'
 const isActive = ref(false)
 const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
+const input = ref('')
 const { primaryColor } = useAppTheme()
 const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
   return ![
@@ -62,6 +63,7 @@ const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
       <UToggle v-model="isActive" label="Primary toggle" />
       <UCheckbox v-model="isChecked" label="Primary checkbox" />
       <UButton label="Primary button" trailing-icon="i-ph-phone" />
+      <UInput v-model="input" icon="i-ph-phone" type="number" />
     </div>
   </div>
 </template>

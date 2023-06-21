@@ -14,7 +14,6 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().checkbox,
   icon: 'i-ph-check-bold',
 })
-
 const isChecked = defineModel<boolean>({ default: false })
 
 const slots = useSlots()
