@@ -11,7 +11,7 @@
       "import": "./dist/unuse-ui.js"
     },
     "./dist/style.css": "./dist/style.css",
-    "./src/preset/index.ts": "./src/preset/index.ts"
+    "./src/preset": "./src/preset/index.ts"
   },
   "main": "./dist/unuse-ui.umd.cjs",
   "module": "./dist/unuse-ui.js",
@@ -37,6 +37,7 @@
     "@headlessui/vue": "^1.7.14",
     "@iconify-json/ph": "^1.1.5",
     "@vueuse/core": "^10.1.2",
+    "@vueuse/head": "^1.1.26",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

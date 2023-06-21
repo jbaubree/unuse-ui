@@ -20,7 +20,7 @@ const config = computed(() => merge({}, useAppUi().toggle, props.ui))
 </script>
 
 <template>
-  <Switch v-model="isActive" :disabled="isDisabled" :name="name" :class="config.wrapper">
+  <Switch v-model="isActive" :disabled="isDisabled" :name="name" :aria-label="name" :class="config.wrapper">
     <span v-if="label" :class="config.label">{{ label }}</span>
     <div :class="[isActive ? config.button.active : config.button.inactive, config.button.base, { [config.button.disabled]: isDisabled }]">
       <span :class="[isActive ? config.slider.active : config.slider.inactive, config.slider.base]">

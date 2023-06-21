@@ -1,8 +1,8 @@
 export const toggle = {
   wrapper: 'inline-flex items-center gap-5 cursor-pointer disabled:cursor-default',
-  label: 'text-lg font-500 leading-5',
+  label: 'text-lg font-500 leading-5 text-gray-900 dark:text-white',
   button: {
-    base: 'relative inline-flex flex-shrink-0 h-5 w-9 border-2 border-transparent rounded-full focus:outline-none',
+    base: 'transition-colors relative inline-flex flex-shrink-0 h-5 w-9 border-2 border-transparent rounded-full focus:outline-none',
     active: 'bg-primary-500 dark:bg-primary-400',
     disabled: 'opacity-50 cursor-not-allowed',
     inactive: 'bg-gray-200 dark:bg-gray-700',

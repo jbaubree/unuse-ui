@@ -7,7 +7,7 @@
     "dev": "vite dev"
   },
   "dependencies": {
-    "@vueuse/core": "10.1.2",
+    "@vueuse/core": "^10.2.0",
     "unuse-ui": "workspace:*",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2"

@@ -1,12 +1,10 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
-import { colors } from './src/preset'
+import { presetUnuse } from './src/preset'
 
 export default defineConfig({
-  theme: {
-    colors,
-  },
   presets: [
     presetUno(),
+    presetUnuse(),
     presetIcons({
       scale: 1,
       warn: true,

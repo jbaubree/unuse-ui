@@ -13,3 +13,4 @@ export function presetUnuse(): Preset {
 }
 
 export { colors } from './colors'
+export type { Colors } from './colors'

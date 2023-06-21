@@ -14,6 +14,9 @@ dependencies:
   '@vueuse/core':
     specifier: ^10.1.2
     version: 10.1.2(vue@3.3.4)
+  '@vueuse/head':
+    specifier: ^1.1.26
+    version: 1.1.26(vue@3.3.4)
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -1444,6 +1447,45 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
+  /@unhead/dom@1.1.27:
+    resolution: {integrity: sha512-sUrzpKIVvFp8TFx1mgp5t0k5ts1+KmgjMgRRuvRTZMBMVeGQRLSuL3uo34iwuFmKxeI6BXT5lVBk5H02c1XdGg==}
+    dependencies:
+      '@unhead/schema': 1.1.27
+      '@unhead/shared': 1.1.27
+    dev: false
+
+  /@unhead/schema@1.1.27:
+    resolution: {integrity: sha512-S+xhPoBxBXDrsW9ltcF9Cv3cntMbSx+dfSmE7RNyDhogqHd3+lDEV2dnQpHKWTGjujwwMCALV5SADunAn785bw==}
+    dependencies:
+      hookable: 5.5.3
+      zhead: 2.0.4
+    dev: false
+
+  /@unhead/shared@1.1.27:
+    resolution: {integrity: sha512-ElZ5WcMnhVlg44OAwTNq4XBkNePcL/BHZk7WKFcqpeGTJrEvSfs40lGJoo4sMsgDAd+XQdhJDd4dJu48jQB3kg==}
+    dependencies:
+      '@unhead/schema': 1.1.27
+    dev: false
+
+  /@unhead/ssr@1.1.27:
+    resolution: {integrity: sha512-lKXH2ofs8L+yAbHgkRP17bIQ45XaG2RSl5UCMsSIW2Ev4kiTGPbbcQKOBgsi2uEllgdMk5peKDyaWD9xheYlEA==}
+    dependencies:
+      '@unhead/schema': 1.1.27
+      '@unhead/shared': 1.1.27
+    dev: false
+
+  /@unhead/vue@1.1.27(vue@3.3.4):
+    resolution: {integrity: sha512-ibe7/QW4ZtyCI/et/fI3CnwC+oxqp+7LrhmuLUS93ib1Sl70D51dcAy9eAvh0MG7wWUyMUrf3T95MRifJo7uzA==}
+    peerDependencies:
+      vue: '>=2.7 || >=3'
+    dependencies:
+      '@unhead/schema': 1.1.27
+      '@unhead/shared': 1.1.27
+      hookable: 5.5.3
+      unhead: 1.1.27
+      vue: 3.3.4
+    dev: false
+
   /@unocss/astro@0.53.1(vite@4.3.9):
     resolution: {integrity: sha512-dvPH2buCL0qvWXFfQFUeB8kbbJsliN0ib2Am5/1r4XyOwCiCvfwc3UuQpsi0xJs/WO9QgIxLWxakxVj3DeAuAQ==}
     dependencies:
@@ -1802,6 +1844,18 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  /@vueuse/head@1.1.26(vue@3.3.4):
+    resolution: {integrity: sha512-VUrqvcxKtxt2moKtUa7R/KscnDsNYj5u7HFULLsr84VhWsztzBedxW/8Wh/kTz2+/eMf5gC1KtkZBTFQYOmauQ==}
+    peerDependencies:
+      vue: '>=2.7 || >=3'
+    dependencies:
+      '@unhead/dom': 1.1.27
+      '@unhead/schema': 1.1.27
+      '@unhead/ssr': 1.1.27
+      '@unhead/vue': 1.1.27(vue@3.3.4)
+      vue: 3.3.4
+    dev: false
 
   /@vueuse/integrations@10.1.2(focus-trap@7.4.3)(vue@3.3.4):
     resolution: {integrity: sha512-wUpG3Wv6LiWerOwCzOAM0iGhNQ4vfFUTkhj/xQy7TLXduh2M3D8N08aS0KqlxsejY6R8NLxydDIM+68QfHZZ8Q==}
@@ -3658,6 +3712,10 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
     dev: true
+
+  /hookable@5.5.3:
+    resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
+    dev: false
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -5949,6 +6007,15 @@ packages:
       jiti: 1.18.2
     dev: true
 
+  /unhead@1.1.27:
+    resolution: {integrity: sha512-KnE4xeV/mZLxnXG1VAp1nsaO2vzMq9Ch5uN4Y2SJAG4fXLEBi/A8evr3Vd81c+oAwQZjDXKFW60HDCJCkwo/Cw==}
+    dependencies:
+      '@unhead/dom': 1.1.27
+      '@unhead/schema': 1.1.27
+      '@unhead/shared': 1.1.27
+      hookable: 5.5.3
+    dev: false
+
   /unimport@3.0.8:
     resolution: {integrity: sha512-AOt6xj3QMwqcTZRPB+NhFkyVEjCKnpTVoPm5x6424zz2NYYtCfym2bpJofzPHIJKPNIh5ko2/t2q46ZIMgdmbw==}
     dependencies:
@@ -6486,3 +6553,7 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
+
+  /zhead@2.0.4:
+    resolution: {integrity: sha512-V4R94t3ifk9AURym6OskbKcnowzgp5Z88tkoL/NF67vyryNxC62u6mx5F1Ux4oh4+YN7FFmKYEyWy6m5kfPH6g==}
+    dev: false

@@ -1,20 +1,67 @@
 <script setup lang="ts">
+import type { Colors } from 'unuse-ui/src/preset'
+import { colors } from 'unuse-ui/src/preset'
+import { useAppTheme } from 'unuse-ui'
+
 const isActive = ref(false)
 const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
+const { primaryColor } = useAppTheme()
+const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
+  return ![
+    'inherit',
+    'current',
+    'black',
+    'white',
+    'warmgray',
+    'warmGray',
+    'truegray',
+    'trueGray',
+    'coolgray',
+    'coolGray',
+    'bluegray',
+    'blueGray',
+    'slate',
+    'zinc',
+    'neutral',
+    'stone',
+    'light',
+    'dark',
+    'gray',
+    'transparent',
+    'primary',
+    'lisy',
+    'fluo',
+  ].includes(color)
+}))
 </script>
 
 <template>
-  <div class="bg-white transition-colors dark:bg-gray-950">
+  <div>
     <div class="w-full flex justify-end p-5">
-      <UToggle v-model="isDarkModeActive" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
+      <div class="mr-5 flex flex flex-wrap gap-2.5">
+        <div
+          v-for="color, index in primaryOptions"
+          :key="index"
+          class="flex cursor-pointer items-center gap-1"
+          @click="primaryColor = (color as keyof Colors)"
+        >
+          <span
+            class="font-500 capitalize transition-colors"
+            :class="primaryColor === color ? `text-${color}-700 dark:text-${color}-300` : 'dark:text-white'"
+          >
+            {{ color }}
+          </span>
+          <div class="min-h-4 min-w-4 rounded-full" :class="`bg-${color}-400`" />
+        </div>
+      </div>
+      <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
     </div>
-    <div class="h-screen w-full flex flex-col items-center justify-center gap-5">
-      <UToggle v-model="isActive" />
-      <UCheckbox v-model="isChecked" label="check this" />
-      <UButton color="red">
-        aez
-      </UButton>
+    <div class="w-full flex flex-col items-center justify-center gap-5 p-10">
+      <UButton label="Lisy color button" color="lisy" />
+      <UToggle v-model="isActive" label="Primary toggle" />
+      <UCheckbox v-model="isChecked" label="Primary checkbox" />
+      <UButton label="Primary button" trailing-icon="i-ph-phone" />
     </div>
   </div>
 </template>

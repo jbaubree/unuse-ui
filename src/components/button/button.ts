@@ -1,6 +1,6 @@
 import type { Color, Size } from '~/types'
 
-export type ButtonColor = 'white' | 'gray' | 'black'
+export type ButtonColor = 'white' | 'gray' | 'black' | 'fluo'
 export type ButtonVariant = 'solid' | 'outline' | 'soft' | 'ghost' | 'link'
 
 export interface Button {
@@ -30,12 +30,12 @@ export const button: Button = {
   font: 'font-medium',
   rounded: 'rounded-md',
   size: {
-    '2xs': 'text-xs',
-    'xs': 'text-xs',
-    'sm': 'text-sm',
-    'md': 'text-sm',
-    'lg': 'text-sm',
-    'xl': 'text-base',
+    '2xs': 'text-sm',
+    'xs': 'text-sm',
+    'sm': 'text-base',
+    'md': 'text-base',
+    'lg': 'text-base',
+    'xl': 'text-md',
   },
   gap: {
     '2xs': 'gap-x-1',
@@ -65,6 +65,10 @@ export const button: Button = {
     white: {
       solid: 'shadow-sm text-gray-900 dark:text-white bg-white hover:bg-gray-50 disabled:bg-white dark:bg-gray-900 dark:hover:bg-gray-800/50 dark:disabled:bg-gray-900',
       ghost: 'text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-900',
+    },
+    fluo: {
+      solid: 'shadow-sm text-black dark:text-gray-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400',
+      outline: 'text-{color}-600 dark:text-{color}-400 hover:bg-{color}-50 dark:hover:bg-{color}-950',
     },
     gray: {
       solid: 'shadow-sm text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800',
