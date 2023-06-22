@@ -5,6 +5,7 @@ import { useAppTheme } from 'unuse-ui'
 const isActive = ref(false)
 const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
+const isOpen = ref(false)
 const input = ref('')
 const activeItem = ref()
 const { primaryColor } = useAppTheme()
@@ -35,7 +36,10 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
       <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
     </div>
     <div class="w-full flex flex-col items-center justify-center gap-5 p-10">
-      <UButton label="Lisy color button" color="pilot" />
+      <UButton label="Open dialog" color="pilot" @click="isOpen = true" />
+      <UDialog v-model="isOpen">
+        Content
+      </UDialog>
       <UToggle v-model="isActive" label="Primary toggle" />
       <UCheckbox v-model="isChecked" label="Primary checkbox" />
       <UButton label="Primary button" trailing-icon="i-ph-phone" />

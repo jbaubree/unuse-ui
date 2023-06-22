@@ -9,6 +9,7 @@ import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UInput from './components/input/UInput.vue'
+import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
@@ -20,6 +21,7 @@ const components = {
   UButton,
   UBreadcrumb,
   UCheckbox,
+  UDialog,
   UFormGroup,
   UIcon,
   UInput,
@@ -32,6 +34,7 @@ declare module 'vue' {
     UButton: typeof UButton
     UBreadcrumb: typeof UBreadcrumb
     UCheckbox: typeof UCheckbox
+    UDialog: typeof UDialog
     UFormGroup: typeof UFormGroup
     UIcon: typeof UIcon
     UInput: typeof UInput
@@ -65,6 +68,7 @@ export {
   UButton,
   UBreadcrumb,
   UCheckbox,
+  UDialog,
   UFormGroup,
   UIcon,
   UInput,

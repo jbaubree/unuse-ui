@@ -12,6 +12,7 @@ declare module 'vue' {
     UBreadcrumb: typeof import('./components/breadcrumb/UBreadcrumb.vue')['default']
     UButton: typeof import('./components/button/UButton.vue')['default']
     UCheckbox: typeof import('./components/checkbox/UCheckbox.vue')['default']
+    UDialog: typeof import('./components/dialog/UDialog.vue')['default']
     UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']
     UIcon: typeof import('./components/icon/UIcon.vue')['default']
     UInput: typeof import('./components/input/UInput.vue')['default']

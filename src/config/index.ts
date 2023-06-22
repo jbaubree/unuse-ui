@@ -1,5 +1,6 @@
 import { breadcrumb } from '../components/breadcrumb/breadcrumb'
 import { button } from '../components/button/button'
+import { dialog } from '../components/dialog/dialog'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
 import { checkbox } from '../components/checkbox/checkbox'
@@ -15,6 +16,7 @@ export const appConfig = {
     breadcrumb,
     button,
     checkbox,
+    dialog,
     formGroup,
     input,
     nav,

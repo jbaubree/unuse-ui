@@ -12,9 +12,11 @@ declare module 'vue' {
     UBreadcrumb: typeof import('unuse-ui')['UBreadcrumb']
     UButton: typeof import('unuse-ui')['UButton']
     UCheckbox: typeof import('unuse-ui')['UCheckbox']
+    UDialog: typeof import('unuse-ui')['UDialog']
     UFormGroup: typeof import('unuse-ui')['UFormGroup']
     UIinput: typeof import('unuse-ui')['UIinput']
     UInput: typeof import('unuse-ui')['UInput']
+    UModal: typeof import('unuse-ui')['UModal']
     UNav: typeof import('unuse-ui')['UNav']
     UToggle: typeof import('unuse-ui')['UToggle']
   }
