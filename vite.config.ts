@@ -39,8 +39,14 @@ const config = defineConfig({
       fileName: 'unuse-ui',
     },
     rollupOptions: {
+      external: [
+        'vue',
+      ],
       output: {
         exports: 'named',
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
   },
