@@ -1,8 +1,9 @@
-import type { Size } from '~/types'
+import type { Color, Size } from '~/types'
 
 export interface NavItem {
   title: string
   value: string
+  color?: Color
 }
 
 export const nav = {
@@ -11,7 +12,7 @@ export const nav = {
   item: {
     wrapper: 'relative inline-block flex-1',
     base: 'min-w-max flex cursor-pointer justify-center rounded transition-colors',
-    active: 'text-primary-500',
+    active: 'text-{color}-500',
     inactive: 'text-dark-500',
   },
   size: {
