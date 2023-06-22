@@ -11,8 +11,8 @@
       "import": "./dist/unuse-ui.js"
     },
     "./dist/style.css": "./dist/style.css",
-    "./src/preset": "./src/preset/index.ts",
-    "./dist/types/index.ts": "./dist/types/index.ts"
+    "./dist/types": "./dist/types/index.ts",
+    "./src/preset": "./src/preset/index.ts"
   },
   "main": "./dist/unuse-ui.umd.cjs",
   "module": "./dist/unuse-ui.js",
