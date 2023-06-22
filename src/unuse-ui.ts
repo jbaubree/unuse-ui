@@ -8,6 +8,7 @@ import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UInput from './components/input/UInput.vue'
+import UNav from './components/nav/UNav.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
@@ -20,6 +21,7 @@ const components = {
   UFormGroup,
   UIcon,
   UInput,
+  UNav,
   UToggle,
 }
 
@@ -50,6 +52,7 @@ export {
   UFormGroup,
   UIcon,
   UInput,
+  UNav,
   UToggle,
   useAppTheme,
   useAppUi,

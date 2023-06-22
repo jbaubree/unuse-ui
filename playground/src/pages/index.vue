@@ -6,9 +6,10 @@ const isActive = ref(false)
 const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
 const input = ref('')
+const activeItem = ref()
 const { primaryColor } = useAppTheme()
 const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
-  return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot'].includes(color)
+  return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
 }))
 </script>
 
@@ -42,6 +43,14 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
       <UFormGroup label="Phone" is-required error="Error">
         <UInput v-model="input" icon="i-ph-phone" type="number" />
       </UFormGroup>
+      <UNav
+        v-model="activeItem"
+        :items="[
+          { title: 'First tab', value: '1' },
+          { title: 'Second tab', value: '2' },
+          { title: 'Last', value: '3' },
+        ]"
+      />
     </div>
   </div>
 </template>

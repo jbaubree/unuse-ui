@@ -14,6 +14,7 @@ declare module 'vue' {
     UFormGroup: typeof import('unuse-ui')['UFormGroup']
     UIinput: typeof import('unuse-ui')['UIinput']
     UInput: typeof import('unuse-ui')['UInput']
+    UNav: typeof import('unuse-ui')['UNav']
     UToggle: typeof import('unuse-ui')['UToggle']
   }
 }

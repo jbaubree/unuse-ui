@@ -14,6 +14,7 @@ declare module 'vue' {
     UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']
     UIcon: typeof import('./components/icon/UIcon.vue')['default']
     UInput: typeof import('./components/input/UInput.vue')['default']
+    UNav: typeof import('./components/nav/UNav.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }

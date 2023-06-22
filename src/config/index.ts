@@ -3,6 +3,7 @@ import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
 import { checkbox } from '../components/checkbox/checkbox'
 import { formGroup } from '../components/form-group/form-group'
+import { nav } from '../components/nav/nav'
 import { colors } from '../preset'
 
 export const appConfig = {
@@ -14,6 +15,7 @@ export const appConfig = {
     checkbox,
     formGroup,
     input,
+    nav,
     toggle,
   },
 }
