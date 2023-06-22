@@ -25,7 +25,7 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
         >
           <span
             class="font-500 capitalize transition-colors"
-            :class="primaryColor === color ? `text-${color}-700 dark:text-${color}-300` : 'dark:text-white'"
+            :class="primaryColor === color && `text-${color}-700 dark:text-${color}-300`"
           >
             {{ color }}
           </span>

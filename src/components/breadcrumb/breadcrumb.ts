@@ -8,6 +8,6 @@ export const breadcrumb = {
   link: {
     wrapper: 'font-roboto text-sm',
     active: 'text-{color}',
-    inactive: 'text-dark-500',
+    inactive: 'text-dark-500 dark:text-dark-100',
   },
 }
