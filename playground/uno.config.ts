@@ -1,5 +1,5 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
-import { presetUnuse } from 'unuse-ui/src/preset'
+import { presetUnuse } from 'unuse-ui'
 
 export default defineConfig({
   presets: [

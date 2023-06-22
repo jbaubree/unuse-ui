@@ -1,4 +1,4 @@
-import type { DeepPartial, PluginOptions } from 'unuse-ui/dist/types'
+import type { DeepPartial, PluginOptions } from 'unuse-ui'
 
 // @unocss-include
 export const options: DeepPartial<PluginOptions> = {

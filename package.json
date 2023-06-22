@@ -10,9 +10,7 @@
       "require": "./dist/unuse-ui.umd.cjs",
       "import": "./dist/unuse-ui.js"
     },
-    "./dist/style.css": "./dist/style.css",
-    "./dist/types": "./dist/types/index.ts",
-    "./src/preset": "./src/preset/index.ts"
+    "./dist/style.css": "./dist/style.css"
   },
   "main": "./dist/unuse-ui.umd.cjs",
   "module": "./dist/unuse-ui.js",

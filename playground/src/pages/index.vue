@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { colors } from 'unuse-ui/src/preset'
-import { useAppTheme } from 'unuse-ui'
+import { colors, useAppTheme } from 'unuse-ui'
 
 const isActive = ref(false)
 const isChecked = ref(false)

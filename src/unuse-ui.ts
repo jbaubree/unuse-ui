@@ -64,6 +64,9 @@ const plugin = {
   },
 }
 
+export * from './types'
+export * from './preset'
+
 export {
   UButton,
   UBreadcrumb,
