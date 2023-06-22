@@ -63,25 +63,25 @@ export const button: Button = {
   },
   color: {
     white: {
-      solid: 'shadow-sm text-gray-900 dark:text-white bg-white hover:bg-gray-50 disabled:bg-white dark:bg-gray-900 dark:hover:bg-gray-800/50 dark:disabled:bg-gray-900',
-      ghost: 'text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-900',
+      solid: 'shadow-sm text-dark-900 dark:text-white bg-white hover:bg-dark-50 disabled:bg-white dark:bg-dark-900 dark:hover:bg-dark-800/50 dark:disabled:bg-dark-900',
+      ghost: 'text-dark-900 dark:text-white hover:bg-white dark:hover:bg-dark-900',
     },
     fluo: {
-      solid: 'shadow-sm text-black dark:text-gray-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400',
+      solid: 'shadow-sm text-black dark:text-dark-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400',
       outline: 'text-{color}-600 dark:text-{color}-400 hover:bg-{color}-50 dark:hover:bg-{color}-950',
     },
     gray: {
-      solid: 'shadow-sm text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800',
-      ghost: 'text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800',
-      link: 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 underline-offset-4 hover:underline',
+      solid: 'shadow-sm text-dark-700 dark:text-dark-200 bg-dark-50 hover:bg-dark-100 disabled:bg-dark-50 dark:bg-dark-800 dark:hover:bg-dark-700/50 dark:disabled:bg-dark-800',
+      ghost: 'text-dark-700 dark:text-dark-200 hover:text-dark-900 dark:hover:text-white hover:bg-dark-50 dark:hover:bg-dark-800',
+      link: 'text-dark-500 dark:text-dark-400 hover:text-dark-700 dark:hover:text-dark-200 underline-offset-4 hover:underline',
     },
     black: {
-      solid: 'shadow-sm text-white dark:text-gray-900 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 dark:disabled:bg-white',
-      link: 'text-gray-900 dark:text-white underline-offset-4 hover:underline',
+      solid: 'shadow-sm text-white dark:text-dark-900 bg-dark-900 hover:bg-dark-800 disabled:bg-dark-900 dark:bg-white dark:hover:bg-dark-100 dark:disabled:bg-white',
+      link: 'text-dark-900 dark:text-white underline-offset-4 hover:underline',
     },
   },
   variant: {
-    solid: 'shadow-sm text-white dark:text-gray-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400',
+    solid: 'shadow-sm text-white dark:text-dark-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400',
     outline: 'text-{color}-500 dark:text-{color}-400 hover:bg-{color}-50 dark:hover:bg-{color}-950',
     soft: 'text-{color}-500 dark:text-{color}-400 bg-{color}-50 hover:bg-{color}-100 dark:bg-{color}-950 dark:hover:bg-{color}-900',
     ghost: 'text-{color}-500 dark:text-{color}-400 hover:bg-{color}-50 dark:hover:bg-{color}-950',

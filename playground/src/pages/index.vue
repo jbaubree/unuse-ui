@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Colors } from 'unuse-ui/src/preset'
 import { colors } from 'unuse-ui/src/preset'
 import { useAppTheme } from 'unuse-ui'
 
@@ -8,32 +7,8 @@ const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
 const input = ref('')
 const { primaryColor } = useAppTheme()
-const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
-  return ![
-    'inherit',
-    'current',
-    'black',
-    'white',
-    'warmgray',
-    'warmGray',
-    'truegray',
-    'trueGray',
-    'coolgray',
-    'coolGray',
-    'bluegray',
-    'blueGray',
-    'slate',
-    'zinc',
-    'neutral',
-    'stone',
-    'light',
-    'dark',
-    'gray',
-    'transparent',
-    'primary',
-    'lisy',
-    'fluo',
-  ].includes(color)
+const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
+  return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot'].includes(color)
 }))
 </script>
 
@@ -45,7 +20,7 @@ const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
           v-for="color, index in primaryOptions"
           :key="index"
           class="flex cursor-pointer items-center gap-1"
-          @click="primaryColor = (color as keyof Colors)"
+          @click="primaryColor = color"
         >
           <span
             class="font-500 capitalize transition-colors"
@@ -59,7 +34,7 @@ const primaryOptions = computed(() => Object.keys(colors).filter((color) => {
       <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
     </div>
     <div class="w-full flex flex-col items-center justify-center gap-5 p-10">
-      <UButton label="Lisy color button" color="lisy" />
+      <UButton label="Lisy color button" color="pilot" />
       <UToggle v-model="isActive" label="Primary toggle" />
       <UCheckbox v-model="isChecked" label="Primary checkbox" />
       <UButton label="Primary button" trailing-icon="i-ph-phone" />

@@ -46,7 +46,7 @@ export const input: Input = {
   wrapper: 'relative',
   base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
   rounded: 'rounded-md',
-  placeholder: 'placeholder-gray-400 dark:placeholder-gray-500',
+  placeholder: 'placeholder-dark-400 dark:placeholder-dark-500',
   size: {
     '2xs': 'text-xs',
     'xs': 'text-xs',
@@ -93,18 +93,18 @@ export const input: Input = {
   },
   color: {
     white: {
-      outline: 'shadow-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
+      outline: 'shadow-sm bg-white dark:bg-dark-900 text-dark-900 dark:text-white ring-1 ring-inset ring-dark-300 dark:ring-dark-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
     },
     gray: {
-      outline: 'shadow-sm bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
+      outline: 'shadow-sm bg-dark-50 dark:bg-dark-800 text-dark-900 dark:text-white ring-1 ring-inset ring-dark-300 dark:ring-dark-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
     },
   },
   variant: {
-    outline: 'shadow-sm bg-transparent text-gray-900 dark:text-white ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
+    outline: 'shadow-sm bg-transparent text-dark-900 dark:text-white ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
     none: 'bg-transparent focus:ring-0 focus:shadow-none',
   },
   icon: {
-    base: 'flex-shrink-0 text-gray-400 dark:text-gray-500',
+    base: 'flex-shrink-0 text-dark-400 dark:text-dark-500',
     color: 'text-{color}-500 dark:text-{color}-400',
     size: {
       '2xs': 'h-4 w-4',

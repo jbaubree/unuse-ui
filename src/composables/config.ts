@@ -9,12 +9,12 @@ export function useAppUi() {
 }
 
 export function useAppTheme(): {
-  primaryColor: RemovableRef<string>
+  primaryColor: RemovableRef<keyof typeof colors>
 } {
-  const primaryColor = useLocalStorage('unuse-ui-primary', 'fluo')
+  const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo')
 
   const root = computed(() => `:root {
-    ${Object.keys(colors.primary).map(key => `--color-primary-${key}: ${colors[primaryColor.value][key]};`).join('\n')}
+    ${Object.keys(colors.primary).map(key => `--color-primary-${key}: ${colors[primaryColor.value]?.[key]};`).join('\n')}
   }`)
 
   useHead({
