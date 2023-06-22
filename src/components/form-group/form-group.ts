@@ -2,7 +2,7 @@ export const formGroup = {
   wrapper: '',
   label: {
     wrapper: 'flex content-center justify-between',
-    base: 'block text-sm font-medium text-dark-700 dark:text-dark-200',
+    base: 'block text-sm font-medium text-dark-500 dark:text-dark-100',
     required: 'after:content-[\'*\'] after:ml-0.5 after:text-red-500 dark:after:text-red-400',
   },
   container: 'mt-1 relative',

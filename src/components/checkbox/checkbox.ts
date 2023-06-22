@@ -8,6 +8,6 @@ export const checkbox = {
     disabled: 'opacity-50 cursor-not-allowed',
   },
   icon: 'h-2.5 w-2.5 transition-colors text-white dark:text-dark-900',
-  label: 'transition-colors text-dark-700 dark:text-dark-200 text-sm cursor-unset',
+  label: 'transition-colors text-dark-700 dark:text-dark-100 text-sm cursor-unset',
   required: 'text-red-500 dark:text-red-400',
 }
