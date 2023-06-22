@@ -25,6 +25,18 @@ const components = {
   UToggle,
 }
 
+declare module 'vue' {
+  export interface GlobalComponents {
+    UButton: typeof import('unuse-ui')['UButton']
+    UCheckbox: typeof import('unuse-ui')['UCheckbox']
+    UFormGroup: typeof import('unuse-ui')['UFormGroup']
+    UIcon: typeof import('unuse-ui')['UIcon']
+    UInput: typeof import('unuse-ui')['UInput']
+    UNav: typeof import('unuse-ui')['UNav']
+    UToggle: typeof import('unuse-ui')['UToggle']
+  }
+}
+
 const configDefaults: ResolvedPluginOptions = {
   registerComponents: true,
   appConfig,
