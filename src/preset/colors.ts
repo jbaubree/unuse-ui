@@ -210,6 +210,20 @@ const red = {
   950: '#480A12',
   DEFAULT: '#DB1E36',
 }
+const kaki = {
+  50: '#F4F5EE',
+  100: '#E8EADE',
+  200: '#D1D5BD',
+  300: '#BBC09B',
+  400: '#A4AB7A',
+  500: '#8D9659',
+  600: '#717847',
+  700: '#5A6039',
+  800: '#484D2E',
+  900: '#3A3E25',
+  950: '#2E321E',
+  DEFAULT: '#8D9659',
+}
 const fluo = {
   50: '#FAFFE6',
   100: '#F5FFCC',
@@ -275,6 +289,7 @@ export const colors: Colors = {
   purple,
   cyan,
   pink,
+  kaki,
   light,
   dark,
   success: green,
@@ -287,5 +302,5 @@ type ColorRecord = Record<ColorKey, string> & {
 } | string
 
 export type Colors = { [key in keyof typeof defaultColors]?: ColorRecord } & {
-  [key in 'fluo' | 'pilot' | 'primary' | 'bronze' | 'silver' | 'gold' | 'mauve' | 'success' | 'danger']: ColorRecord
+  [key in 'fluo' | 'pilot' | 'primary' | 'bronze' | 'silver' | 'gold' | 'mauve' | 'kaki' | 'success' | 'danger']: ColorRecord
 }
