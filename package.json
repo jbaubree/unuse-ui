@@ -37,7 +37,8 @@
     "@iconify-json/ph": "^1.1.5",
     "@vueuse/core": "^10.1.2",
     "@vueuse/head": "^1.1.26",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
