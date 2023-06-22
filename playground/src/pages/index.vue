@@ -39,6 +39,9 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
       <UCheckbox v-model="isChecked" label="Primary checkbox" />
       <UButton label="Primary button" trailing-icon="i-ph-phone" />
       <UInput v-model="input" icon="i-ph-phone" type="number" />
+      <UFormGroup label="Phone" is-required error="Error">
+        <UInput v-model="input" icon="i-ph-phone" type="number" />
+      </UFormGroup>
     </div>
   </div>
 </template>

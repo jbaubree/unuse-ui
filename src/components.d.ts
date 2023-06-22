@@ -11,6 +11,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     UButton: typeof import('./components/button/UButton.vue')['default']
     UCheckbox: typeof import('./components/checkbox/UCheckbox.vue')['default']
+    UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']
     UIcon: typeof import('./components/icon/UIcon.vue')['default']
     UInput: typeof import('./components/input/UInput.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']

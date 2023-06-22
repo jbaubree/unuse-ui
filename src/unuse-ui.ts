@@ -5,6 +5,7 @@ import { createHead } from '@vueuse/head'
 
 import UButton from './components/button/UButton.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
+import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UInput from './components/input/UInput.vue'
 import UToggle from './components/toggle/UToggle.vue'
@@ -16,6 +17,7 @@ import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
 const components = {
   UButton,
   UCheckbox,
+  UFormGroup,
   UIcon,
   UInput,
   UToggle,
@@ -45,6 +47,7 @@ const plugin = {
 export {
   UButton,
   UCheckbox,
+  UFormGroup,
   UIcon,
   UInput,
   UToggle,
