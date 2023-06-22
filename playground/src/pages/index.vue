@@ -51,6 +51,15 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
           { title: 'Last', value: '3' },
         ]"
       />
+      <UBreadcrumb
+        :items="[
+          { label: 'Annonces', to: '#' },
+          { label: 'Location', to: '#' },
+          { label: 'Local d\'activité', to: '#' },
+          { label: '45140 Ormes', to: '#' },
+          { label: 'GWMSTKE' },
+        ]"
+      />
     </div>
   </div>
 </template>

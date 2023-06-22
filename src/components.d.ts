@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UBreadcrumb: typeof import('./components/breadcrumb/UBreadcrumb.vue')['default']
     UButton: typeof import('./components/button/UButton.vue')['default']
     UCheckbox: typeof import('./components/checkbox/UCheckbox.vue')['default']
     UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']

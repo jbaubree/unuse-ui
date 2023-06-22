@@ -1,3 +1,4 @@
+import { breadcrumb } from '../components/breadcrumb/breadcrumb'
 import { button } from '../components/button/button'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
@@ -11,6 +12,7 @@ export const appConfig = {
     // colors
     colors,
     // components
+    breadcrumb,
     button,
     checkbox,
     formGroup,

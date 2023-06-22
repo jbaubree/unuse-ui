@@ -4,6 +4,7 @@ import '@unocss/reset/tailwind.css'
 import { createHead } from '@vueuse/head'
 
 import UButton from './components/button/UButton.vue'
+import UBreadcrumb from './components/breadcrumb/UBreadcrumb.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
@@ -17,6 +18,7 @@ import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
 
 const components = {
   UButton,
+  UBreadcrumb,
   UCheckbox,
   UFormGroup,
   UIcon,
@@ -27,13 +29,14 @@ const components = {
 
 declare module 'vue' {
   export interface GlobalComponents {
-    UButton: typeof import('unuse-ui')['UButton']
-    UCheckbox: typeof import('unuse-ui')['UCheckbox']
-    UFormGroup: typeof import('unuse-ui')['UFormGroup']
-    UIcon: typeof import('unuse-ui')['UIcon']
-    UInput: typeof import('unuse-ui')['UInput']
-    UNav: typeof import('unuse-ui')['UNav']
-    UToggle: typeof import('unuse-ui')['UToggle']
+    UButton: typeof UButton
+    UBreadcrumb: typeof UBreadcrumb
+    UCheckbox: typeof UCheckbox
+    UFormGroup: typeof UFormGroup
+    UIcon: typeof UIcon
+    UInput: typeof UInput
+    UNav: typeof UNav
+    UToggle: typeof UToggle
   }
 }
 
@@ -60,6 +63,7 @@ const plugin = {
 
 export {
   UButton,
+  UBreadcrumb,
   UCheckbox,
   UFormGroup,
   UIcon,

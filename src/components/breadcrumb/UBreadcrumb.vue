@@ -1,0 +1,32 @@
+<script setup lang="ts">
+import { merge } from 'lodash-es'
+import type { BreadcrumbItem } from './breadcrumb'
+import type { appConfig } from '~/config'
+import type { Color } from '~/types'
+
+const props = withDefaults(defineProps<{
+  items: BreadcrumbItem[]
+  color?: Color
+  ui?: Partial<typeof appConfig.ui.breadcrumb>
+}>(), {
+  ui: () => useAppUi().breadcrumb,
+  color: 'primary',
+})
+
+const { items } = toRefs(props)
+
+const config = computed(() => merge({}, useAppUi().breadcrumb, props.ui))
+</script>
+
+<template>
+  <div :class="config.wrapper">
+    <template v-for="{ label, to }, index in items" :key="index">
+      <component :is="to ? 'a' : 'div'" :href="to" :class="config.link.wrapper">
+        <span :class="to ? config.link.active.replaceAll('{color}', color) : config.link.inactive">
+          {{ label }}
+        </span>
+      </component>
+      <span v-if="index < items.length - 1">/</span>
+    </template>
+  </div>
+</template>
