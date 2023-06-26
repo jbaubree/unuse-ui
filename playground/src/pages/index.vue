@@ -11,6 +11,37 @@ const { primaryColor } = useAppTheme()
 const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
   return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
 }))
+const dropdownItems = [
+  [{
+    label: 'Profile',
+    avatar: {
+      src: 'https://avatars.githubusercontent.com/u/50230578?s=40&v=4',
+    },
+  }], [{
+    label: 'Edit',
+    icon: 'i-ph-note-pencil-bold',
+    shortcuts: ['E'],
+    onClick: () => {
+      // eslint-disable-next-line no-console
+      console.log('Edit')
+    },
+  }, {
+    label: 'Duplicate',
+    icon: 'i-ph-copy-bold',
+    shortcuts: ['D'],
+    isDisabled: true,
+  }], [{
+    label: 'Archive',
+    icon: 'i-ph-archive-box-bold',
+  }, {
+    label: 'Move',
+    icon: 'i-ph-arrow-right-bold',
+  }], [{
+    label: 'Delete',
+    icon: 'i-ph-trash-bold',
+    shortcuts: ['⌘', 'D'],
+  }],
+]
 </script>
 
 <template>
@@ -63,6 +94,9 @@ const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colo
           { label: 'GWMSTKE' },
         ]"
       />
+      <UDropdown :items="dropdownItems">
+        <UButton label="Options" trailing-icon="i-ph-caret-down-bold" />
+      </UDropdown>
     </div>
   </div>
 </template>

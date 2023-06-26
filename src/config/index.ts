@@ -1,6 +1,9 @@
+import { avatar } from '../components/avatar/avatar'
 import { breadcrumb } from '../components/breadcrumb/breadcrumb'
 import { button } from '../components/button/button'
+import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
+import { kbd } from '../components/kbd/kbd'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
 import { checkbox } from '../components/checkbox/checkbox'
@@ -13,12 +16,15 @@ export const appConfig = {
     // colors
     colors,
     // components
+    avatar,
     breadcrumb,
     button,
     checkbox,
+    dropdown,
     dialog,
     formGroup,
     input,
+    kbd,
     nav,
     toggle,
   },
