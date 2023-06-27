@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
   color: 'primary',
   ui: () => useAppUi().nav,
 })
-const modelValue = defineModel<string>()
+const modelValue = defineModel<string>({ required: true })
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate<{ value: string; index: number }>()
 

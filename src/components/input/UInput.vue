@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
-import type { InputVariant } from './input'
+import type { InputColor, InputVariant } from './input'
 import { appConfig } from '~/config'
 import type { Color, Size } from '~/types'
 import { classNames } from '~/utils'
@@ -24,8 +24,8 @@ const props = withDefaults(defineProps<{
   isLoading?: boolean
   isPadded?: boolean
   size?: Size
-  color?: Color
-  variant?: InputVariant
+  color?: Color | InputColor
+  variant?: InputVariant | InputColor
   ui?: Partial<typeof appConfig.ui.input>
 }>(), {
   ui: () => useAppUi().input,
@@ -40,7 +40,7 @@ const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
 }>()
-const modelValue = defineModel<string | number>('')
+const modelValue = defineModel<string | number>({ default: '' })
 
 const slots = useSlots()
 

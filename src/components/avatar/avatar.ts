@@ -14,9 +14,9 @@ export interface Avatar {
 
 export const avatar = {
   wrapper: 'relative inline-flex items-center justify-center',
-  background: 'bg-gray-100 dark:bg-gray-800',
+  background: 'bg-dark-50 dark:bg-dark-400',
   rounded: 'rounded-full',
-  placeholder: 'font-medium leading-none text-gray-900 dark:text-white truncate',
+  placeholder: 'font-medium leading-none text-dark-500 dark:text-white truncate',
   size: {
     '3xs': 'h-4 w-4 text-[8px]',
     '2xs': 'h-5 w-5 text-[10px]',
@@ -29,7 +29,7 @@ export const avatar = {
     '3xl': 'h-20 w-20 text-2xl',
   } as Record<Size, string>,
   chip: {
-    base: 'absolute block rounded-full ring-1 ring-white dark:ring-gray-900',
+    base: 'absolute block rounded-full ring-1 ring-white dark:ring-dark-500',
     background: 'bg-{color}-500 dark:bg-{color}-400',
     position: {
       'top-right': 'top-0 right-0',

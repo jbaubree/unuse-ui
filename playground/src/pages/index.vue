@@ -43,6 +43,8 @@ const dropdownItems = [
   }],
 ]
 const currentPage = ref(1)
+const countries = ['United States', 'Canada', 'Mexico']
+const country = ref(countries[0])
 </script>
 
 <template>
@@ -99,6 +101,7 @@ const currentPage = ref(1)
         <UButton label="Options" trailing-icon="i-ph-caret-down-bold" />
       </UDropdown>
       <UPagination v-model="currentPage" :total="100" :per-page="20" />
+      <USelect v-model="country" :options="countries" />
     </div>
   </div>
 </template>

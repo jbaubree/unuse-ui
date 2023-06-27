@@ -37,7 +37,7 @@ export interface Input {
   default: {
     size: Size
     color: Color | InputColor
-    variant: InputVariant
+    variant: InputVariant | InputColor
     loadingIcon: string
   }
 }

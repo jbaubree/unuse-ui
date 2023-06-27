@@ -22,6 +22,7 @@ declare module 'vue' {
     ULinkCustom: typeof import('./components/link/ULinkCustom.vue')['default']
     UNav: typeof import('./components/nav/UNav.vue')['default']
     UPagination: typeof import('./components/pagination/UPagination.vue')['default']
+    USelect: typeof import('./components/select/USelect.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }

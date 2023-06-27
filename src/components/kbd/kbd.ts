@@ -1,7 +1,7 @@
 import type { Size } from '~/types'
 
 export const kbd = {
-  base: 'inline-flex items-center justify-center text-gray-900 dark:text-white',
+  base: 'inline-flex items-center justify-center text-dark-500 dark:text-white',
   padding: 'px-1',
   size: {
     xs: 'h-4 min-w-[16px] text-[10px]',
@@ -10,8 +10,8 @@ export const kbd = {
   },
   rounded: 'rounded',
   font: 'font-medium font-sans',
-  background: 'bg-gray-100 dark:bg-gray-800',
-  ring: 'ring-1 ring-gray-300 dark:ring-gray-700 ring-inset',
+  background: 'bg-dark-500 dark:bg-dark-400',
+  ring: 'ring-1 ring-dark-100 dark:ring-dark-300 ring-inset',
   default: {
     size: 'sm' as Size,
   },
