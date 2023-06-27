@@ -15,6 +15,7 @@ import UKbd from './components/kbd/UKbd.vue'
 import ULinkCustom from './components/link/ULinkCustom.vue'
 import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
+import UPagination from './components/pagination/UPagination.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
@@ -34,6 +35,7 @@ const components = {
   UKbd,
   ULinkCustom,
   UNav,
+  UPagination,
   UToggle,
 }
 
@@ -51,6 +53,7 @@ declare module 'vue' {
     UKbd: typeof UKbd
     ULinkCustom: typeof ULinkCustom
     UNav: typeof UNav
+    UPagination: typeof UPagination
     UToggle: typeof UToggle
   }
 }
@@ -92,6 +95,7 @@ export {
   UKbd,
   ULinkCustom,
   UNav,
+  UPagination,
   UToggle,
   useAppTheme,
   useAppUi,

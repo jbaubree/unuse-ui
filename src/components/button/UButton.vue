@@ -1,34 +1,9 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
-import type { RouteLocationRaw } from 'vue-router'
-import type { ButtonColor, ButtonVariant } from './button'
+import type { Button } from '~/components/button/button'
 import { classNames } from '~/utils'
-import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
 
-const props = withDefaults(defineProps<{
-  type?: string
-  isBlock?: boolean
-  label?: string
-  isLoading?: boolean
-  isDisabled?: boolean
-  isPadded?: boolean
-  size?: Size
-  color?: Color | ButtonColor
-  variant?: ButtonVariant
-  icon?: string
-  loadingIcon?: string
-  leadingIcon?: string
-  trailingIcon?: string
-  isTrailing?: boolean
-  isLeading?: boolean
-  to?: string | RouteLocationRaw
-  target?: string
-  ariaLabel?: string
-  isSquare?: boolean
-  isTruncate?: boolean
-  ui?: Partial<typeof appConfig.ui.button>
-}>(), {
+const props = withDefaults(defineProps<Button>(), {
   isPadded: true,
   loadingIcon: () => useAppUi().button.default.loadingIcon,
   color: () => useAppUi().button.default.color,

@@ -42,6 +42,7 @@ const dropdownItems = [
     shortcuts: ['⌘', 'D'],
   }],
 ]
+const currentPage = ref(1)
 </script>
 
 <template>
@@ -97,6 +98,7 @@ const dropdownItems = [
       <UDropdown :items="dropdownItems">
         <UButton label="Options" trailing-icon="i-ph-caret-down-bold" />
       </UDropdown>
+      <UPagination v-model="currentPage" :total="100" :per-page="20" />
     </div>
   </div>
 </template>

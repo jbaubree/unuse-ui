@@ -7,6 +7,7 @@ import { kbd } from '../components/kbd/kbd'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
 import { checkbox } from '../components/checkbox/checkbox'
+import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
 import { colors } from '../preset'
@@ -26,6 +27,7 @@ export const appConfig = {
     input,
     kbd,
     nav,
+    pagination,
     toggle,
   },
 }

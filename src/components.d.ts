@@ -21,6 +21,7 @@ declare module 'vue' {
     UKbd: typeof import('./components/kbd/UKbd.vue')['default']
     ULinkCustom: typeof import('./components/link/ULinkCustom.vue')['default']
     UNav: typeof import('./components/nav/UNav.vue')['default']
+    UPagination: typeof import('./components/pagination/UPagination.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }

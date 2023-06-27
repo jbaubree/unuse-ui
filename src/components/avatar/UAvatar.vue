@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
-import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
 import { classNames } from '~/utils'
+import type { Avatar } from '~/components/avatar/avatar'
 
-const props = withDefaults(defineProps<{
-  src?: string | boolean
-  alt?: string
-  text?: string
-  size?: Size
-  chipColor?: Color
-  chipPosition?: string
-  ui?: Partial<typeof appConfig.ui.checkbox>
-}>(), {
+const props = withDefaults(defineProps<Avatar>(), {
   size: () => useAppUi().avatar.default.size,
   chipPosition: () => useAppUi().avatar.default.chipPosition,
   ui: () => useAppUi().avatar,
