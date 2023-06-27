@@ -4,7 +4,7 @@ import { colors, useAppTheme } from 'unuse-ui'
 const isActive = ref(false)
 const isChecked = ref(false)
 const isDarkModeActive = ref(isDark.value)
-const isOpen = ref(false)
+const isDialogOpen = ref(false)
 const input = ref('')
 const activeItem = ref()
 const { primaryColor } = useAppTheme()
@@ -45,6 +45,7 @@ const dropdownItems = [
 const currentPage = ref(1)
 const countries = ['United States', 'Canada', 'Mexico']
 const country = ref(countries[0])
+const isSliderOpen = ref(false)
 </script>
 
 <template>
@@ -69,8 +70,8 @@ const country = ref(countries[0])
       <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
     </div>
     <div class="w-full flex flex-col items-center justify-center gap-5 p-10">
-      <UButton label="Open dialog" color="pilot" @click="isOpen = true" />
-      <UDialog v-model="isOpen">
+      <UButton label="Open dialog" color="pilot" @click="isDialogOpen = true" />
+      <UDialog v-model="isDialogOpen">
         Content
       </UDialog>
       <UToggle v-model="isActive" label="Primary toggle" />
@@ -102,6 +103,10 @@ const country = ref(countries[0])
       </UDropdown>
       <UPagination v-model="currentPage" :total="100" :per-page="20" />
       <USelect v-model="country" :options="countries" />
+      <div>
+        <UButton label="Open slider" @click="isSliderOpen = true" />
+        <USlider v-model="isSliderOpen" />
+      </div>
     </div>
   </div>
 </template>

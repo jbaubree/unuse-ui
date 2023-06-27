@@ -11,6 +11,7 @@ import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
 import { select } from '../components/select/select'
+import { slider } from '../components/slider/slider'
 import { colors } from '../preset'
 
 export const appConfig = {
@@ -29,6 +30,7 @@ export const appConfig = {
     kbd,
     nav,
     select,
+    slider,
     pagination,
     toggle,
   },

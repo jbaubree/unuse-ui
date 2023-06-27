@@ -17,6 +17,7 @@ import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
 import UPagination from './components/pagination/UPagination.vue'
 import USelect from './components/select/USelect.vue'
+import USlider from './components/slider/USlider.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
@@ -38,6 +39,7 @@ const components = {
   UNav,
   UPagination,
   USelect,
+  USlider,
   UToggle,
 }
 
@@ -57,6 +59,7 @@ declare module 'vue' {
     UNav: typeof UNav
     UPagination: typeof UPagination
     USelect: typeof USelect
+    USlider: typeof USlider
     UToggle: typeof UToggle
   }
 }
@@ -100,6 +103,7 @@ export {
   UNav,
   UPagination,
   USelect,
+  USlider,
   UToggle,
   useAppTheme,
   useAppUi,
