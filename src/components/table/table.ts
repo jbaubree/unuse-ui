@@ -20,7 +20,7 @@ export const table = {
   td: {
     base: 'whitespace-nowrap',
     padding: 'px-3 py-4',
-    color: 'text-dark-500 dark:text-dark-400',
+    color: 'text-dark-500 dark:text-dark-200',
     font: '',
     size: 'text-sm',
   },
