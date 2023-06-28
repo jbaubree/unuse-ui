@@ -7,13 +7,13 @@
     "dev": "vite dev"
   },
   "dependencies": {
-    "@vueuse/core": "^10.2.0",
+    "@vueuse/core": "^10.2.1",
     "unuse-ui": "workspace:*",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
-    "typescript": "^5.1.3",
+    "typescript": "^5.1.5",
     "unplugin-vue-components": "^0.25.1",
     "unplugin-vue-router": "^0.6.4",
     "vite": "^4.3.9"
