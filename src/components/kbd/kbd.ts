@@ -10,7 +10,7 @@ export const kbd = {
   },
   rounded: 'rounded',
   font: 'font-medium font-sans',
-  background: 'bg-dark-500 dark:bg-dark-400',
+  background: 'bg-dark-50 dark:bg-dark-400',
   ring: 'ring-1 ring-dark-100 dark:ring-dark-300 ring-inset',
   default: {
     size: 'sm' as Size,

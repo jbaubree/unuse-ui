@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 export const nav = {
-  wrapper: 'relative flex flex-wrap rounded p-5px bg-{color}-100 transition-colors',
+  wrapper: 'relative flex flex-wrap rounded p-5px bg-{color}-100 dark:bg-{color}-200 transition-colors',
   active: 'absolute rounded bg-white shadow transition-all',
   item: {
     wrapper: 'relative inline-block flex-1',

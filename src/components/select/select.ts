@@ -9,7 +9,7 @@ export const select = {
     size: 'sm' as Size,
     color: 'white' as Color | InputColor,
     variant: 'outline' as InputVariant | InputColor,
-    loadingIcon: 'i-heroicons-arrow-path-20-solid',
-    trailingIcon: 'i-heroicons-chevron-down-20-solid',
+    loadingIcon: 'i-ph-spinner-gap-bold',
+    trailingIcon: 'i-ph-caret-down-bold',
   },
 }

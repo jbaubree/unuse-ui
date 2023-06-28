@@ -31,6 +31,8 @@ const props = withDefaults(defineProps<{
   options: () => [],
   size: () => useAppUi().select.default.size,
   color: () => useAppUi().select.default.color,
+  variant: () => useAppUi().select.default.variant,
+  isPadded: true,
   textAttribute: 'text',
   valueAttribute: 'value',
   ui: () => useAppUi().select,

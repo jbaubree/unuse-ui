@@ -1,6 +1,9 @@
 import { merge } from 'lodash-es'
 import type { App } from 'vue'
+
 import '@unocss/reset/tailwind.css'
+import './styles/main.css'
+
 import { createHead } from '@vueuse/head'
 
 import UAvatar from './components/avatar/UAvatar.vue'
