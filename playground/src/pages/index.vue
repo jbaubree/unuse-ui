@@ -50,7 +50,7 @@ const isSliderOpen = ref(false)
 
 <template>
   <div>
-    <div class="sticky top-0 w-full flex justify-end border-b border-dark-100 bg-white p-5 dark:border-dark-400 dark-bg-dark-900">
+    <div class="sticky top-0 w-full flex items-center justify-end border-b border-dark-100 bg-white p-5 dark:border-dark-400 dark-bg-dark-900">
       <div class="mr-5 flex flex flex-wrap gap-2.5">
         <div
           v-for="color, index in primaryOptions"
