@@ -166,6 +166,7 @@ const tableCheck = ref([people[1]])
         <USlider v-model="isSliderOpen" />
       </div>
       <UTable v-model="tableCheck" class="w-full" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
+      <UTag label="I'm a tag" />
     </div>
   </div>
 </template>

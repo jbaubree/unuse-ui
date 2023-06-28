@@ -29,18 +29,7 @@ const props = withDefaults(defineProps<{
   emptyState: () => useAppUi().table.default.emptyState,
   ui: () => useAppUi().table,
 })
-const emit = defineEmits<{
-  (eventName: 'update:modelValue', value?: any[]): void
-}>()
-// const selected = defineModel<any[]>({ default: [] })
-const selected = computed({
-  get() {
-    return props.modelValue
-  },
-  set(value) {
-    emit('update:modelValue', value)
-  },
-})
+const selected = defineModel<any[]>({ default: [] })
 
 const sort = ref<Sort>(merge({}, { column: null, direction: 'asc' }, props.sort))
 

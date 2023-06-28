@@ -13,6 +13,7 @@ import { nav } from '../components/nav/nav'
 import { select } from '../components/select/select'
 import { slider } from '../components/slider/slider'
 import { table } from '../components/table/table'
+import { tag } from '../components/tag/tag'
 import { colors } from '../preset'
 
 export const appConfig = {
@@ -33,6 +34,7 @@ export const appConfig = {
     select,
     slider,
     table,
+    tag,
     pagination,
     toggle,
   },

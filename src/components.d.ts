@@ -25,6 +25,7 @@ declare module 'vue' {
     USelect: typeof import('./components/select/USelect.vue')['default']
     USlider: typeof import('./components/slider/USlider.vue')['default']
     UTable: typeof import('./components/table/UTable.vue')['default']
+    UTag: typeof import('./components/tag/UTag.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }

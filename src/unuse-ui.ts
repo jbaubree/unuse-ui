@@ -22,6 +22,7 @@ import UPagination from './components/pagination/UPagination.vue'
 import USelect from './components/select/USelect.vue'
 import USlider from './components/slider/USlider.vue'
 import UTable from './components/table/UTable.vue'
+import UTag from './components/tag/UTag.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
@@ -45,6 +46,7 @@ const components = {
   USelect,
   USlider,
   UTable,
+  UTag,
   UToggle,
 }
 
@@ -66,6 +68,7 @@ declare module 'vue' {
     USelect: typeof USelect
     USlider: typeof USlider
     UTable: typeof UTable
+    UTag: typeof UTag
     UToggle: typeof UToggle
   }
 }
@@ -111,6 +114,7 @@ export {
   USelect,
   USlider,
   UTable,
+  UTag,
   UToggle,
   useAppTheme,
   useAppUi,
