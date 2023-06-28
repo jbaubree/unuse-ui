@@ -167,6 +167,9 @@ const tableCheck = ref([people[1]])
       </div>
       <UTable v-model="tableCheck" class="w-full" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
       <UTag label="I'm a tag" />
+      <UTooltip text="Hi bro !">
+        <UButton label="Trigger tooltip" />
+      </UTooltip>
     </div>
   </div>
 </template>

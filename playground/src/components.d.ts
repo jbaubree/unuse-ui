@@ -26,5 +26,6 @@ declare module 'vue' {
     UTable: typeof import('unuse-ui')['UTable']
     UTag: typeof import('unuse-ui')['UTag']
     UToggle: typeof import('unuse-ui')['UToggle']
+    UTooltip: typeof import('unuse-ui')['UTooltip']
   }
 }

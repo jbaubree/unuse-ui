@@ -27,5 +27,6 @@ declare module 'vue' {
     UTable: typeof import('./components/table/UTable.vue')['default']
     UTag: typeof import('./components/tag/UTag.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
+    UTooltip: typeof import('./components/tooltip/UTooltip.vue')['default']
   }
 }
