@@ -7,3 +7,7 @@ export function omit(obj: object, keys: string[]) {
     Object.entries(obj).filter(([key]) => !keys.includes(key)),
   )
 }
+
+export function defaultComparator<T>(a: T, z: T): boolean {
+  return a === z
+}

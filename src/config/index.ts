@@ -12,6 +12,7 @@ import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
 import { select } from '../components/select/select'
 import { slider } from '../components/slider/slider'
+import { table } from '../components/table/table'
 import { colors } from '../preset'
 
 export const appConfig = {
@@ -31,6 +32,7 @@ export const appConfig = {
     nav,
     select,
     slider,
+    table,
     pagination,
     toggle,
   },

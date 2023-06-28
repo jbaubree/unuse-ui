@@ -24,6 +24,7 @@ declare module 'vue' {
     UPagination: typeof import('./components/pagination/UPagination.vue')['default']
     USelect: typeof import('./components/select/USelect.vue')['default']
     USlider: typeof import('./components/slider/USlider.vue')['default']
+    UTable: typeof import('./components/table/UTable.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
   }
 }
