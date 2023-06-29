@@ -21,6 +21,7 @@ declare module 'vue' {
     UNav: typeof import('unuse-ui')['UNav']
     UPagination: typeof import('unuse-ui')['UPagination']
     USelect: typeof import('unuse-ui')['USelect']
+    USelectMenu: typeof import('unuse-ui')['USelectMenu']
     USlideover: typeof import('unuse-ui')['USlideover']
     USlider: typeof import('unuse-ui')['USlider']
     UTable: typeof import('unuse-ui')['UTable']

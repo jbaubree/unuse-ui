@@ -20,6 +20,7 @@ import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
 import UPagination from './components/pagination/UPagination.vue'
 import USelect from './components/select/USelect.vue'
+import USelectMenu from './components/select/USelectMenu.vue'
 import USlider from './components/slider/USlider.vue'
 import UTable from './components/table/UTable.vue'
 import UTag from './components/tag/UTag.vue'
@@ -46,6 +47,7 @@ const components = {
   UNav,
   UPagination,
   USelect,
+  USelectMenu,
   USlider,
   UTable,
   UTag,
@@ -70,6 +72,7 @@ declare module 'vue' {
     UNav: typeof UNav
     UPagination: typeof UPagination
     USelect: typeof USelect
+    USelectMenu: typeof USelectMenu
     USlider: typeof USlider
     UTable: typeof UTable
     UTag: typeof UTag
@@ -118,6 +121,7 @@ export {
   UNav,
   UPagination,
   USelect,
+  USelectMenu,
   USlider,
   UTable,
   UTag,

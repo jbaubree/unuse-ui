@@ -90,21 +90,10 @@ const people = [{
   title: 'Copywriter',
   email: 'whitney.francis@example.com',
   role: 'Admin',
-}, {
-  id: 5,
-  name: 'Leonard Krasner',
-  title: 'Senior Designer',
-  email: 'leonard.krasner@example.com',
-  role: 'Owner',
-}, {
-  id: 6,
-  name: 'Floyd Miles',
-  title: 'Principal Designer',
-  email: 'floyd.miles@example.com',
-  role: 'Member',
 }]
 const tableCheck = ref([people[1]])
 const textArea = ref('')
+const selected = ref<{ id: number; name: string; title: string; email: string; role: string }[]>([])
 </script>
 
 <template>
@@ -183,6 +172,12 @@ const textArea = ref('')
         </UTooltip>
       </div>
       <UTextarea v-model="textArea" placeholder="I am a textarea" />
+      <USelectMenu v-model="selected" :options="people" is-multiple option-attribute="name" is-searchable is-creatable>
+        <template #label>
+          <span v-if="selected.length" class="truncate">{{ selected.map(s => s.name).join(', ') }}</span>
+          <span v-else>Select people</span>
+        </template>
+      </USelectMenu>
     </div>
   </div>
 </template>

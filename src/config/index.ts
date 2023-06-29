@@ -11,6 +11,7 @@ import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
 import { select } from '../components/select/select'
+import { selectMenu } from '../components/select/select-menu'
 import { slider } from '../components/slider/slider'
 import { table } from '../components/table/table'
 import { tag } from '../components/tag/tag'
@@ -34,6 +35,7 @@ export const appConfig = {
     kbd,
     nav,
     select,
+    selectMenu,
     slider,
     table,
     tag,
