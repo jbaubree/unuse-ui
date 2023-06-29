@@ -94,6 +94,21 @@ const people = [{
 const tableCheck = ref([people[1]])
 const textArea = ref('')
 const selected = ref<{ id: number; name: string; title: string; email: string; role: string }[]>([])
+const methods = [{
+  name: 'email',
+  value: 'email',
+  label: 'Email',
+  help: 'This is my prefered method',
+}, {
+  name: 'sms',
+  value: 'sms',
+  label: 'Phone (SMS)',
+}, {
+  name: 'push',
+  value: 'push',
+  label: 'Push notification',
+}]
+const radio = ref('sms')
 </script>
 
 <template>
@@ -178,6 +193,9 @@ const selected = ref<{ id: number; name: string; title: string; email: string; r
           <span v-else>Select people</span>
         </template>
       </USelectMenu>
+      <div>
+        <URadio v-for="method of methods" :key="method.name" v-model="radio" v-bind="method" />
+      </div>
     </div>
   </div>
 </template>

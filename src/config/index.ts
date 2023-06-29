@@ -10,6 +10,7 @@ import { checkbox } from '../components/checkbox/checkbox'
 import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
+import { radio } from '../components/radio/radio'
 import { select } from '../components/select/select'
 import { selectMenu } from '../components/select/select-menu'
 import { slider } from '../components/slider/slider'
@@ -34,6 +35,7 @@ export const appConfig = {
     input,
     kbd,
     nav,
+    radio,
     select,
     selectMenu,
     slider,

@@ -19,6 +19,7 @@ import ULinkCustom from './components/link/ULinkCustom.vue'
 import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
 import UPagination from './components/pagination/UPagination.vue'
+import URadio from './components/radio/URadio.vue'
 import USelect from './components/select/USelect.vue'
 import USelectMenu from './components/select/USelectMenu.vue'
 import USlider from './components/slider/USlider.vue'
@@ -46,6 +47,7 @@ const components = {
   ULinkCustom,
   UNav,
   UPagination,
+  URadio,
   USelect,
   USelectMenu,
   USlider,
@@ -71,6 +73,7 @@ declare module 'vue' {
     ULinkCustom: typeof ULinkCustom
     UNav: typeof UNav
     UPagination: typeof UPagination
+    URadio: typeof URadio
     USelect: typeof USelect
     USelectMenu: typeof USelectMenu
     USlider: typeof USlider
@@ -120,6 +123,7 @@ export {
   ULinkCustom,
   UNav,
   UPagination,
+  URadio,
   USelect,
   USelectMenu,
   USlider,
