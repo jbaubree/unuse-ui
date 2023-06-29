@@ -23,6 +23,7 @@ import USelect from './components/select/USelect.vue'
 import USlider from './components/slider/USlider.vue'
 import UTable from './components/table/UTable.vue'
 import UTag from './components/tag/UTag.vue'
+import UTextarea from './components/textarea/UTextarea.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import UTooltip from './components/tooltip/UTooltip.vue'
 import { appConfig } from './config'
@@ -48,6 +49,7 @@ const components = {
   USlider,
   UTable,
   UTag,
+  UTextarea,
   UToggle,
   UTooltip,
 }
@@ -71,6 +73,7 @@ declare module 'vue' {
     USlider: typeof USlider
     UTable: typeof UTable
     UTag: typeof UTag
+    UTextarea: typeof UTextarea
     UToggle: typeof UToggle
     UTooltip: typeof UTooltip
   }
@@ -118,6 +121,7 @@ export {
   USlider,
   UTable,
   UTag,
+  UTextarea,
   UToggle,
   UTooltip,
   useAppTheme,

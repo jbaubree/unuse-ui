@@ -104,6 +104,7 @@ const people = [{
   role: 'Member',
 }]
 const tableCheck = ref([people[1]])
+const textArea = ref('')
 </script>
 
 <template>
@@ -181,6 +182,7 @@ const tableCheck = ref([people[1]])
           <UButton label="Trigger bottom" />
         </UTooltip>
       </div>
+      <UTextarea v-model="textArea" placeholder="I am a textarea" />
     </div>
   </div>
 </template>

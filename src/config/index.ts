@@ -14,6 +14,7 @@ import { select } from '../components/select/select'
 import { slider } from '../components/slider/slider'
 import { table } from '../components/table/table'
 import { tag } from '../components/tag/tag'
+import { textarea } from '../components/textarea/textarea'
 import { tooltip } from '../components/tooltip/tooltip'
 import { colors } from '../preset'
 
@@ -36,6 +37,7 @@ export const appConfig = {
     slider,
     table,
     tag,
+    textarea,
     tooltip,
     pagination,
     toggle,
