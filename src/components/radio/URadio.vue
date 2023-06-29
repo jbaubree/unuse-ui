@@ -3,6 +3,7 @@ import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
 
 const props = withDefaults(defineProps<{
+  modelValue?: string | number | boolean | object
   value?: string | number | boolean
   name?: string
   isDisabled?: boolean
@@ -16,8 +17,16 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
+  (eventName: 'update:modelValue', value?: string | number | boolean | object): void
 }>()
-const isChecked = defineModel<string | number | boolean | object>()
+const isChecked = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  },
+})
 
 const slots = useSlots()
 
