@@ -3,6 +3,7 @@ import { breadcrumb } from '../components/breadcrumb/breadcrumb'
 import { button } from '../components/button/button'
 import { card } from '../components/card/card'
 import { checkbox } from '../components/checkbox/checkbox'
+import { container } from '../components/container/container'
 import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
 import { kbd } from '../components/kbd/kbd'
@@ -33,6 +34,7 @@ export const appConfig = {
     button,
     card,
     checkbox,
+    container,
     dropdown,
     dialog,
     formGroup,
