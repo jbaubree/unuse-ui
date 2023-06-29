@@ -24,7 +24,7 @@ let openTimeout: NodeJS.Timeout | null = null
 let closeTimeout: NodeJS.Timeout | null = null
 
 const config = computed(() => merge({}, useAppUi().tooltip, props.ui))
-const popper = computed<PopperOptions>(() => merge({}, props.popper, config.value.popper as PopperOptions))
+const popper = computed<PopperOptions>(() => merge({}, config.value.popper, props.popper))
 
 const [trigger, container] = usePopper(popper.value)
 

@@ -25,11 +25,10 @@ const props = withDefaults(defineProps<{
   closeDelay: 0,
   popper: () => ({}),
   ui: () => useAppUi().dropdown,
-  color: 'primary',
 })
 
 const config = computed(() => merge({}, useAppUi().dropdown, props.ui))
-const popper = computed<PopperOptions>(() => merge(props.mode === 'hover' ? { offsetDistance: 0 } : {}, props.popper, config.value.popper as PopperOptions))
+const popper = computed<PopperOptions>(() => merge(props.mode === 'hover' ? { offsetDistance: 0 } : {}, config.value.popper, props.popper))
 const [trigger, rContainer] = usePopper(popper.value)
 const containerStyle = computed(() => {
   const offsetDistance = (props.popper as PopperOptions)?.offsetDistance || (config.value.popper as PopperOptions)?.offsetDistance || 8

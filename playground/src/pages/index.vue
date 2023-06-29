@@ -203,6 +203,12 @@ const radio = ref('sms')
           <USkeleton class="h-4 w-[200px]" />
         </div>
       </div>
+      <UPopover>
+        <UButton label="Open popover" />
+        <template #panel>
+          Popover content
+        </template>
+      </UPopover>
     </div>
   </div>
 </template>

@@ -74,7 +74,7 @@ const slots = useSlots()
 
 const config = computed(() => merge({}, useAppUi().selectMenu, props.ui))
 const configSelect = computed(() => merge({}, useAppUi().select, props.uiSelect))
-const popper = computed<PopperOptions>(() => merge({}, props.popper, config.value.popper as PopperOptions))
+const popper = computed<PopperOptions>(() => merge({}, config.value.popper, props.popper))
 const isLeading = computed(() => (props.icon && props.isLeading) || (props.icon && !props.isTrailing) || (props.isLoading && !props.isTrailing) || props.leadingIcon)
 const isTrailing = computed(() => (props.icon && props.isTrailing) || (props.isLoading && props.isTrailing) || props.trailingIcon)
 const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)

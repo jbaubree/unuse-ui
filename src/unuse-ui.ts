@@ -18,6 +18,7 @@ import UKbd from './components/kbd/UKbd.vue'
 import ULinkCustom from './components/link/ULinkCustom.vue'
 import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
+import UPopover from './components/popover/UPopover.vue'
 import UPagination from './components/pagination/UPagination.vue'
 import URadio from './components/radio/URadio.vue'
 import USelect from './components/select/USelect.vue'
@@ -47,6 +48,7 @@ const components = {
   UKbd,
   ULinkCustom,
   UNav,
+  UPopover,
   UPagination,
   URadio,
   USelect,
@@ -74,6 +76,7 @@ declare module 'vue' {
     UKbd: typeof UKbd
     ULinkCustom: typeof ULinkCustom
     UNav: typeof UNav
+    UPopover: typeof UPopover
     UPagination: typeof UPagination
     URadio: typeof URadio
     USelect: typeof USelect
@@ -125,6 +128,7 @@ export {
   UKbd,
   ULinkCustom,
   UNav,
+  UPopover,
   UPagination,
   URadio,
   USelect,
