@@ -167,9 +167,20 @@ const tableCheck = ref([people[1]])
       </div>
       <UTable v-model="tableCheck" class="w-full" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
       <UTag label="I'm a tag" />
-      <UTooltip text="Hi bro !">
-        <UButton label="Trigger tooltip" />
-      </UTooltip>
+      <div class="flex gap-2.5">
+        <UTooltip text="Hi bro !" :popper="{ placement: 'left' }">
+          <UButton label="Trigger left" />
+        </UTooltip>
+        <UTooltip text="Hi bro !" :popper="{ placement: 'top' }">
+          <UButton label="Trigger top" />
+        </UTooltip>
+        <UTooltip text="Hi bro !" :popper="{ placement: 'right' }">
+          <UButton label="Trigger right" />
+        </UTooltip>
+        <UTooltip text="Hi bro !">
+          <UButton label="Trigger bottom" />
+        </UTooltip>
+      </div>
     </div>
   </div>
 </template>
