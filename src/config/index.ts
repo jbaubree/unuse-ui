@@ -13,6 +13,7 @@ import { nav } from '../components/nav/nav'
 import { radio } from '../components/radio/radio'
 import { select } from '../components/select/select'
 import { selectMenu } from '../components/select/select-menu'
+import { skeleton } from '../components/skeleton/skeleton'
 import { slider } from '../components/slider/slider'
 import { table } from '../components/table/table'
 import { tag } from '../components/tag/tag'
@@ -38,6 +39,7 @@ export const appConfig = {
     radio,
     select,
     selectMenu,
+    skeleton,
     slider,
     table,
     tag,

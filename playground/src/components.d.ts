@@ -23,6 +23,7 @@ declare module 'vue' {
     URadio: typeof import('unuse-ui')['URadio']
     USelect: typeof import('unuse-ui')['USelect']
     USelectMenu: typeof import('unuse-ui')['USelectMenu']
+    USkeleton: typeof import('unuse-ui')['USkeleton']
     USlideover: typeof import('unuse-ui')['USlideover']
     USlider: typeof import('unuse-ui')['USlider']
     UTable: typeof import('unuse-ui')['UTable']

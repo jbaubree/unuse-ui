@@ -22,6 +22,7 @@ import UPagination from './components/pagination/UPagination.vue'
 import URadio from './components/radio/URadio.vue'
 import USelect from './components/select/USelect.vue'
 import USelectMenu from './components/select/USelectMenu.vue'
+import USkeleton from './components/skeleton/USkeleton.vue'
 import USlider from './components/slider/USlider.vue'
 import UTable from './components/table/UTable.vue'
 import UTag from './components/tag/UTag.vue'
@@ -50,6 +51,7 @@ const components = {
   URadio,
   USelect,
   USelectMenu,
+  USkeleton,
   USlider,
   UTable,
   UTag,
@@ -76,6 +78,7 @@ declare module 'vue' {
     URadio: typeof URadio
     USelect: typeof USelect
     USelectMenu: typeof USelectMenu
+    USkeleton: typeof USkeleton
     USlider: typeof USlider
     UTable: typeof UTable
     UTag: typeof UTag
@@ -126,6 +129,7 @@ export {
   URadio,
   USelect,
   USelectMenu,
+  USkeleton,
   USlider,
   UTable,
   UTag,

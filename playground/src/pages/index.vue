@@ -196,6 +196,13 @@ const radio = ref('sms')
       <div>
         <URadio v-for="method of methods" :key="method.name" v-model="radio" v-bind="method" />
       </div>
+      <div class="flex items-center space-x-4">
+        <USkeleton class="h-12 w-12 rounded-full" />
+        <div class="space-y-2">
+          <USkeleton class="h-4 w-[250px]" />
+          <USkeleton class="h-4 w-[200px]" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

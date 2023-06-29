@@ -25,6 +25,7 @@ declare module 'vue' {
     URadio: typeof import('./components/radio/URadio.vue')['default']
     USelect: typeof import('./components/select/USelect.vue')['default']
     USelectMenu: typeof import('./components/select/USelectMenu.vue')['default']
+    USkeleton: typeof import('./components/skeleton/USkeleton.vue')['default']
     USlider: typeof import('./components/slider/USlider.vue')['default']
     UTable: typeof import('./components/table/UTable.vue')['default']
     UTag: typeof import('./components/tag/UTag.vue')['default']
