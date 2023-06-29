@@ -209,6 +209,15 @@ const radio = ref('sms')
           Popover content
         </template>
       </UPopover>
+      <UCard class="min-w-300px">
+        <template #header>
+          Header
+        </template>
+        Body
+        <template #footer>
+          Footer
+        </template>
+      </UCard>
     </div>
   </div>
 </template>

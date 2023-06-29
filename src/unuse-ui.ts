@@ -9,6 +9,7 @@ import { createHead } from '@vueuse/head'
 import UAvatar from './components/avatar/UAvatar.vue'
 import UButton from './components/button/UButton.vue'
 import UBreadcrumb from './components/breadcrumb/UBreadcrumb.vue'
+import UCard from './components/card/UCard.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UDropdown from './components/dropdown/UDropdown.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
@@ -39,6 +40,7 @@ const components = {
   UAvatar,
   UButton,
   UBreadcrumb,
+  UCard,
   UCheckbox,
   UDialog,
   UDropdown,
@@ -67,6 +69,7 @@ declare module 'vue' {
     UAvatar: typeof UAvatar
     UButton: typeof UButton
     UBreadcrumb: typeof UBreadcrumb
+    UCard: typeof UCard
     UCheckbox: typeof UCheckbox
     UDialog: typeof UDialog
     UDropdown: typeof UDropdown
@@ -119,6 +122,7 @@ export {
   UAvatar,
   UButton,
   UBreadcrumb,
+  UCard,
   UCheckbox,
   UDialog,
   UDropdown,

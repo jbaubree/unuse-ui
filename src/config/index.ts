@@ -1,12 +1,13 @@
 import { avatar } from '../components/avatar/avatar'
 import { breadcrumb } from '../components/breadcrumb/breadcrumb'
 import { button } from '../components/button/button'
+import { card } from '../components/card/card'
+import { checkbox } from '../components/checkbox/checkbox'
 import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
 import { kbd } from '../components/kbd/kbd'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
-import { checkbox } from '../components/checkbox/checkbox'
 import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
@@ -30,6 +31,7 @@ export const appConfig = {
     avatar,
     breadcrumb,
     button,
+    card,
     checkbox,
     dropdown,
     dialog,
