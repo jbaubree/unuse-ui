@@ -111,21 +111,21 @@ const methods = [{
 const radio = ref('sms')
 const collapse = [{
   label: 'Getting Started',
-  icon: 'i-heroicons-information-circle',
+  icon: 'i-ph-info-bold',
   isDefaultOpen: true,
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Installation',
-  icon: 'i-heroicons-arrow-down-tray',
+  icon: 'i-ph-download-bold',
   isDisabled: true,
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Theming',
-  icon: 'i-heroicons-eye-dropper',
+  icon: 'i-ph-eyedropper-bold',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Layouts',
-  icon: 'i-heroicons-rectangle-group',
+  icon: 'i-ph-layout-bold',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }]
 </script>
