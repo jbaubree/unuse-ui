@@ -49,9 +49,6 @@ devDependencies:
   '@unocss/eslint-config':
     specifier: ^0.53.4
     version: 0.53.4(eslint@8.43.0)(typescript@5.1.5)
-  '@unocss/preset-web-fonts':
-    specifier: ^0.53.4
-    version: 0.53.4
   '@unocss/reset':
     specifier: ^0.53.4
     version: 0.53.4

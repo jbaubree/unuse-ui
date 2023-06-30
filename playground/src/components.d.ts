@@ -13,6 +13,7 @@ declare module 'vue' {
     UButton: typeof import('unuse-ui')['UButton']
     UCard: typeof import('unuse-ui')['UCard']
     UCheckbox: typeof import('unuse-ui')['UCheckbox']
+    UCollapse: typeof import('unuse-ui')['UCollapse']
     UContainer: typeof import('unuse-ui')['UContainer']
     UDialog: typeof import('unuse-ui')['UDialog']
     UDropdown: typeof import('unuse-ui')['UDropdown']

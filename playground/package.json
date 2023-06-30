@@ -13,6 +13,7 @@
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
+    "@unocss/preset-web-fonts": "^0.53.4",
     "typescript": "^5.1.5",
     "unplugin-vue-components": "^0.25.1",
     "unplugin-vue-router": "^0.6.4",

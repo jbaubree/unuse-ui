@@ -18,9 +18,9 @@ export const avatar = {
   rounded: 'rounded-full',
   placeholder: 'font-medium leading-none text-dark-500 dark:text-white truncate',
   size: {
-    '3xs': 'h-4 w-4 text-[8px]',
-    '2xs': 'h-5 w-5 text-[10px]',
-    'xs': 'h-6 w-6 text-[11px]',
+    '3xs': 'h-4 w-4 text-8px',
+    '2xs': 'h-5 w-5 text-10px',
+    'xs': 'h-6 w-6 text-11px',
     'sm': 'h-8 w-8 text-xs',
     'md': 'h-10 w-10 text-sm',
     'lg': 'h-12 w-12 text-base',

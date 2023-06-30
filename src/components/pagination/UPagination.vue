@@ -119,7 +119,7 @@ function onClickNext() {
       :size="size"
       :label="`${page}`"
       v-bind="page === currentPage ? { ...config.default.activeButton, ...activeButton } : { ...config.default.inactiveButton, ...inactiveButton }"
-      :class="[{ 'pointer-events-none': typeof page === 'string', 'z-[1]': page === currentPage }, config.base, config.rounded]"
+      :class="[{ 'pointer-events-none': typeof page === 'string', 'z-1': page === currentPage }, config.base, config.rounded]"
       :ui="{ rounded: '', font: 'font-medium leading-5' }"
       @click="() => onClickPage(page)"
     />

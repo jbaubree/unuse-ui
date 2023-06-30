@@ -11,6 +11,7 @@ import UButton from './components/button/UButton.vue'
 import UBreadcrumb from './components/breadcrumb/UBreadcrumb.vue'
 import UCard from './components/card/UCard.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
+import UCollapse from './components/collapse/UCollapse.vue'
 import UContainer from './components/container/UContainer.vue'
 import UDropdown from './components/dropdown/UDropdown.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
@@ -43,6 +44,7 @@ const components = {
   UBreadcrumb,
   UCard,
   UCheckbox,
+  UCollapse,
   UContainer,
   UDialog,
   UDropdown,
@@ -73,6 +75,7 @@ declare module 'vue' {
     UBreadcrumb: typeof UBreadcrumb
     UCard: typeof UCard
     UCheckbox: typeof UCheckbox
+    UCollapse: typeof UCollapse
     UContainer: typeof UContainer
     UDialog: typeof UDialog
     UDropdown: typeof UDropdown
@@ -127,6 +130,7 @@ export {
   UBreadcrumb,
   UCard,
   UCheckbox,
+  UCollapse,
   UContainer,
   UDialog,
   UDropdown,

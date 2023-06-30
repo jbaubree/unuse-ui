@@ -49,7 +49,6 @@
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^20.3.2",
     "@unocss/eslint-config": "^0.53.4",
-    "@unocss/preset-web-fonts": "^0.53.4",
     "@unocss/reset": "^0.53.4",
     "@vitejs/plugin-vue": "^4.2.3",
     "bumpp": "^9.1.1",

@@ -109,6 +109,25 @@ const methods = [{
   label: 'Push notification',
 }]
 const radio = ref('sms')
+const collapse = [{
+  label: 'Getting Started',
+  icon: 'i-heroicons-information-circle',
+  isDefaultOpen: true,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
+}, {
+  label: 'Installation',
+  icon: 'i-heroicons-arrow-down-tray',
+  isDisabled: true,
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
+}, {
+  label: 'Theming',
+  icon: 'i-heroicons-eye-dropper',
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
+}, {
+  label: 'Layouts',
+  icon: 'i-heroicons-rectangle-group',
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
+}]
 </script>
 
 <template>
@@ -136,6 +155,24 @@ const radio = ref('sms')
     </div>
     <UContainer class="py-5">
       <div class="flex flex-col items-center justify-center gap-5">
+        <div class="flex flex-col gap-1">
+          <div class="font-100">
+            Font 100
+          </div>
+          <div class="font-300">
+            Font 300
+          </div>
+          <div>Font 400</div>
+          <div class="font-500">
+            Font 500
+          </div>
+          <div class="font-700">
+            Font 700
+          </div>
+          <div class="font-900">
+            Font 900
+          </div>
+        </div>
         <UButton label="Open dialog" color="pilot" @click="isDialogOpen = true" />
         <UDialog v-model="isDialogOpen">
           Content
@@ -200,10 +237,10 @@ const radio = ref('sms')
           <URadio v-for="method of methods" :key="method.name" v-model="radio" v-bind="method" />
         </div>
         <div class="flex items-center space-x-4">
-          <USkeleton class="h-12 w-12 rounded-full" />
+          <USkeleton class="h-12 w-12" :ui="{ rounded: 'rounded-full' }" />
           <div class="space-y-2">
-            <USkeleton class="h-4 w-[250px]" />
-            <USkeleton class="h-4 w-[200px]" />
+            <USkeleton class="h-4 w-250px" />
+            <USkeleton class="h-4 w-200px" />
           </div>
         </div>
         <UPopover>
@@ -221,6 +258,7 @@ const radio = ref('sms')
             Footer
           </template>
         </UCard>
+        <UCollapse :items="collapse" />
       </div>
     </UContainer>
   </div>
