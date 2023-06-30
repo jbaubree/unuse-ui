@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
   modelValue?: any[]
   sortBy?: string | Function
   rows?: { [key: string]: any }[]
-  columns?: { key: string; sortable?: boolean; [key: string]: any }[]
+  columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
   columnAttribute?: string
   sort?: Sort
   sortButton?: Button
@@ -56,7 +56,13 @@ function isSelected(row) {
     return false
   return selected.value.some(item => compare(toRaw(item), toRaw(row)))
 }
-function onSort(column) {
+function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
+  const direction = !column.direction || column.direction === 'asc' ? 'desc' : 'asc'
+  if (sort.value.direction === direction)
+    sort.value = merge({}, { column: null, direction: 'asc' }, props.sort)
+  else
+    sort.value.direction = sort.value.direction === 'asc' ? 'desc' : 'asc'
+
   if (sort.value.column === column.key)
     sort.value.direction = sort.value.direction === 'asc' ? 'desc' : 'asc'
   else
@@ -72,14 +78,14 @@ function onSort(column) {
           <th v-if="modelValue" scope="col" class="pl-4">
             <UCheckbox :checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
           </th>
-          <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size]">
+          <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
             <slot :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
               <UButton
                 v-if="column.sortable"
                 v-bind="{ ...config.default.sortButton, ...sortButton }"
                 :icon="
                   (!sort.column || sort.column !== column.key)
-                    ? sortButton.icon
+                    ? (sortButton.icon || config.default.sortButton.icon)
                     : sort.direction === 'asc'
                       ? sortAscIcon
                       : sortDescIcon

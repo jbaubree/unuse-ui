@@ -20,12 +20,19 @@ const isOpen = defineModel<boolean>({ default: false })
 
 const rDialogContent = ref<HTMLDivElement>()
 
+const config = computed(() => merge({}, useAppUi().dialog, props.ui))
+const transitionClass = computed(() => {
+  if (!props.hasTransition)
+    return {}
+  return {
+    ...config.value.transition,
+  }
+})
+
 function close(value: boolean) {
   isOpen.value = value
   emit('close')
 }
-
-const config = computed(() => merge({}, useAppUi().dialog, props.ui))
 </script>
 
 <template>
@@ -36,7 +43,7 @@ const config = computed(() => merge({}, useAppUi().dialog, props.ui))
       </TransitionChild>
       <div ref="rDialogContent" :class="config.inner">
         <div :class="[config.container, config.padding]">
-          <TransitionChild as="template" :appear="appear" v-bind="config.transition">
+          <TransitionChild as="template" :appear="appear" v-bind="transitionClass">
             <DialogPanel :class="[config.base, config.width, config.height, config.background, config.ring, config.rounded, config.shadow]">
               <slot />
             </DialogPanel>
