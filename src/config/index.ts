@@ -25,6 +25,7 @@ import { table } from '../components/table/table'
 import { tag } from '../components/tag/tag'
 import { textarea } from '../components/textarea/textarea'
 import { tooltip } from '../components/tooltip/tooltip'
+import { verticalNavigation } from '../components/vertical-navigation/vertical-navigation'
 import { colors } from '../preset'
 
 export const appConfig = {
@@ -60,5 +61,6 @@ export const appConfig = {
     tooltip,
     pagination,
     toggle,
+    verticalNavigation,
   },
 }

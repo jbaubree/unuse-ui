@@ -19,9 +19,7 @@ declare module 'vue' {
     UDropdown: typeof import('unuse-ui')['UDropdown']
     UFileUpload: typeof import('unuse-ui')['UFileUpload']
     UFormGroup: typeof import('unuse-ui')['UFormGroup']
-    UIinput: typeof import('unuse-ui')['UIinput']
     UInput: typeof import('unuse-ui')['UInput']
-    UModal: typeof import('unuse-ui')['UModal']
     UNav: typeof import('unuse-ui')['UNav']
     UNotifications: typeof import('unuse-ui')['UNotifications']
     UPagination: typeof import('unuse-ui')['UPagination']
@@ -30,12 +28,12 @@ declare module 'vue' {
     USelect: typeof import('unuse-ui')['USelect']
     USelectMenu: typeof import('unuse-ui')['USelectMenu']
     USkeleton: typeof import('unuse-ui')['USkeleton']
-    USlideover: typeof import('unuse-ui')['USlideover']
     USlider: typeof import('unuse-ui')['USlider']
     UTable: typeof import('unuse-ui')['UTable']
     UTag: typeof import('unuse-ui')['UTag']
     UTextarea: typeof import('unuse-ui')['UTextarea']
     UToggle: typeof import('unuse-ui')['UToggle']
     UTooltip: typeof import('unuse-ui')['UTooltip']
+    UVerticalNavigation: typeof import('unuse-ui')['UVerticalNavigation']
   }
 }

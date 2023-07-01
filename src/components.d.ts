@@ -39,5 +39,6 @@ declare module 'vue' {
     UTextarea: typeof import('./components/textarea/UTextarea.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
     UTooltip: typeof import('./components/tooltip/UTooltip.vue')['default']
+    UVerticalNavigation: typeof import('./components/vertical-navigation/UVerticalNavigation.vue')['default']
   }
 }

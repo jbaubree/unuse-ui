@@ -36,6 +36,7 @@ import UTag from './components/tag/UTag.vue'
 import UTextarea from './components/textarea/UTextarea.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import UTooltip from './components/tooltip/UTooltip.vue'
+import UVerticalNavigation from './components/vertical-navigation/UVerticalNavigation.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
 import { useToast } from './composables/toast'
@@ -73,6 +74,7 @@ const components = {
   UTextarea,
   UToggle,
   UTooltip,
+  UVerticalNavigation,
 }
 
 declare module 'vue' {
@@ -107,6 +109,7 @@ declare module 'vue' {
     UTextarea: typeof UTextarea
     UToggle: typeof UToggle
     UTooltip: typeof UTooltip
+    UVerticalNavigation: typeof UVerticalNavigation
   }
 }
 
@@ -165,6 +168,7 @@ export {
   UTextarea,
   UToggle,
   UTooltip,
+  UVerticalNavigation,
   useAppTheme,
   useAppUi,
   useToast,

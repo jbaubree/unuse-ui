@@ -130,6 +130,23 @@ const collapse = [{
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }]
 const files = ref([])
+const links = [{
+  label: 'Profile',
+  avatar: {
+    src: 'https://avatars.githubusercontent.com/u/50230578?s=40&v=4',
+  },
+  badge: 100,
+}, {
+  label: 'Installation',
+  icon: 'i-ph-house-bold',
+}, {
+  label: 'Vertical Navigation',
+  icon: 'i-ph-chart-bar-bold',
+  to: '/',
+}, {
+  label: 'Command Palette',
+  icon: 'i-ph-terminal-window-bold',
+}]
 </script>
 
 <template>
@@ -265,6 +282,7 @@ const files = ref([])
         <UFileUpload v-model="files" is-multiple>
           <UButton label="Upload" />
         </UFileUpload>
+        <UVerticalNavigation :links="links" />
       </div>
     </UContainer>
   </div>

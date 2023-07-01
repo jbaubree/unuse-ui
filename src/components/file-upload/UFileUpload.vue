@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
-import type { UploadFile } from '~/components/file-upload/file-upload'
+import type { UploadFile } from '~/types'
 
 const props = withDefaults(defineProps<{
   accept?: string[]
