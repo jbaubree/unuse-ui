@@ -7,6 +7,7 @@ import { collapse } from '../components/collapse/collapse'
 import { container } from '../components/container/container'
 import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
+import { fileUpload } from '../components/file-upload/file-upload'
 import { kbd } from '../components/kbd/kbd'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
@@ -40,6 +41,7 @@ export const appConfig = {
     container,
     dropdown,
     dialog,
+    fileUpload,
     formGroup,
     input,
     kbd,

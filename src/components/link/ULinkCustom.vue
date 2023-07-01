@@ -7,6 +7,8 @@ const props = withDefaults(defineProps<{
   inactiveClass: '',
 })
 
+const attrs = useAttrs()
+
 function resolveLinkClass({ isActive, isExactActive }: { isActive: boolean; isExactActive: boolean }) {
   if (isActive || isExactActive)
     return props.activeClass
@@ -15,7 +17,7 @@ function resolveLinkClass({ isActive, isExactActive }: { isActive: boolean; isEx
 </script>
 
 <template>
-  <button v-if="!$attrs.to" v-bind="$attrs" :class="inactiveClass">
+  <button v-if="!attrs.to" v-bind="attrs" :class="inactiveClass">
     <slot />
   </button>
   <RouterLink
@@ -26,7 +28,7 @@ function resolveLinkClass({ isActive, isExactActive }: { isActive: boolean; isEx
   >
     <a
       :href="href"
-      v-bind="{ ...$attrs }"
+      v-bind="{ ...attrs }"
       :class="resolveLinkClass({ isActive, isExactActive })"
       @click="navigate"
     >

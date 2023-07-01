@@ -176,7 +176,7 @@ watch(container, value => value ? emit('open') : emit('close'))
     >
       <slot :open="open" :disabled="isDisabled" :loading="isLoading">
         <button :class="selectMenuClass" :disabled="isDisabled || isLoading" type="button">
-          <span v-if="(isLeading && leadingIconName) || $slots.leading" :class="leadingWrapperIconClass">
+          <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
             <slot name="leading" :disabled="isDisabled" :loading="isLoading">
               <UIcon :name="leadingIconName" :class="leadingIconClass" />
             </slot>
@@ -186,7 +186,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             <span v-else-if="!isMultiple && modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>
             <span v-else class="block truncate" :class="config.placeholder">{{ placeholder || '&nbsp;' }}</span>
           </slot>
-          <span v-if="(isTrailing && trailingIconName) || $slots.trailing" :class="trailingWrapperIconClass">
+          <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
             <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
               <UIcon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
             </slot>

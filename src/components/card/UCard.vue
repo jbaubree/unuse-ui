@@ -15,6 +15,7 @@ defineOptions({
 })
 
 const attrs = useAttrs()
+const slots = useSlots()
 
 const config = computed(() => merge({}, useAppUi().card, props.ui))
 </script>
@@ -25,13 +26,13 @@ const config = computed(() => merge({}, useAppUi().card, props.ui))
     :class="[config.base, config.rounded, config.divide, config.ring, config.shadow, config.background]"
     v-bind="attrs"
   >
-    <div v-if="$slots.header" :class="[config.header.base, config.header.padding, config.header.background]">
+    <div v-if="slots.header" :class="[config.header.base, config.header.padding, config.header.background]">
       <slot name="header" />
     </div>
     <div :class="[config.body.base, config.body.padding, config.body.background]">
       <slot />
     </div>
-    <div v-if="$slots.footer" :class="[config.footer.base, config.footer.padding, config.footer.background]">
+    <div v-if="slots.footer" :class="[config.footer.base, config.footer.padding, config.footer.background]">
       <slot name="footer" />
     </div>
   </component>

@@ -14,6 +14,7 @@ import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UCollapse from './components/collapse/UCollapse.vue'
 import UContainer from './components/container/UContainer.vue'
 import UDropdown from './components/dropdown/UDropdown.vue'
+import UFileUpload from './components/file-upload/UFileUpload.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UInput from './components/input/UInput.vue'
@@ -51,6 +52,7 @@ const components = {
   UContainer,
   UDialog,
   UDropdown,
+  UFileUpload,
   UFormGroup,
   UIcon,
   UInput,
@@ -84,6 +86,7 @@ declare module 'vue' {
     UContainer: typeof UContainer
     UDialog: typeof UDialog
     UDropdown: typeof UDropdown
+    UFileUpload: typeof UFileUpload
     UFormGroup: typeof UFormGroup
     UIcon: typeof UIcon
     UInput: typeof UInput
@@ -141,6 +144,7 @@ export {
   UContainer,
   UDialog,
   UDropdown,
+  UFileUpload,
   UFormGroup,
   UIcon,
   UInput,

@@ -18,6 +18,7 @@ declare module 'vue' {
     UContainer: typeof import('./components/container/UContainer.vue')['default']
     UDialog: typeof import('./components/dialog/UDialog.vue')['default']
     UDropdown: typeof import('./components/dropdown/UDropdown.vue')['default']
+    UFileUpload: typeof import('./components/file-upload/UFileUpload.vue')['default']
     UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']
     UIcon: typeof import('./components/icon/UIcon.vue')['default']
     UInput: typeof import('./components/input/UInput.vue')['default']

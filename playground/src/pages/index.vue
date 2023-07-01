@@ -129,6 +129,7 @@ const collapse = [{
   icon: 'i-ph-layout-bold',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }]
+const files = ref([])
 </script>
 
 <template>
@@ -261,6 +262,9 @@ const collapse = [{
         </UCard>
         <UCollapse :items="collapse" />
         <UButton label="Show toast" @click="toast.add({ title: 'Hello world!' })" />
+        <UFileUpload v-model="files" is-multiple>
+          <UButton label="Upload" />
+        </UFileUpload>
       </div>
     </UContainer>
   </div>

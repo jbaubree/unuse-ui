@@ -168,13 +168,13 @@ const trailingIconClass = computed(() => classNames(
       </template>
     </select>
 
-    <span v-if="(isLeading && leadingIconName) || $slots.leading" :class="leadingWrapperIconClass">
+    <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
       <slot name="leading" :disabled="isDisabled" :loading="isLoading">
         <UIcon :name="leadingIconName" :class="leadingIconClass" />
       </slot>
     </span>
 
-    <span v-if="(isTrailing && trailingIconName) || $slots.trailing" :class="trailingWrapperIconClass">
+    <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
       <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
         <UIcon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
       </slot>
