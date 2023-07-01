@@ -61,7 +61,7 @@ function onMouseLeave() {
     </slot>
 
     <div v-if="open && !prevent" ref="container" :class="[config.container, config.width]">
-      <transition appear v-bind="config.transition">
+      <Transition appear v-bind="config.transition">
         <div :class="[config.base, config.background, config.rounded, config.shadow, config.ring]">
           <slot name="text">
             {{ text }}
@@ -74,7 +74,7 @@ function onMouseLeave() {
             </Ukbd>
           </span>
         </div>
-      </transition>
+      </Transition>
     </div>
   </div>
 </template>

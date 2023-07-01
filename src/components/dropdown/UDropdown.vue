@@ -100,7 +100,7 @@ onMounted(() => {
     </MenuButton>
 
     <div v-if="open && items.length" ref="rContainer" :class="[config.container, config.width]" :style="containerStyle" @mouseover="onMouseOver">
-      <transition appear v-bind="config.transition">
+      <Transition appear v-bind="config.transition">
         <MenuItems :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.height]" static>
           <div v-for="(subItems, index) of items" :key="index" :class="config.padding">
             <MenuItem v-for="(item, subIndex) of subItems" :key="subIndex" v-slot="{ active: isItemActive, disabled: isTtemDisabled }" :disabled="item.isDisabled">
@@ -121,7 +121,7 @@ onMounted(() => {
             </MenuItem>
           </div>
         </MenuItems>
-      </transition>
+      </Transition>
     </div>
   </Menu>
 </template>

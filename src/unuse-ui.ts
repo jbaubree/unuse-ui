@@ -21,6 +21,8 @@ import UKbd from './components/kbd/UKbd.vue'
 import ULinkCustom from './components/link/ULinkCustom.vue'
 import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
+import UNotification from './components/notification/UNotification.vue'
+import UNotifications from './components/notification/UNotifications.vue'
 import UPopover from './components/popover/UPopover.vue'
 import UPagination from './components/pagination/UPagination.vue'
 import URadio from './components/radio/URadio.vue'
@@ -35,6 +37,7 @@ import UToggle from './components/toggle/UToggle.vue'
 import UTooltip from './components/tooltip/UTooltip.vue'
 import { appConfig } from './config'
 import { useAppTheme, useAppUi } from './composables/config'
+import { useToast } from './composables/toast'
 import { APP_UI } from './symbols'
 import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
 
@@ -54,6 +57,8 @@ const components = {
   UKbd,
   ULinkCustom,
   UNav,
+  UNotification,
+  UNotifications,
   UPopover,
   UPagination,
   URadio,
@@ -85,6 +90,8 @@ declare module 'vue' {
     UKbd: typeof UKbd
     ULinkCustom: typeof ULinkCustom
     UNav: typeof UNav
+    UNotification: typeof UNotification
+    UNotifications: typeof UNotifications
     UPopover: typeof UPopover
     UPagination: typeof UPagination
     URadio: typeof URadio
@@ -140,6 +147,8 @@ export {
   UKbd,
   ULinkCustom,
   UNav,
+  UNotification,
+  UNotifications,
   UPopover,
   UPagination,
   URadio,
@@ -154,6 +163,7 @@ export {
   UTooltip,
   useAppTheme,
   useAppUi,
+  useToast,
 }
 
 export { plugin as UnuseUI }

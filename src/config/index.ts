@@ -13,6 +13,7 @@ import { input } from '../components/input/input'
 import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
+import { notification, notifications } from '../components/notification/notification'
 import { popover } from '../components/popover/popover'
 import { radio } from '../components/radio/radio'
 import { select } from '../components/select/select'
@@ -43,6 +44,8 @@ export const appConfig = {
     input,
     kbd,
     nav,
+    notification,
+    notifications,
     popover,
     radio,
     select,

@@ -89,11 +89,11 @@ onMounted(() => {
     </PopoverButton>
 
     <div v-if="open" ref="rContainer" :class="[config.container, config.width]" @mouseover="onMouseOver">
-      <transition appear v-bind="config.transition">
+      <Transition appear v-bind="config.transition">
         <PopoverPanel :class="[config.base, config.background, config.ring, config.rounded, config.shadow]" static>
           <slot name="panel" :open="open" :close="close" />
         </PopoverPanel>
-      </transition>
+      </Transition>
     </div>
   </Popover>
 </template>

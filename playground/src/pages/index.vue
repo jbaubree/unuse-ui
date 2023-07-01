@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { colors, useAppTheme } from 'unuse-ui'
+import { colors, useAppTheme, useToast } from 'unuse-ui'
 
 const isActive = ref(false)
 const isChecked = ref(false)
@@ -8,6 +8,7 @@ const isDialogOpen = ref(false)
 const input = ref('')
 const activeItem = ref()
 const { primaryColor } = useAppTheme()
+const toast = useToast()
 const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
   return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
 }))
@@ -259,6 +260,7 @@ const collapse = [{
           </template>
         </UCard>
         <UCollapse :items="collapse" />
+        <UButton label="Show toast" @click="toast.add({ title: 'Hello world!' })" />
       </div>
     </UContainer>
   </div>

@@ -242,10 +242,12 @@ declare global {
   const useTimeout: typeof import('@vueuse/core')['useTimeout']
   const useTimeoutFn: typeof import('@vueuse/core')['useTimeoutFn']
   const useTimeoutPoll: typeof import('@vueuse/core')['useTimeoutPoll']
+  const useTimer: typeof import('./composables/timer')['useTimer']
   const useTimestamp: typeof import('@vueuse/core')['useTimestamp']
   const useTitle: typeof import('@vueuse/core')['useTitle']
   const useToNumber: typeof import('@vueuse/core')['useToNumber']
   const useToString: typeof import('@vueuse/core')['useToString']
+  const useToast: typeof import('./composables/toast')['useToast']
   const useToggle: typeof import('@vueuse/core')['useToggle']
   const useTransition: typeof import('@vueuse/core')['useTransition']
   const useUrlSearchParams: typeof import('@vueuse/core')['useUrlSearchParams']
@@ -526,10 +528,12 @@ declare module 'vue' {
     readonly useTimeout: UnwrapRef<typeof import('@vueuse/core')['useTimeout']>
     readonly useTimeoutFn: UnwrapRef<typeof import('@vueuse/core')['useTimeoutFn']>
     readonly useTimeoutPoll: UnwrapRef<typeof import('@vueuse/core')['useTimeoutPoll']>
+    readonly useTimer: UnwrapRef<typeof import('./composables/timer')['useTimer']>
     readonly useTimestamp: UnwrapRef<typeof import('@vueuse/core')['useTimestamp']>
     readonly useTitle: UnwrapRef<typeof import('@vueuse/core')['useTitle']>
     readonly useToNumber: UnwrapRef<typeof import('@vueuse/core')['useToNumber']>
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
+    readonly useToast: UnwrapRef<typeof import('./composables/toast')['useToast']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
@@ -804,10 +808,12 @@ declare module '@vue/runtime-core' {
     readonly useTimeout: UnwrapRef<typeof import('@vueuse/core')['useTimeout']>
     readonly useTimeoutFn: UnwrapRef<typeof import('@vueuse/core')['useTimeoutFn']>
     readonly useTimeoutPoll: UnwrapRef<typeof import('@vueuse/core')['useTimeoutPoll']>
+    readonly useTimer: UnwrapRef<typeof import('./composables/timer')['useTimer']>
     readonly useTimestamp: UnwrapRef<typeof import('@vueuse/core')['useTimestamp']>
     readonly useTitle: UnwrapRef<typeof import('@vueuse/core')['useTitle']>
     readonly useToNumber: UnwrapRef<typeof import('@vueuse/core')['useToNumber']>
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
+    readonly useToast: UnwrapRef<typeof import('./composables/toast')['useToast']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>

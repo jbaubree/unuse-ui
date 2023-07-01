@@ -3,4 +3,5 @@
 
 <template>
   <RouterView />
+  <UNotifications />
 </template>

@@ -195,7 +195,7 @@ watch(container, value => value ? emit('open') : emit('close'))
       </slot>
     </component>
     <div v-if="open" ref="container" :class="[config.container, config.width]">
-      <transition v-bind="config.transition">
+      <Transition v-bind="config.transition">
         <component :is="isSearchable ? ComboboxOptions : ListboxOptions" static :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.padding, config.height]">
           <ComboboxInput
             v-if="isSearchable"
@@ -251,7 +251,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             </slot>
           </p>
         </component>
-      </transition>
+      </Transition>
     </div>
   </component>
 </template>

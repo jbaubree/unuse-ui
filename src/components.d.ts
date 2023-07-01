@@ -24,6 +24,8 @@ declare module 'vue' {
     UKbd: typeof import('./components/kbd/UKbd.vue')['default']
     ULinkCustom: typeof import('./components/link/ULinkCustom.vue')['default']
     UNav: typeof import('./components/nav/UNav.vue')['default']
+    UNotification: typeof import('./components/notification/UNotification.vue')['default']
+    UNotifications: typeof import('./components/notification/UNotifications.vue')['default']
     UPagination: typeof import('./components/pagination/UPagination.vue')['default']
     UPopover: typeof import('./components/popover/UPopover.vue')['default']
     URadio: typeof import('./components/radio/URadio.vue')['default']
