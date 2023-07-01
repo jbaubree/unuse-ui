@@ -27,6 +27,7 @@ import UNotifications from './components/notification/UNotifications.vue'
 import UPopover from './components/popover/UPopover.vue'
 import UPagination from './components/pagination/UPagination.vue'
 import URadio from './components/radio/URadio.vue'
+import URadioGroup from './components/radio/URadioGroup.vue'
 import USelect from './components/select/USelect.vue'
 import USelectMenu from './components/select/USelectMenu.vue'
 import USkeleton from './components/skeleton/USkeleton.vue'
@@ -65,6 +66,7 @@ const components = {
   UPopover,
   UPagination,
   URadio,
+  URadioGroup,
   USelect,
   USelectMenu,
   USkeleton,
@@ -100,6 +102,7 @@ declare module 'vue' {
     UPopover: typeof UPopover
     UPagination: typeof UPagination
     URadio: typeof URadio
+    URadioGroup: typeof URadioGroup
     USelect: typeof USelect
     USelectMenu: typeof USelectMenu
     USkeleton: typeof USkeleton
@@ -159,6 +162,7 @@ export {
   UPopover,
   UPagination,
   URadio,
+  URadioGroup,
   USelect,
   USelectMenu,
   USkeleton,

@@ -147,6 +147,25 @@ const links = [{
   label: 'Command Palette',
   icon: 'i-ph-terminal-window-bold',
 }]
+const plans = [
+  {
+    title: 'Startup',
+    subtitle: '12GB/6 CPUs - 160 GB SSD disk',
+    value: '1',
+  },
+  {
+    title: 'Business',
+    subtitle: '16GB/8 CPUs - 512 GB SSD disk',
+    value: '2',
+  },
+  {
+    title: 'Enterprise',
+    subtitle: '32GB/12 CPUs - 1024 GB SSD disk',
+    value: '3',
+    isDisabled: true,
+  },
+]
+const selectedPlan = ref(plans[0])
 </script>
 
 <template>
@@ -283,6 +302,7 @@ const links = [{
           <UButton label="Upload" />
         </UFileUpload>
         <UVerticalNavigation :links="links" />
+        <URadioGroup v-model="selectedPlan" :items="plans" />
       </div>
     </UContainer>
   </div>

@@ -5,3 +5,31 @@ export const radio = {
   required: 'text-red-500 dark:text-red-400',
   help: 'text-dark-500 dark:text-dark-400',
 }
+
+export const radioGroup = {
+  wrapper: 'relative w-full',
+  space: 'space-y-2',
+  selectedIcon: {
+    wrapper: 'flex items-center justify-center bg-white dark:bg-dark-500',
+    padding: 'p-1.5',
+    rounded: 'rounded-full',
+    base: 'h-4 w-4 text-dark-600 dark:text-white flex-shrink-0',
+  },
+  item: {
+    wrapper: 'w-full flex items-center justify-between',
+    base: 'flex flex-col items-start',
+    title: {
+      base: 'font-medium',
+      active: 'text-white dark:text-dark-900',
+      inactive: 'text-dark-600 dark:text-dark-200',
+    },
+    subtitle: {
+      base: 'inline text-left',
+      active: 'text-light-200 dark:text-dark-600',
+      inactive: 'text-dark-200 dark:text-dark-100',
+    },
+  },
+  default: {
+    selectedIcon: 'i-ph-check-bold',
+  },
+}

@@ -30,6 +30,7 @@ declare module 'vue' {
     UPagination: typeof import('./components/pagination/UPagination.vue')['default']
     UPopover: typeof import('./components/popover/UPopover.vue')['default']
     URadio: typeof import('./components/radio/URadio.vue')['default']
+    URadioGroup: typeof import('./components/radio/URadioGroup.vue')['default']
     USelect: typeof import('./components/select/USelect.vue')['default']
     USelectMenu: typeof import('./components/select/USelectMenu.vue')['default']
     USkeleton: typeof import('./components/skeleton/USkeleton.vue')['default']

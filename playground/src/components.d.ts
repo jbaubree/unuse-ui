@@ -25,6 +25,7 @@ declare module 'vue' {
     UPagination: typeof import('unuse-ui')['UPagination']
     UPopover: typeof import('unuse-ui')['UPopover']
     URadio: typeof import('unuse-ui')['URadio']
+    URadioGroup: typeof import('unuse-ui')['URadioGroup']
     USelect: typeof import('unuse-ui')['USelect']
     USelectMenu: typeof import('unuse-ui')['USelectMenu']
     USkeleton: typeof import('unuse-ui')['USkeleton']

@@ -103,10 +103,10 @@ onMounted(() => {
       <Transition appear v-bind="config.transition">
         <MenuItems :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.height]" static>
           <div v-for="(subItems, index) of items" :key="index" :class="config.padding">
-            <MenuItem v-for="(item, subIndex) of subItems" :key="subIndex" v-slot="{ active: isItemActive, disabled: isTtemDisabled }" :disabled="item.isDisabled">
+            <MenuItem v-for="(item, subIndex) of subItems" :key="subIndex" v-slot="{ active: isItemActive, disabled: isItemDisabled }" :disabled="item.isDisabled">
               <ULinkCustom
                 v-bind="omit(item, ['label', 'icon', 'iconClass', 'avatar', 'shortcuts', 'onClick'])"
-                :class="[config.item.base, config.item.padding, config.item.size, config.item.rounded, isItemActive ? config.item.active : config.item.inactive, isTtemDisabled && config.item.disabled]"
+                :class="[config.item.base, config.item.padding, config.item.size, config.item.rounded, isItemActive ? config.item.active : config.item.inactive, isItemDisabled && config.item.disabled]"
                 @click="item.onClick"
               >
                 <slot :name="item.slot || 'item'" :item="item">

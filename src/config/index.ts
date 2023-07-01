@@ -16,7 +16,7 @@ import { formGroup } from '../components/form-group/form-group'
 import { nav } from '../components/nav/nav'
 import { notification, notifications } from '../components/notification/notification'
 import { popover } from '../components/popover/popover'
-import { radio } from '../components/radio/radio'
+import { radio, radioGroup } from '../components/radio/radio'
 import { select } from '../components/select/select'
 import { selectMenu } from '../components/select/select-menu'
 import { skeleton } from '../components/skeleton/skeleton'
@@ -51,6 +51,7 @@ export const appConfig = {
     notifications,
     popover,
     radio,
+    radioGroup,
     select,
     selectMenu,
     skeleton,
