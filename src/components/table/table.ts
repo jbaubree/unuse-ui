@@ -1,7 +1,7 @@
 import type { Button } from '~/components/button/button'
 
 export const table = {
-  wrapper: 'relative',
+  wrapper: 'relative overflow-auto',
   base: 'min-w-full table-fixed',
   divide: 'divide-y divide-dark-300 dark:divide-dark-300',
   thead: '',
