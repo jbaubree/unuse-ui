@@ -7,6 +7,9 @@ import UButton from '~/components/button/UButton.vue'
 import type { appConfig } from '~/config'
 import type { DeepPartial } from '~/types'
 
+defineOptions({
+  inheritAttrs: false,
+})
 const props = withDefaults(defineProps<{
   items: Partial<Button & { slot: string; isDisabled: boolean; content: string; isDefaultOpen: boolean }>[]
   isDefaultOpen?: boolean
@@ -19,10 +22,6 @@ const props = withDefaults(defineProps<{
   closeIcon: () => useAppUi().collapse.default.closeIcon,
   ui: () => useAppUi().collapse,
 })
-defineOptions({
-  inheritAttrs: false,
-})
-
 const attrs = useAttrs()
 
 const config = computed(() => merge({}, useAppUi().collapse, props.ui))

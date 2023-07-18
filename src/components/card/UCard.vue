@@ -3,16 +3,16 @@ import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
 import type { DeepPartial } from '~/types'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = withDefaults(defineProps<{
   as?: string
   ui?: DeepPartial<typeof appConfig.ui.card>
 }>(), {
   as: 'div',
   ui: () => useAppUi().card,
-})
-
-defineOptions({
-  inheritAttrs: false,
 })
 
 const attrs = useAttrs()

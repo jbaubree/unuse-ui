@@ -11,7 +11,7 @@ export interface DropdownItem {
   avatar?: Partial<Avatar>
   shortcuts?: string[]
   isDisabled?: boolean
-  onClick?: Function
+  onClick?: () => void
 }
 
 export const dropdown = {

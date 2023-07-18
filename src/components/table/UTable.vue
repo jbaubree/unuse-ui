@@ -9,7 +9,7 @@ interface Sort { column?: string; direction?: 'asc' | 'desc' }
 
 const props = withDefaults(defineProps<{
   modelValue?: any[]
-  sortBy?: string | Function
+  sortBy?: string | ((a: unknown, b: unknown) => void)
   rows?: { [key: string]: any }[]
   columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
   columnAttribute?: string

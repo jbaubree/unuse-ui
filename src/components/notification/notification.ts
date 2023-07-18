@@ -57,7 +57,7 @@ export const notifications = {
 }
 
 export interface NotificationAction extends Partial<Button> {
-  click: Function
+  click: () => void
 }
 
 export interface Notification {
@@ -69,8 +69,8 @@ export interface Notification {
   closeButton?: Button
   timeout?: number
   actions?: NotificationAction[]
-  click?: Function
-  callback?: Function
+  click?: (notification: Notification) => void
+  callback?: () => void
   color?: 'gray' | Color
   ui?: DeepPartial<typeof appConfig.ui.notification>
 }

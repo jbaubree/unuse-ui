@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<{
     icon?: string
     iconClass?: string
     avatar?: Avatar
-    onClick?: Function
+    onClick?: () => void
     badge?: string | number
   }[]
   ui?: DeepPartial<typeof appConfig.ui.verticalNavigation>
