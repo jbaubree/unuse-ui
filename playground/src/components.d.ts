@@ -15,6 +15,7 @@ declare module 'vue' {
     UCheckbox: typeof import('unuse-ui')['UCheckbox']
     UCollapse: typeof import('unuse-ui')['UCollapse']
     UContainer: typeof import('unuse-ui')['UContainer']
+    UDatepicker: typeof import('unuse-ui')['UDatepicker']
     UDialog: typeof import('unuse-ui')['UDialog']
     UDropdown: typeof import('unuse-ui')['UDropdown']
     UFileUpload: typeof import('unuse-ui')['UFileUpload']

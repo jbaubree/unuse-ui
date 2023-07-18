@@ -2,12 +2,12 @@
 import { merge } from 'lodash-es'
 import type { BreadcrumbItem } from './breadcrumb'
 import type { appConfig } from '~/config'
-import type { Color } from '~/types'
+import type { Color, DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   items: BreadcrumbItem[]
   color?: Color
-  ui?: Partial<typeof appConfig.ui.breadcrumb>
+  ui?: DeepPartial<typeof appConfig.ui.breadcrumb>
 }>(), {
   ui: () => useAppUi().breadcrumb,
   color: 'primary',

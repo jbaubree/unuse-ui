@@ -2,6 +2,7 @@
 import { merge } from 'lodash-es'
 import { Switch } from '@headlessui/vue'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   isDisabled?: boolean
@@ -9,7 +10,7 @@ const props = withDefaults(defineProps<{
   name?: string
   onIcon?: string
   offIcon?: string
-  ui?: Partial<typeof appConfig.ui.toggle>
+  ui?: DeepPartial<typeof appConfig.ui.toggle>
 }>(), {
   ui: () => useAppUi().toggle,
 })

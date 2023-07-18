@@ -2,13 +2,14 @@
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   appear?: boolean
   side?: 'right' | 'left'
   hasOverlay?: boolean
   hasTransition?: boolean
-  ui?: Partial<typeof appConfig.ui.slider>
+  ui?: DeepPartial<typeof appConfig.ui.slider>
 }>(), {
   side: 'right',
   hasOverlay: true,

@@ -2,7 +2,7 @@
 import { get, merge } from 'lodash-es'
 import type { InputColor, InputVariant } from '../input/input'
 import { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 import { classNames } from '~/utils'
 
 const props = withDefaults(defineProps<{
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<{
   variant?: InputVariant | InputColor
   textAttribute?: string
   valueAttribute?: string
-  ui?: Partial<typeof appConfig.ui.select>
+  ui?: DeepPartial<typeof appConfig.ui.select>
 }>(), {
   loadingIcon: () => useAppUi().select.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
@@ -169,13 +169,13 @@ const trailingIconClass = computed(() => classNames(
     </select>
 
     <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
-      <slot name="leading" :disabled="isDisabled" :loading="isLoading">
+      <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
         <UIcon :name="leadingIconName" :class="leadingIconClass" />
       </slot>
     </span>
 
     <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
-      <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
+      <slot name="trailing" :is-disabled="isDisabled" :loading="isLoading">
         <UIcon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
       </slot>
     </span>

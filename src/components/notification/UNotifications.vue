@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
-  ui?: Partial<typeof appConfig.ui.notifications>
+  ui?: DeepPartial<typeof appConfig.ui.notifications>
 }>(), {
   ui: () => useAppUi().notifications,
 })

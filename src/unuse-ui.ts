@@ -13,6 +13,7 @@ import UCard from './components/card/UCard.vue'
 import UCheckbox from './components/checkbox/UCheckbox.vue'
 import UCollapse from './components/collapse/UCollapse.vue'
 import UContainer from './components/container/UContainer.vue'
+import UDatepicker from './components/datepicker/UDatepicker.vue'
 import UDropdown from './components/dropdown/UDropdown.vue'
 import UFileUpload from './components/file-upload/UFileUpload.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
@@ -52,6 +53,7 @@ const components = {
   UCheckbox,
   UCollapse,
   UContainer,
+  UDatepicker,
   UDialog,
   UDropdown,
   UFileUpload,
@@ -88,6 +90,7 @@ declare module 'vue' {
     UCheckbox: typeof UCheckbox
     UCollapse: typeof UCollapse
     UContainer: typeof UContainer
+    UDatepicker: typeof UDatepicker
     UDialog: typeof UDialog
     UDropdown: typeof UDropdown
     UFileUpload: typeof UFileUpload
@@ -148,6 +151,7 @@ export {
   UCheckbox,
   UCollapse,
   UContainer,
+  UDatepicker,
   UDialog,
   UDropdown,
   UFileUpload,

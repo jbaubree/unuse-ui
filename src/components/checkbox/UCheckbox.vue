@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   modelValue?: boolean | any[]
@@ -11,7 +12,7 @@ const props = withDefaults(defineProps<{
   isIndeterminate?: boolean
   label?: string
   name?: string
-  ui?: Partial<typeof appConfig.ui.checkbox>
+  ui?: DeepPartial<typeof appConfig.ui.checkbox>
 }>(), {
   ui: () => useAppUi().checkbox,
 })

@@ -1,8 +1,8 @@
 import type { RouteLocationRaw } from 'vue-router'
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 
-export type ButtonColor = 'white' | 'gray' | 'black' | 'fluo'
+export type ButtonColor = 'white' | 'dark' | 'black' | 'fluo'
 export type ButtonVariant = 'solid' | 'outline' | 'soft' | 'ghost' | 'link'
 
 export interface Button {
@@ -26,11 +26,12 @@ export interface Button {
   ariaLabel?: string
   isSquare?: boolean
   isTruncate?: boolean
-  ui?: Partial<typeof appConfig.ui.button>
+  ui?: DeepPartial<typeof appConfig.ui.button>
 }
 
 export const button = {
-  base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 transition-colors',
+  base: 'focus:outline-none focus-visible:outline-0 flex-shrink-0 transition-colors',
+  disabled: 'disabled:cursor-not-allowed disabled:opacity-75',
   font: 'font-medium',
   rounded: 'rounded-md',
   size: {
@@ -74,9 +75,9 @@ export const button = {
       solid: 'shadow-sm text-black dark:text-dark-900 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-500 dark:disabled:bg-{color}-400 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
       outline: 'text-{color}-600 dark:text-{color}-400 hover:bg-{color}-50 dark:hover:bg-{color}-950 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
     },
-    gray: {
+    dark: {
       solid: 'shadow-sm ring-1 ring-inset ring-dark-100 dark:ring-dark-300 text-dark-700 dark:text-dark-200 bg-dark-50 hover:bg-dark-100 disabled:bg-dark-50 dark:bg-dark-800 dark:hover:bg-dark-700/50 dark:disabled:bg-dark-800 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
-      ghost: 'text-dark-700 dark:text-dark-200 hover:text-dark-900 dark:hover:text-white hover:bg-dark-50 dark:hover:bg-dark-800 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
+      ghost: 'text-dark-700 dark:text-dark-100 hover:bg-dark-50 dark:hover:bg-dark-800 focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
       link: 'text-dark-500 dark:text-dark-400 hover:text-dark-700 dark:hover:text-dark-200 underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400',
     },
     black: {

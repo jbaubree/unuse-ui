@@ -1,6 +1,6 @@
 import type { RouteLocationRaw } from 'vue-router'
 import type { Avatar } from '~/components/avatar/avatar'
-import type { Size } from '~/types'
+import type { PopperOptions, Size } from '~/types'
 
 export interface DropdownItem {
   to?: string | RouteLocationRaw
@@ -56,5 +56,5 @@ export const dropdown = {
   popper: {
     placement: 'bottom-end',
     strategy: 'fixed',
-  },
+  } as PopperOptions,
 }

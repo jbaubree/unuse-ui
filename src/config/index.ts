@@ -5,6 +5,7 @@ import { card } from '../components/card/card'
 import { checkbox } from '../components/checkbox/checkbox'
 import { collapse } from '../components/collapse/collapse'
 import { container } from '../components/container/container'
+import { datepicker } from '../components/datepicker/datepicker'
 import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
 import { fileUpload } from '../components/file-upload/file-upload'
@@ -40,6 +41,7 @@ export const appConfig = {
     checkbox,
     collapse,
     container,
+    datepicker,
     dropdown,
     dialog,
     fileUpload,

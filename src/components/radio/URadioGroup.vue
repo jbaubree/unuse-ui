@@ -2,6 +2,7 @@
 import { merge } from 'lodash-es'
 import { RadioGroup, RadioGroupOption } from '@headlessui/vue'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   items?: ({
@@ -10,7 +11,7 @@ const props = withDefaults(defineProps<{
     isDisabled?: boolean
   } & Record<any, any>)[]
   selectedIcon?: string
-  ui?: Partial<typeof appConfig.ui.radioGroup>
+  ui?: DeepPartial<typeof appConfig.ui.radioGroup>
 }>(), {
   items: () => [],
   selectedIcon: () => useAppUi().radioGroup.default.selectedIcon,

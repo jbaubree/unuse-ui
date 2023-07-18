@@ -1,7 +1,7 @@
 import type { Avatar } from '~/components/avatar/avatar'
 import type { Button, ButtonColor, ButtonVariant } from '~/components/button/button'
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 
 export const notification = {
   wrapper: 'w-full pointer-events-auto',
@@ -72,5 +72,5 @@ export interface Notification {
   click?: Function
   callback?: Function
   color?: 'gray' | Color
-  ui?: Partial<typeof appConfig.ui.notification>
+  ui?: DeepPartial<typeof appConfig.ui.notification>
 }

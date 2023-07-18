@@ -2,13 +2,13 @@
 import { merge } from 'lodash-es'
 import type { NavItem } from './nav'
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 
 const props = withDefaults(defineProps<{
   items: NavItem[]
   color?: Color
   size?: Size
-  ui?: Partial<typeof appConfig.ui.nav>
+  ui?: DeepPartial<typeof appConfig.ui.nav>
 }>(), {
   size: () => useAppUi().nav.default.size,
   color: 'primary',

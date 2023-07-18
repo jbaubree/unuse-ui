@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
-import type { PopperOptions } from '~/types'
+import type { DeepPartial, PopperOptions } from '~/types'
 
 const props = withDefaults(defineProps<{
   text?: string
@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
   openDelay?: number
   closeDelay?: number
   popper?: PopperOptions
-  ui?: Partial<typeof appConfig.ui.tooltip>
+  ui?: DeepPartial<typeof appConfig.ui.tooltip>
 }>(), {
   shortcuts: () => [],
   openDelay: 0,
@@ -24,7 +24,7 @@ let openTimeout: NodeJS.Timeout | null = null
 let closeTimeout: NodeJS.Timeout | null = null
 
 const config = computed(() => merge({}, useAppUi().tooltip, props.ui))
-const popper = computed<PopperOptions>(() => merge({}, config.value.popper, props.popper))
+const popper = computed<PopperOptions>(() => merge({}, props.popper, config.value.popper))
 
 const [trigger, container] = usePopper(popper.value)
 

@@ -5,13 +5,14 @@ import type { Button } from '~/components/button/button'
 import UIcon from '~/components/icon/UIcon.vue'
 import UButton from '~/components/button/UButton.vue'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   items: Partial<Button & { slot: string; isDisabled: boolean; content: string; isDefaultOpen: boolean }>[]
   isDefaultOpen?: boolean
   openIcon?: string
   closeIcon?: string
-  ui?: Partial<typeof appConfig.ui.collapse>
+  ui?: DeepPartial<typeof appConfig.ui.collapse>
 }>(), {
   items: () => [],
   openIcon: () => useAppUi().collapse.default.openIcon,

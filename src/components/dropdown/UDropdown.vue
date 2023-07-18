@@ -7,7 +7,7 @@ import UKbd from '~/components/kbd/UKbd.vue'
 import UIcon from '~/components/icon/UIcon.vue'
 import UAvatar from '~/components/avatar/UAvatar.vue'
 import type { appConfig } from '~/config'
-import type { PopperOptions } from '~/types'
+import type { DeepPartial, PopperOptions } from '~/types'
 import { omit } from '~/utils'
 
 const props = withDefaults(defineProps<{
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
   popper?: PopperOptions
   openDelay?: number
   closeDelay?: number
-  ui?: Partial<typeof appConfig.ui.dropdown>
+  ui?: DeepPartial<typeof appConfig.ui.dropdown>
 }>(), {
   items: () => [],
   mode: 'click',
@@ -31,7 +31,7 @@ const config = computed(() => merge({}, useAppUi().dropdown, props.ui))
 const popper = computed<PopperOptions>(() => merge(props.mode === 'hover' ? { offsetDistance: 0 } : {}, config.value.popper, props.popper))
 const [trigger, rContainer] = usePopper(popper.value)
 const containerStyle = computed(() => {
-  const offsetDistance = (props.popper as PopperOptions)?.offsetDistance || (config.value.popper as PopperOptions)?.offsetDistance || 8
+  const offsetDistance = props.popper.offsetDistance || config.value.popper.offsetDistance || 8
   return props.mode === 'hover' ? { paddingTop: `${offsetDistance}px`, paddingBottom: `${offsetDistance}px` } : {}
 })
 // https://github.com/tailwindlabs/headlessui/blob/f66f4926c489fc15289d528294c23a3dc2aee7b1/packages/%40headlessui-vue/src/components/menu/menu.ts#L131
@@ -92,7 +92,7 @@ onMounted(() => {
       role="button"
       @mouseover="onMouseOver"
     >
-      <slot :open="open" :disabled="isDisabled">
+      <slot :open="open" :is-disabled="isDisabled">
         <button :disabled="isDisabled">
           Open
         </button>

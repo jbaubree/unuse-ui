@@ -3,6 +3,7 @@ import { capitalize, merge, orderBy } from 'lodash-es'
 import type { appConfig } from '~/config'
 import { defaultComparator } from '~/utils'
 import type { Button } from '~/components/button/button'
+import type { DeepPartial } from '~/types'
 
 interface Sort { column?: string; direction?: 'asc' | 'desc' }
 
@@ -17,7 +18,7 @@ const props = withDefaults(defineProps<{
   sortAscIcon?: string
   sortDescIcon?: string
   emptyState?: { icon: string; label: string }
-  ui?: Partial<typeof appConfig.ui.table>
+  ui?: DeepPartial<typeof appConfig.ui.table>
 }>(), {
   sortBy: () => defaultComparator,
   rows: () => [],

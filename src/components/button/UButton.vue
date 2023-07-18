@@ -30,6 +30,7 @@ const buttonClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant] || config.value.variant[props.variant]
   return classNames(
     config.value.base,
+    config.value.disabled,
     config.value.font,
     config.value.rounded,
     config.value.size[props.size],
@@ -58,7 +59,7 @@ const trailingIconClass = computed(() => classNames(
     :aria-label="ariaLabel"
     v-bind="buttonProps"
   >
-    <slot name="leading" :disabled="isDisabled" :loading="isLoading">
+    <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
       <UIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="leadingIconClass" />
     </slot>
     <slot>
@@ -66,7 +67,7 @@ const trailingIconClass = computed(() => classNames(
         {{ label }}
       </span>
     </slot>
-    <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
+    <slot name="trailing" :is-disabled="isDisabled" :loading="isLoading">
       <UIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="trailingIconClass" />
     </slot>
   </component>

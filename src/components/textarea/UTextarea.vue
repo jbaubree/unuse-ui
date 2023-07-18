@@ -2,7 +2,7 @@
 import { merge } from 'lodash-es'
 import type { InputColor, InputVariant } from '../input/input'
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 import { classNames } from '~/utils'
 
 const props = withDefaults(defineProps<{
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
   color?: Color | InputColor
   variant?: InputVariant | InputColor
   label?: string
-  ui?: Partial<typeof appConfig.ui.textarea>
+  ui?: DeepPartial<typeof appConfig.ui.textarea>
 }>(), {
   rows: 3,
   isPadded: true,

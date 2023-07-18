@@ -1,5 +1,5 @@
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 
 export interface Avatar {
   src?: string | boolean
@@ -9,7 +9,7 @@ export interface Avatar {
   chipColor?: Color
   chipVariant?: string
   chipPosition?: string
-  ui?: Partial<typeof appConfig.ui.checkbox>
+  ui?: DeepPartial<typeof appConfig.ui.checkbox>
 }
 
 export const avatar = {

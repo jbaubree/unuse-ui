@@ -3,6 +3,7 @@ import { merge, omit } from 'lodash-es'
 import type { RouteLocationRaw } from 'vue-router'
 import type { appConfig } from '~/config'
 import type { Avatar } from '~/components/avatar/avatar'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   links?: {
@@ -15,7 +16,7 @@ const props = withDefaults(defineProps<{
     onClick?: Function
     badge?: string | number
   }[]
-  ui?: Partial<typeof appConfig.ui.verticalNavigation>
+  ui?: DeepPartial<typeof appConfig.ui.verticalNavigation>
 }>(), {
   links: () => [],
   ui: () => useAppUi().verticalNavigation,

@@ -2,12 +2,13 @@
 import { merge } from 'lodash-es'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   appear?: boolean
   hasOverlay?: boolean
   hasTransition?: boolean
-  ui?: Partial<typeof appConfig.ui.dialog>
+  ui?: DeepPartial<typeof appConfig.ui.dialog>
 }>(), {
   hasOverlay: true,
   hasTransition: true,

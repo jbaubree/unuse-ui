@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
+import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
   modelValue?: string | number | boolean | object
@@ -10,7 +11,7 @@ const props = withDefaults(defineProps<{
   isRequired?: boolean
   help?: string
   label?: string
-  ui?: Partial<typeof appConfig.ui.radio>
+  ui?: DeepPartial<typeof appConfig.ui.radio>
 }>(), {
   ui: () => useAppUi().radio,
 })

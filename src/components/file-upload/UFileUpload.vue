@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
-import type { UploadFile } from '~/types'
+import type { DeepPartial, UploadFile } from '~/types'
 
 const props = withDefaults(defineProps<{
   accept?: string[]
   isDisabled?: boolean
   isMultiple?: boolean
-  ui?: Partial<typeof appConfig.ui.fileUpload>
+  ui?: DeepPartial<typeof appConfig.ui.fileUpload>
 }>(), {
   ui: () => useAppUi().fileUpload,
 })
@@ -47,7 +47,7 @@ function handleFileUpload() {
       :accept="accept?.join(',')"
       @change="handleFileUpload()"
     >
-    <slot :disabled="isDisabled">
+    <slot :is-disabled="isDisabled">
       <button :disabled="isDisabled">
         Upload
       </button>

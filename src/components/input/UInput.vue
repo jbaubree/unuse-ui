@@ -2,7 +2,7 @@
 import { merge } from 'lodash-es'
 import type { InputColor, InputVariant } from './input'
 import { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 import { classNames } from '~/utils'
 
 const props = withDefaults(defineProps<{
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<{
   size?: Size
   color?: Color | InputColor
   variant?: InputVariant | InputColor
-  ui?: Partial<typeof appConfig.ui.input>
+  ui?: DeepPartial<typeof appConfig.ui.input>
 }>(), {
   ui: () => useAppUi().input,
   loadingIcon: () => useAppUi().input.default.loadingIcon,
@@ -120,13 +120,13 @@ onMounted(() => {
     <slot />
 
     <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
-      <slot name="leading" :disabled="isDisabled" :loading="isLoading">
+      <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
         <UIcon :name="leadingIconName" :class="leadingIconClass" />
       </slot>
     </span>
 
     <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
-      <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
+      <slot name="trailing" :is-disabled="isDisabled" :loading="isLoading">
         <UIcon :name="trailingIconName" :class="trailingIconClass" />
       </slot>
     </span>

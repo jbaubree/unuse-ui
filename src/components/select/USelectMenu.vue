@@ -2,7 +2,7 @@
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import { appConfig } from '~/config'
-import type { Color, PopperOptions, Size } from '~/types'
+import type { Color, DeepPartial, PopperOptions, Size } from '~/types'
 import type { InputColor, InputVariant } from '~/components/input/input'
 import { classNames } from '~/utils'
 
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<{
   searchablePlaceholder?: string
   searchAttributes?: any[]
   popper?: PopperOptions
-  ui?: Partial<typeof appConfig.ui.selectMenu>
+  ui?: DeepPartial<typeof appConfig.ui.selectMenu>
   uiSelect?: Partial<typeof appConfig.ui.select>
 }>(), {
   options: () => [],
@@ -74,7 +74,7 @@ const slots = useSlots()
 
 const config = computed(() => merge({}, useAppUi().selectMenu, props.ui))
 const configSelect = computed(() => merge({}, useAppUi().select, props.uiSelect))
-const popper = computed<PopperOptions>(() => merge({}, config.value.popper, props.popper))
+const popper = computed<PopperOptions>(() => merge({}, props.popper, config.value.popper))
 const isLeading = computed(() => (props.icon && props.isLeading) || (props.icon && !props.isTrailing) || (props.isLoading && !props.isTrailing) || props.leadingIcon)
 const isTrailing = computed(() => (props.icon && props.isTrailing) || (props.isLoading && props.isTrailing) || props.trailingIcon)
 const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)
@@ -174,7 +174,7 @@ watch(container, value => value ? emit('open') : emit('close'))
       role="button"
       class="w-full inline-flex"
     >
-      <slot :open="open" :disabled="isDisabled" :loading="isLoading">
+      <slot :open="open" :is-disabled="isDisabled" :loading="isLoading">
         <button :class="selectMenuClass" :disabled="isDisabled || isLoading" type="button">
           <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
             <slot name="leading" :disabled="isDisabled" :loading="isLoading">
@@ -187,7 +187,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             <span v-else class="block truncate" :class="config.placeholder">{{ placeholder || '&nbsp;' }}</span>
           </slot>
           <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
-            <slot name="trailing" :disabled="isDisabled" :loading="isLoading">
+            <slot name="trailing" :is-disabled="isDisabled" :loading="isLoading">
               <UIcon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
             </slot>
           </span>
@@ -219,7 +219,7 @@ watch(container, value => value ? emit('open') : emit('close'))
           >
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
               <div :class="config.option.container">
-                <slot name="option" :option="option" :active="active" :selected="selected">
+                <slot name="option" :option="option" :is-active="active" :selected="selected">
                   <UIcon v-if="option.icon" :name="option.icon" :class="[config.option.icon.base, active ? config.option.icon.active : config.option.icon.inactive, option.iconClass]" aria-hidden="true" />
                   <UAvatar
                     v-else-if="option.avatar"
@@ -239,7 +239,7 @@ watch(container, value => value ? emit('open') : emit('close'))
           <component :is="isSearchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive]">
               <div :class="config.option.container">
-                <slot name="option-create" :option="queryOption" :active="active" :selected="selected">
+                <slot name="option-create" :option="queryOption" :is-active="active" :selected="selected">
                   <span class="block truncate">Create "{{ queryOption[optionAttribute] }}"</span>
                 </slot>
               </div>

@@ -6,7 +6,7 @@ export const tooltip = {
   shadow: 'shadow',
   rounded: 'rounded',
   ring: 'ring-1 ring-dark-100 dark:ring-dark-400',
-  base: 'invisible lg:visible h-6 px-2 py-1 text-xs font-normal truncate',
+  base: 'invisible lg:visible h-6 px-2 py-1 text-xs font-normal truncate text-dark-400 text-dark-400 dark:text-dark-100',
   shortcuts: 'hidden md:inline-flex flex-shrink-0 gap-0.5',
   transition: {
     enterActiveClass: 'transition ease-out duration-200',

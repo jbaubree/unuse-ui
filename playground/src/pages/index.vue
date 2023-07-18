@@ -166,6 +166,7 @@ const plans = [
   },
 ]
 const selectedPlan = ref(plans[0])
+const date = ref()
 </script>
 
 <template>
@@ -303,6 +304,7 @@ const selectedPlan = ref(plans[0])
         </UFileUpload>
         <UVerticalNavigation :links="links" />
         <URadioGroup v-model="selectedPlan" :items="plans" />
+        <UDatepicker v-model="date" is-clearable />
       </div>
     </UContainer>
   </div>

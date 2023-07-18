@@ -2,7 +2,7 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
-import type { PopperOptions } from '~/types'
+import type { DeepPartial, PopperOptions } from '~/types'
 
 const props = withDefaults(defineProps<{
   mode?: 'click' | 'hover'
@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
   popper?: PopperOptions
   openDelay?: number
   closeDelay?: number
-  ui?: Partial<typeof appConfig.ui.popover>
+  ui?: DeepPartial<typeof appConfig.ui.popover>
 }>(), {
   items: () => [],
   mode: 'click',
@@ -24,7 +24,7 @@ let openTimeout: NodeJS.Timeout | null = null
 let closeTimeout: NodeJS.Timeout | null = null
 
 const config = computed(() => merge({}, useAppUi().popover, props.ui))
-const popper = computed<PopperOptions>(() => merge({}, config.value.popper, props.popper))
+const popper = computed<PopperOptions>(() => merge({}, props.popper, config.value.popper))
 const [trigger, rContainer] = usePopper(popper.value)
 
 // https://github.com/tailwindlabs/headlessui/blob/f66f4926c489fc15289d528294c23a3dc2aee7b1/packages/%40headlessui-vue/src/components/popover/popover.ts#L151

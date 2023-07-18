@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
-import type { Size } from '~/types'
+import type { DeepPartial, Size } from '~/types'
 
 const props = withDefaults(defineProps<{
   value?: string
   size?: Size
-  ui?: Partial<typeof appConfig.ui.dropdown>
+  ui?: DeepPartial<typeof appConfig.ui.dropdown>
 }>(), {
   size: () => useAppUi().kbd.default.size,
   ui: () => useAppUi().kbd,

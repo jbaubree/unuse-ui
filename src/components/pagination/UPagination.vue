@@ -2,7 +2,7 @@
 import { merge } from 'lodash-es'
 import type { Button } from '~/components/button/button'
 import type { appConfig } from '~/config'
-import type { Size } from '~/types'
+import type { DeepPartial, Size } from '~/types'
 
 const props = withDefaults(defineProps<{
   perPage?: number
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
   prevButton?: Partial<Button>
   nextButton?: Partial<Button>
   divider?: string
-  ui?: Partial<typeof appConfig.ui.pagination>
+  ui?: DeepPartial<typeof appConfig.ui.pagination>
 }>(), {
   perPage: 10,
   max: 7,

@@ -2,7 +2,7 @@
 import { merge } from 'lodash-es'
 import type { TagVariant } from './tag'
 import type { appConfig } from '~/config'
-import type { Color, Size } from '~/types'
+import type { Color, DeepPartial, Size } from '~/types'
 import { classNames } from '~/utils'
 
 const props = withDefaults(defineProps<{
@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
   color?: Color
   variant?: TagVariant
   label?: string
-  ui?: Partial<typeof appConfig.ui.tag>
+  ui?: DeepPartial<typeof appConfig.ui.tag>
 }>(), {
   size: () => useAppUi().tag.default.size,
   color: () => useAppUi().tag.default.color,

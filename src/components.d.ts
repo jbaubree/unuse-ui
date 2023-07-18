@@ -16,6 +16,7 @@ declare module 'vue' {
     UCheckbox: typeof import('./components/checkbox/UCheckbox.vue')['default']
     UCollapse: typeof import('./components/collapse/UCollapse.vue')['default']
     UContainer: typeof import('./components/container/UContainer.vue')['default']
+    UDatepicker: typeof import('./components/datepicker/UDatepicker.vue')['default']
     UDialog: typeof import('./components/dialog/UDialog.vue')['default']
     UDropdown: typeof import('./components/dropdown/UDropdown.vue')['default']
     UFileUpload: typeof import('./components/file-upload/UFileUpload.vue')['default']
