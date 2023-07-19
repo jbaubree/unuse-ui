@@ -3,7 +3,6 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import type { DropdownItem } from './dropdown'
 import ULinkCustom from '~/components/link/ULinkCustom.vue'
-import UKbd from '~/components/kbd/UKbd.vue'
 import UIcon from '~/components/icon/UIcon.vue'
 import UAvatar from '~/components/avatar/UAvatar.vue'
 import type { appConfig } from '~/config'
@@ -105,7 +104,7 @@ onMounted(() => {
           <div v-for="(subItems, index) of items" :key="index" :class="config.padding">
             <MenuItem v-for="(item, subIndex) of subItems" :key="subIndex" v-slot="{ active: isItemActive, disabled: isItemDisabled }" :disabled="item.isDisabled">
               <ULinkCustom
-                v-bind="omit(item, ['label', 'icon', 'iconClass', 'avatar', 'shortcuts', 'onClick'])"
+                v-bind="omit(item, ['label', 'icon', 'iconClass', 'avatar', 'onClick'])"
                 :class="[config.item.base, config.item.padding, config.item.size, config.item.rounded, isItemActive ? config.item.active : config.item.inactive, isItemDisabled && config.item.disabled]"
                 @click="item.onClick"
               >
@@ -113,9 +112,6 @@ onMounted(() => {
                   <UIcon v-if="item.icon" :name="item.icon" :class="[config.item.icon.base, isItemActive ? config.item.icon.active : config.item.icon.inactive, item.iconClass]" />
                   <UAvatar v-else-if="item.avatar" v-bind="{ size: config.item.avatar.size, ...item.avatar }" :class="config.item.avatar.base" />
                   <span class="truncate">{{ item.label }}</span>
-                  <span v-if="item.shortcuts?.length" :class="config.item.shortcuts">
-                    <UKbd v-for="shortcut of item.shortcuts" :key="shortcut">{{ shortcut }}</UKbd>
-                  </span>
                 </slot>
               </ULinkCustom>
             </MenuItem>

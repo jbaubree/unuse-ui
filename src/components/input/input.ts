@@ -1,12 +1,12 @@
 import type { Color, Size } from '~/types'
 
 export type InputVariant = 'outline' | 'none'
-export type InputColor = 'white' | 'gray'
+export type InputColor = 'white'
 
 export interface Input {
   wrapper: string
   base: string
-  rounded: string
+  rounded: Record<Size, string>
   placeholder: string
   size: Record<Size, string>
   gap: Record<Size, string>
@@ -21,6 +21,8 @@ export interface Input {
   variant: Record<InputVariant, string>
   icon: {
     base: string
+    active: string
+    inactive: string
     color: string
     size: Record<Size, string>
     leading: {
@@ -44,81 +46,87 @@ export interface Input {
 
 export const input: Input = {
   wrapper: 'relative',
-  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
-  rounded: 'rounded-md',
-  placeholder: 'placeholder-dark-100 dark:placeholder-dark-300',
+  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-20 focus:outline-none border-0',
+  placeholder: 'placeholder-dark-100 placeholder-text-13px dark:placeholder-light-900',
+  rounded: {
+    '2xs': 'rounded-3px',
+    'xs': 'rounded-3px',
+    'sm': 'rounded-3px',
+    'md': 'rounded-5px',
+    'lg': 'rounded-5px',
+    'xl': 'rounded-5px',
+  },
   size: {
-    '2xs': 'text-xs',
-    'xs': 'text-xs',
-    'sm': 'text-sm',
-    'md': 'text-sm',
-    'lg': 'text-sm',
+    '2xs': 'text-11px',
+    'xs': 'text-11px',
+    'sm': 'text-13px',
+    'md': 'text-13px',
+    'lg': 'text-13px',
     'xl': 'text-base',
   },
   gap: {
-    '2xs': 'gap-x-1',
-    'xs': 'gap-x-1.5',
-    'sm': 'gap-x-2',
-    'md': 'gap-x-2',
+    '2xs': 'gap-x-.75',
+    'xs': 'gap-x-.75',
+    'sm': 'gap-x-1.5',
+    'md': 'gap-x-1.5',
     'lg': 'gap-x-2',
     'xl': 'gap-x-2',
   },
   padding: {
-    '2xs': 'px-2 py-1',
-    'xs': 'px-2.5 py-1.5',
-    'sm': 'px-2.5 py-1.5',
-    'md': 'px-3 py-2',
-    'lg': 'px-3.5 py-2.5',
-    'xl': 'px-3.5 py-2.5',
+    '2xs': 'p-2',
+    'xs': 'p-2.5',
+    'sm': 'p-2.5',
+    'md': 'p-3',
+    'lg': 'px-5 py-4',
+    'xl': 'px-5 py-4',
   },
   leading: {
     padding: {
-      '2xs': 'pl-7',
-      'xs': 'pl-8',
-      'sm': 'pl-9',
-      'md': 'pl-10',
-      'lg': 'pl-11',
-      'xl': 'pl-12',
+      '2xs': 'pl-7.5',
+      'xs': 'pl-7.5',
+      'sm': 'pl-8.5',
+      'md': 'pl-9.5',
+      'lg': 'pl-9.5',
+      'xl': 'pl-10.5',
     },
   },
   trailing: {
     padding: {
-      '2xs': 'pr-7',
+      '2xs': 'pr-8',
       'xs': 'pr-8',
       'sm': 'pr-9',
       'md': 'pr-10',
-      'lg': 'pr-11',
-      'xl': 'pr-12',
+      'lg': 'pr-10',
+      'xl': 'pr-11',
     },
   },
   color: {
     white: {
-      outline: 'shadow-sm bg-white dark:bg-dark-900 text-dark-900 dark:text-white ring-1 ring-inset ring-dark-300 dark:ring-dark-300 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
-    },
-    gray: {
-      outline: 'shadow-sm bg-dark-50 dark:bg-dark-800 text-dark-500 dark:text-white ring-1 ring-inset ring-dark-300 dark:ring-dark-300 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400',
+      outline: 'bg-white dark:bg-dark-900 text-dark-500 dark:text-light-500 ring-1 ring-inset ring-pilot-100 dark:ring-pilot-800 focus:ring-1 focus:ring-pilot-500 dark:focus:ring-pilot-400',
     },
   },
   variant: {
-    outline: 'shadow-sm bg-transparent text-dark-500 dark:text-white ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
+    outline: 'bg-transparent text-dark-500 dark:text-light-500 ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-1 focus:ring-{color}-500 dark:focus:ring-{color}-400',
     none: 'bg-transparent focus:ring-0 focus:shadow-none',
   },
   icon: {
-    base: 'flex-shrink-0 text-dark-200 dark:text-dark-300',
+    base: 'flex-shrink-0',
+    inactive: 'text-dark-100 dark:text-light-900',
+    active: 'text-dark-500 dark:text-light-500',
     color: 'text-{color}-500 dark:text-{color}-400',
     size: {
-      '2xs': 'h-4 w-4',
-      'xs': 'h-4 w-4',
-      'sm': 'h-5 w-5',
-      'md': 'h-5 w-5',
-      'lg': 'h-5 w-5',
-      'xl': 'h-6 w-6',
+      '2xs': 'h-3 w-3',
+      'xs': 'h-3 w-3',
+      'sm': 'h-4 w-4',
+      'md': 'h-4 w-4',
+      'lg': 'h-4 w-4',
+      'xl': 'h-5 w-5',
     },
     leading: {
       wrapper: 'absolute inset-y-0 left-0 flex items-center',
       pointer: 'pointer-events-none',
       padding: {
-        '2xs': 'pl-2',
+        '2xs': 'pl-2.75',
         'xs': 'pl-2.5',
         'sm': 'pl-2.5',
         'md': 'pl-3',
@@ -130,7 +138,7 @@ export const input: Input = {
       wrapper: 'absolute inset-y-0 right-0 flex items-center',
       pointer: 'pointer-events-none',
       padding: {
-        '2xs': 'pr-2',
+        '2xs': 'pr-2.75',
         'xs': 'pr-2.5',
         'sm': 'pr-2.5',
         'md': 'pr-3',

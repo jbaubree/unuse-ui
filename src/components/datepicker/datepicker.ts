@@ -1,7 +1,7 @@
 export const datepicker = {
-  wrapper: 'w-325px',
+  wrapper: 'w-275px',
   header: {
-    wrapper: 'flex items-center justify-between border-b border-primary-200 px-3.5 py-2',
+    wrapper: 'flex items-center justify-between border-b border-pilot-200 px-3.5 py-2',
     space: 'space-x-1',
     previous: {
       icon: 'i-ph-caret-left',
@@ -12,14 +12,14 @@ export const datepicker = {
       rounded: 'rounded-full',
     },
   },
-  padding: 'p-3.5',
+  padding: 'p-2.5',
   day: {
-    disabled: 'px-2 py-1.5 text-center text-dark-300',
+    // disabled: 'text-11px px-2 py-1.5 text-center text-dark-300',
   },
   default: {
-    closeIcon: 'i-ph-x',
+    closeIcon: 'i-ph-x-bold',
     wrap: 'flex flex-wrap',
-    minHeight: 'min-h-170px',
+    minHeight: 'min-h-130px',
   },
   popper: {
     placement: 'auto',

@@ -19,7 +19,6 @@ import UFileUpload from './components/file-upload/UFileUpload.vue'
 import UFormGroup from './components/form-group/UFormGroup.vue'
 import UIcon from './components/icon/UIcon.vue'
 import UInput from './components/input/UInput.vue'
-import UKbd from './components/kbd/UKbd.vue'
 import ULinkCustom from './components/link/ULinkCustom.vue'
 import UDialog from './components/dialog/UDialog.vue'
 import UNav from './components/nav/UNav.vue'
@@ -60,7 +59,6 @@ const components = {
   UFormGroup,
   UIcon,
   UInput,
-  UKbd,
   ULinkCustom,
   UNav,
   UNotification,
@@ -97,7 +95,6 @@ declare module 'vue' {
     UFormGroup: typeof UFormGroup
     UIcon: typeof UIcon
     UInput: typeof UInput
-    UKbd: typeof UKbd
     ULinkCustom: typeof ULinkCustom
     UNav: typeof UNav
     UNotification: typeof UNotification
@@ -158,7 +155,6 @@ export {
   UFormGroup,
   UIcon,
   UInput,
-  UKbd,
   ULinkCustom,
   UNav,
   UNotification,

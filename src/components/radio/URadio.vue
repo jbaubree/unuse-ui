@@ -9,7 +9,6 @@ const props = withDefaults(defineProps<{
   name?: string
   isDisabled?: boolean
   isRequired?: boolean
-  help?: string
   label?: string
   ui?: DeepPartial<typeof appConfig.ui.radio>
 }>(), {
@@ -55,9 +54,6 @@ const config = computed(() => merge({}, useAppUi().radio, props.ui))
         <slot name="label">{{ label }}</slot>
         <span v-if="isRequired" :class="config.required">*</span>
       </label>
-      <p v-if="help" :class="config.help">
-        {{ help }}
-      </p>
     </div>
   </div>
 </template>

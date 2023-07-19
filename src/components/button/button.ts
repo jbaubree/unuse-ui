@@ -32,6 +32,7 @@ export interface Button {
 export const button = {
   base: 'outline-none focus:outline-none focus-visible:outline-0 flex-shrink-0 transition-colors',
   disabled: 'disabled:cursor-not-allowed disabled:opacity-20',
+  custom: '',
   font: 'font-base',
   rounded: 'rounded-5px',
   size: {
@@ -94,7 +95,7 @@ export const button = {
     silver: {
       outline: 'text-{color}-700 dark:text-{color}-400 hover:text-dark-500 hover:bg-{color}-500 dark:hover:bg-{color}-400 ring-1 ring-{color}-700 hover:ring-{color}-500 dark:ring-{color}-400',
       solid: 'text-dark-500 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-300 dark:disabled:bg-{color}-400',
-      soft: 'text-dark-500 dark:text-{color}-300 bg-{color}-50 hover:bg-{color}-100 dark:bg-{color}-950 dark:hover:bg-{color}-900',
+      soft: 'text-silver-600 dark:text-{color}-300 bg-{color}-50 hover:bg-{color}-100 dark:bg-{color}-950 dark:hover:bg-{color}-900',
       ghost: 'text-dark-500 dark:text-{color}-400 hover:bg-{color}-100 dark:hover:bg-{color}-900',
       link: 'text-{color}-600 dark:text-{color}-400 underline-offset-4 hover:underline',
     },

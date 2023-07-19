@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
   ui?: DeepPartial<typeof appConfig.ui.datepicker>
 }>(), {
   defaultStep: 'year',
-  icon: 'i-ph-calendar',
+  icon: 'i-ph-calendar-blank',
   popper: () => ({}),
   disabledTypes: () => [],
   days: () => DATEPICKER_DAYS,
@@ -170,7 +170,7 @@ onMounted(() => {
 <template>
   <UPopover :popper="popper">
     <slot>
-      <UButton :icon="icon" :label="label || date?.toLocaleDateString() || 'Select date'">
+      <UButton color="pilot" :icon="icon" :label="label || date?.toLocaleDateString() || 'Select date'">
         <template v-if="date && isClearable" #trailing>
           <UTooltip :text="clearLabel || 'Clear date'" :popper="{ placement: 'right' }" :ui="{ transition: config.tooltip.transition }">
             <UIcon :name="config.default.closeIcon" @click.stop="date = undefined" />
@@ -187,16 +187,16 @@ onMounted(() => {
               :is-disabled="currentSelection === 'year'"
               color="dark"
               variant="ghost"
-              size="xs"
-              :ui="{ disabled: 'disabled:hover:bg-transparent' }"
+              size="sm"
+              :ui="{ disabled: 'disabled:hover:bg-transparent', size: { xs: 'text-13px' } }"
               @click="onTitleClick()"
             />
             <div :class="config.header.space">
               <slot name="previous" :on-previous-button-click="onPreviousButtonClick">
-                <UButton color="primary" variant="soft" :icon="config.header.previous.icon" :ui="{ rounded: config.header.previous.rounded }" @click="onPreviousButtonClick()" />
+                <UButton color="pilot" variant="soft" size="sm" :icon="config.header.previous.icon" @click="onPreviousButtonClick()" />
               </slot>
               <slot name="next" :on-next-button-click="onNextButtonClick">
-                <UButton color="primary" variant="soft" :icon="config.header.next.icon" :ui="{ rounded: config.header.next.rounded }" @click="onNextButtonClick()" />
+                <UButton color="pilot" variant="soft" size="sm" :icon="config.header.next.icon" @click="onNextButtonClick()" />
               </slot>
             </div>
           </slot>
@@ -204,26 +204,47 @@ onMounted(() => {
         <div :class="config.padding">
           <template v-if="currentSelection === 'day'">
             <div :class="config.default.wrap">
-              <div v-for="day in days" :key="day" class="w-14.28%" :class="config.day.disabled">
-                {{ day.charAt(0) }}
+              <div v-for="day in days" :key="day" class="w-14.28% flex justify-center">
+                <UButton
+                  :label="day.charAt(0)"
+                  is-disabled
+                  color="pilot"
+                  variant="ghost"
+                  size="sm"
+                  :ui="{ disabled: 'disabled:hover:bg-transparent', size: { xs: 'text-13px' } }"
+                />
               </div>
             </div>
             <div :class="config.default.wrap">
-              <div v-for="blankday, index in lastBlankDays" :key="index" class="w-14.28%" :class="config.day.disabled">
-                {{ blankday }}
+              <div v-for="blankday, index in lastBlankDays" :key="index" class="w-14.28% flex justify-center">
+                <UButton
+                  :label="blankday.toString()"
+                  is-disabled
+                  color="dark"
+                  variant="ghost"
+                  size="sm"
+                  :ui="{ disabled: 'disabled:hover:bg-transparent disabled:opacity-20', size: { xs: 'text-13px' } }"
+                />
               </div>
               <div v-for="d in noOfDays" :key="d" class="w-14.28% flex items-center justify-center">
                 <slot name="item" :day="d" :on-day-click="onDayClick" :is-active="isSelectedDate(d)" :is-today="isToday(d)">
                   <UButton
                     :label="d.toString()"
-                    :color="isSelectedDate(d) || isToday(d) ? 'primary' : 'dark'"
+                    :color="isSelectedDate(d) || isToday(d) ? 'pilot' : 'dark'"
                     :variant="isSelectedDate(d) ? 'solid' : isToday(d) ? 'soft' : 'ghost'" size="xs"
                     @click="onDayClick($event, d, close)"
                   />
                 </slot>
               </div>
-              <div v-for="blankday, index in nextBlankDays" :key="index" class="w-14.28%" :class="config.day.disabled">
-                {{ blankday }}
+              <div v-for="blankday, index in nextBlankDays" :key="index" class="w-14.28% flex justify-center">
+                <UButton
+                  :label="blankday.toString()"
+                  is-disabled
+                  color="dark"
+                  variant="ghost"
+                  size="sm"
+                  :ui="{ disabled: 'disabled:hover:bg-transparent disabled:opacity-20', size: { xs: 'text-13px' } }"
+                />
               </div>
             </div>
           </template>
@@ -247,7 +268,7 @@ onMounted(() => {
                   :label="yearNumber.toString()"
                   color="dark"
                   variant="ghost"
-                  size="xs"
+                  size="sm"
                   @click="onYearClick($event, yearNumber, close)"
                 />
               </div>

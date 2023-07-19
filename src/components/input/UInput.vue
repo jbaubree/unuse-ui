@@ -55,7 +55,7 @@ const inputClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant as InputVariant] || config.value.variant[props.variant as InputVariant]
   return classNames(
     config.value.base,
-    config.value.rounded,
+    config.value.rounded[props.size],
     config.value.placeholder,
     config.value.size[props.size],
     props.isPadded ? config.value.padding[props.size] : 'p-0',
@@ -71,6 +71,7 @@ const leadingWrapperIconClass = computed(() => classNames(
 ))
 const leadingIconClass = computed(() => classNames(
   config.value.icon.base,
+  config.value.icon[modelValue.value ? 'active' : 'inactive'],
   Object.keys(appConfig.ui.colors).includes(props.color) && config.value.icon.color.replaceAll('{color}', props.color),
   config.value.icon.size[props.size],
   props.isLoading && 'animate-spin',
@@ -82,6 +83,7 @@ const trailingWrapperIconClass = computed(() => classNames(
 ))
 const trailingIconClass = computed(() => classNames(
   config.value.icon.base,
+  config.value.icon[modelValue.value ? 'active' : 'inactive'],
   Object.keys(appConfig.ui.colors).includes(props.color) && config.value.icon.color.replaceAll('{color}', props.color),
   config.value.icon.size[props.size],
   props.isLoading && !isLeading.value && 'animate-spin',
@@ -90,6 +92,9 @@ const trailingIconClass = computed(() => classNames(
 function autoFocus() {
   if (props.autofocus)
     input.value?.focus()
+}
+function onInput(event: Event) {
+  modelValue.value = (event.target as HTMLInputElement).value
 }
 
 onMounted(() => {
@@ -116,6 +121,7 @@ onMounted(() => {
       :class="inputClass"
       @focus="emit('focus', $event)"
       @blur="emit('blur', $event)"
+      @input="onInput"
     >
     <slot />
 

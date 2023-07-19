@@ -4,8 +4,8 @@ export const collapse = {
   wrapper: 'w-full flex flex-col gap-y-2',
   item: {
     base: '',
-    size: 'text-sm',
-    color: 'text-gray-500 dark:text-gray-400',
+    size: 'text-13px',
+    color: 'text-dark-500 dark:text-light-500',
     padding: 'py-2',
   },
   transition: {

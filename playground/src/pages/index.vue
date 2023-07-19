@@ -20,27 +20,24 @@ const dropdownItems = [
     },
   }], [{
     label: 'Edit',
-    icon: 'i-ph-note-pencil-bold',
-    shortcuts: ['E'],
+    icon: 'i-ph-note-pencil',
     onClick: () => {
       // eslint-disable-next-line no-console
       console.log('Edit')
     },
   }, {
     label: 'Duplicate',
-    icon: 'i-ph-copy-bold',
-    shortcuts: ['D'],
+    icon: 'i-ph-copy',
     isDisabled: true,
   }], [{
     label: 'Archive',
-    icon: 'i-ph-archive-box-bold',
+    icon: 'i-ph-archive-box',
   }, {
     label: 'Move',
-    icon: 'i-ph-arrow-right-bold',
+    icon: 'i-ph-arrow-right',
   }], [{
     label: 'Delete',
-    icon: 'i-ph-trash-bold',
-    shortcuts: ['⌘', 'D'],
+    icon: 'i-ph-trash',
   }],
 ]
 const currentPage = ref(1)
@@ -99,7 +96,6 @@ const methods = [{
   name: 'email',
   value: 'email',
   label: 'Email',
-  help: 'This is my prefered method',
 }, {
   name: 'sms',
   value: 'sms',
@@ -217,9 +213,9 @@ const date = ref()
           Content
         </UDialog>
         <UToggle v-model="isActive" label="Primary toggle" />
-        <UCheckbox v-model="isChecked" label="Primary checkbox" />
+        <UCheckbox v-model="isChecked" label="Primary checkbox" is-required />
         <UButton label="Primary button" trailing-icon="i-ph-phone" />
-        <UInput v-model="input" icon="i-ph-phone" type="number" />
+        <UInput v-model="input" placeholder="Coucou" icon="i-ph-phone" />
         <UFormGroup label="Phone" is-required error="Error">
           <UInput v-model="input" icon="i-ph-phone" type="number" />
         </UFormGroup>
@@ -300,7 +296,7 @@ const date = ref()
         <UCollapse :items="collapse" />
         <UButton label="Show toast" @click="toast.add({ title: 'Hello world!' })" />
         <UFileUpload v-model="files" is-multiple>
-          <UButton label="Upload" />
+          <UButton label="Upload" variant="outline" />
         </UFileUpload>
         <UVerticalNavigation :links="links" />
         <URadioGroup v-model="selectedPlan" :items="plans" />

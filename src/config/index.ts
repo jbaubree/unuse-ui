@@ -9,7 +9,6 @@ import { datepicker } from '../components/datepicker/datepicker'
 import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
 import { fileUpload } from '../components/file-upload/file-upload'
-import { kbd } from '../components/kbd/kbd'
 import { toggle } from '../components/toggle/toggle'
 import { input } from '../components/input/input'
 import { pagination } from '../components/pagination/pagination'
@@ -47,7 +46,6 @@ export const appConfig = {
     fileUpload,
     formGroup,
     input,
-    kbd,
     nav,
     notification,
     notifications,

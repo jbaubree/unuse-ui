@@ -39,6 +39,7 @@ const buttonClass = computed(() => {
     props.isPadded && isSquare.value ? config.value.square.padding[props.size] : config.value.padding[props.size],
     variant?.replaceAll('{color}', props.color),
     props.isBlock ? 'w-full flex justify-center items-center' : 'inline-flex items-center',
+    config.value.custom.replaceAll('{color}', props.color),
   )
 })
 const leadingIconClass = computed(() => classNames(

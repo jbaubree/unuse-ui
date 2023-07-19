@@ -6,13 +6,11 @@ import type { DeepPartial, PopperOptions } from '~/types'
 const props = withDefaults(defineProps<{
   text?: string
   prevent?: boolean
-  shortcuts?: string[]
   openDelay?: number
   closeDelay?: number
   popper?: PopperOptions
   ui?: DeepPartial<typeof appConfig.ui.tooltip>
 }>(), {
-  shortcuts: () => [],
   openDelay: 0,
   closeDelay: 0,
   popper: () => ({}),
@@ -66,13 +64,6 @@ function onMouseLeave() {
           <slot name="text">
             {{ text }}
           </slot>
-
-          <span v-if="shortcuts?.length" :class="config.shortcuts">
-            <span class="mx-1 text-dark-400 dark:text-dark-100">&middot;</span>
-            <UKbd v-for="shortcut of shortcuts" :key="shortcut" size="xs">
-              {{ shortcut }}
-            </Ukbd>
-          </span>
         </div>
       </Transition>
     </div>

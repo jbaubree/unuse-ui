@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
   ui?: DeepPartial<typeof appConfig.ui.nav>
 }>(), {
   size: () => useAppUi().nav.default.size,
-  color: 'primary',
+  color: 'pilot',
   ui: () => useAppUi().nav,
 })
 const modelValue = defineModel<string>({ required: true })
@@ -59,8 +59,8 @@ onMounted(() => {
       <div
         :class="[config.item.base,
                  config.size[props.size], index === activeItemIndex
-                   ? config.item.active.replaceAll('{color}', items[activeItemIndex]?.color || color)
-                   : config.item.inactive]"
+                   ? config.item.active
+                   : config.item.inactive.replaceAll('{color}', items[activeItemIndex]?.color || color)]"
       >
         <component :is="($slots.default as unknown) as string" />
       </div>

@@ -23,7 +23,6 @@ declare module 'vue' {
     UFormGroup: typeof import('./components/form-group/UFormGroup.vue')['default']
     UIcon: typeof import('./components/icon/UIcon.vue')['default']
     UInput: typeof import('./components/input/UInput.vue')['default']
-    UKbd: typeof import('./components/kbd/UKbd.vue')['default']
     ULinkCustom: typeof import('./components/link/ULinkCustom.vue')['default']
     UNav: typeof import('./components/nav/UNav.vue')['default']
     UNotification: typeof import('./components/notification/UNotification.vue')['default']
