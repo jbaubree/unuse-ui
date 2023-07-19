@@ -9,24 +9,21 @@ export interface Avatar {
   chipColor?: Color
   chipVariant?: string
   chipPosition?: string
-  ui?: DeepPartial<typeof appConfig.ui.checkbox>
+  ui?: DeepPartial<typeof appConfig.ui.avatar>
 }
 
 export const avatar = {
   wrapper: 'relative inline-flex items-center justify-center',
   background: 'bg-dark-50 dark:bg-dark-400',
   rounded: 'rounded-full',
-  placeholder: 'font-medium leading-none text-dark-500 dark:text-white truncate',
+  placeholder: 'font-base leading-none text-dark-500 dark:text-white truncate',
   size: {
-    '3xs': 'h-4 w-4 text-8px',
     '2xs': 'h-5 w-5 text-10px',
     'xs': 'h-6 w-6 text-11px',
     'sm': 'h-8 w-8 text-xs',
     'md': 'h-10 w-10 text-sm',
     'lg': 'h-12 w-12 text-base',
     'xl': 'h-14 w-14 text-lg',
-    '2xl': 'h-16 w-16 text-xl',
-    '3xl': 'h-20 w-20 text-2xl',
   } as Record<Size, string>,
   chip: {
     base: 'absolute block rounded-full ring-1 ring-white dark:ring-dark-500',
@@ -38,15 +35,12 @@ export const avatar = {
       'bottom-left': 'bottom-0 left-0',
     },
     size: {
-      '3xs': 'h-1 w-1',
       '2xs': 'h-1 w-1',
       'xs': 'h-1.5 w-1.5',
       'sm': 'h-2 w-2',
       'md': 'h-2.5 w-2.5',
       'lg': 'h-3 w-3',
       'xl': 'h-3.5 w-3.5',
-      '2xl': 'h-3.5 w-3.5',
-      '3xl': 'h-4 w-4',
     },
   },
   default: {

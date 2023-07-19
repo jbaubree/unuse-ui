@@ -14,6 +14,7 @@ const props = withDefaults(defineProps<Button>(), {
 })
 
 const slots = useSlots()
+const { primaryColor } = useAppTheme()
 
 const config = computed(() => merge({}, useAppUi().button, props.ui))
 const component = computed(() => props.to ? 'RouterLink' : 'button')
@@ -27,15 +28,15 @@ const isSquare = computed(() => props.isSquare || (!slots.default && !props.labe
 const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)
 const trailingIconName = computed(() => (props.isLoading && !isLeading.value) ? props.loadingIcon : props.trailingIcon || props.icon)
 const buttonClass = computed(() => {
-  const variant = config.value.color?.[props.color]?.[props.variant] || config.value.variant[props.variant]
+  const variant = config.value.color?.[props.color]?.[props.variant] || config.value.color?.[primaryColor.value]?.[props.variant] || config.value.variant[props.variant]
   return classNames(
     config.value.base,
     config.value.disabled,
     config.value.font,
-    config.value.rounded,
+    isSquare.value ? config.value.square.rounded : config.value.rounded,
     config.value.size[props.size],
     config.value.gap[props.size],
-    props.isPadded && config.value[isSquare.value ? 'square' : 'padding'][props.size],
+    props.isPadded && isSquare.value ? config.value.square.padding[props.size] : config.value.padding[props.size],
     variant?.replaceAll('{color}', props.color),
     props.isBlock ? 'w-full flex justify-center items-center' : 'inline-flex items-center',
   )

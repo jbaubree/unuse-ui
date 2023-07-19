@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UAvatar: typeof import('unuse-ui')['UAvatar']
     UBreadcrumb: typeof import('unuse-ui')['UBreadcrumb']
     UButton: typeof import('unuse-ui')['UButton']
     UCard: typeof import('unuse-ui')['UCard']

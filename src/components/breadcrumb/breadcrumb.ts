@@ -6,8 +6,8 @@ export interface BreadcrumbItem {
 export const breadcrumb = {
   wrapper: 'flex flex-wrap items-center gap-1',
   link: {
-    wrapper: 'text-sm',
-    active: 'text-{color}',
-    inactive: 'text-dark-500 dark:text-dark-100',
+    wrapper: 'text-13px',
+    active: 'text-dark-300 underline-offset-4 hover:underline',
+    inactive: 'text-dark-500 dark:text-light-500',
   },
 }

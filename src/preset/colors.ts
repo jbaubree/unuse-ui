@@ -270,9 +270,6 @@ const primary = {
 export const colors: Colors = {
   inherit: defaultColors.inherit,
   current: defaultColors.current,
-  transparent: defaultColors.transparent,
-  black: defaultColors.black,
-  white: defaultColors.white,
   bronze,
   fluo,
   gold,

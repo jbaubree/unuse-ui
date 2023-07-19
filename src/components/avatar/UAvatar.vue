@@ -42,7 +42,6 @@ watch(() => props.src, () => {
   <span :class="wrapperClass">
     <img v-if="url && !error" :class="avatarClass" :src="url" :alt="alt" :onerror="() => error = true">
     <span v-else-if="text || placeholder" :class="config.placeholder">{{ text || placeholder }}</span>
-
     <span v-if="chipColor" :class="chipClass" />
     <slot />
   </span>
