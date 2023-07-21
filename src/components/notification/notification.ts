@@ -6,24 +6,24 @@ import type { Color, DeepPartial, Size } from '~/types'
 export const notification = {
   wrapper: 'w-full pointer-events-auto',
   container: 'relative overflow-hidden',
-  title: 'text-sm font-medium text-gray-900 dark:text-white',
-  description: 'mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400',
-  background: 'bg-white dark:bg-gray-900',
-  shadow: 'shadow-lg',
-  rounded: 'rounded-lg',
-  padding: 'p-4',
-  ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
+  title: 'text-13px text-dark-500 dark:text-light-500',
+  description: 'text-11px text-dark-200 dark:text-light-700',
+  background: 'bg-white/10 dark:bg-black/10 backdrop-blur-30',
+  shadow: 'shadow',
+  rounded: 'rounded-5px',
+  padding: 'p-5',
+  ring: 'ring-1 ring-primary-500 dark:ring-primary-400',
   icon: {
     base: 'flex-shrink-0 w-5 h-5',
     color: 'text-{color}-500 dark:text-{color}-400',
   },
   avatar: {
     base: 'flex-shrink-0 self-center',
-    size: 'md' as Size,
+    size: 'sm' as Size,
   },
   progress: {
     base: 'absolute bottom-0 end-0 start-0 h-1',
-    background: 'bg-{color}-500 dark:bg-{color}-400',
+    background: 'bg-primary-500 dark:bg-primary-400',
   },
   transition: {
     enterActiveClass: 'transform ease-out duration-300 transition',
@@ -37,8 +37,8 @@ export const notification = {
     color: 'primary' as Color,
     icon: '',
     closeButton: {
-      icon: 'i-ph-x-bold',
-      color: 'gray' as ButtonColor,
+      icon: 'i-ph-x',
+      color: 'dark' as ButtonColor,
       variant: 'link' as ButtonVariant,
       padded: false,
     },
@@ -52,8 +52,8 @@ export const notification = {
 export const notifications = {
   wrapper: 'fixed flex flex-col justify-end z-[55]',
   position: 'bottom-0 end-0',
-  width: 'w-full sm:w-96',
-  container: 'px-4 sm:px-6 py-6 space-y-3 overflow-y-auto',
+  width: 'w-full sm:w-110',
+  container: 'px-4 py-10 sm:px-10 sm:py-15 space-y-3 overflow-y-auto',
 }
 
 export interface NotificationAction extends Partial<Button> {

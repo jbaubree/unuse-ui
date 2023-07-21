@@ -2,7 +2,7 @@ import type { RouteLocationRaw } from 'vue-router'
 import type { appConfig } from '~/config'
 import type { Color, DeepPartial, Size } from '~/types'
 
-export type ButtonColor = 'dark' | 'fluo'
+export type ButtonColor = 'dark' | 'fluo' | 'light'
 export type ButtonVariant = 'solid' | 'outline' | 'soft' | 'ghost' | 'link'
 
 export interface Button {
@@ -33,7 +33,7 @@ export const button = {
   base: 'outline-none focus:outline-none focus-visible:outline-0 flex-shrink-0 transition-colors',
   disabled: 'disabled:cursor-not-allowed disabled:opacity-20',
   custom: '',
-  font: 'font-base',
+  font: 'font-400',
   rounded: 'rounded-5px',
   size: {
     '2xs': 'text-10px',
@@ -106,6 +106,7 @@ export const button = {
       ghost: 'text-dark-500 dark:text-light-500 hover:bg-dark-50 dark:hover:bg-light-900',
       link: 'text-dark-600 dark:text-light-400 underline-offset-4 hover:underline',
     },
+    light: {},
   } as Record<ButtonColor, Partial<Record<ButtonVariant, string>>>,
   variant: {
     solid: 'text-white dark:text-dark-500 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-300 dark:disabled:bg-{color}-400',

@@ -4,22 +4,18 @@ import type { Size } from '~/types'
 export const pagination = {
   wrapper: 'flex items-center -space-x-px',
   base: '',
-  rounded: 'first:rounded-l-md last:rounded-r-md',
+  rounded: 'first:rounded-l-3px last:rounded-r-3px',
   default: {
-    size: 'sm' as Size,
-    activeButton: {
-      color: 'primary',
-    } as Partial<Button>,
-    inactiveButton: {
-      color: 'white',
-    } as Partial<Button>,
+    size: 'xs' as Size,
     prevButton: {
-      color: 'white',
-      icon: 'i-ph-caret-left-bold',
+      color: 'pilot',
+      variant: 'ghost',
+      icon: 'i-ph-caret-left',
     } as Partial<Button>,
     nextButton: {
-      color: 'white',
-      icon: 'i-ph-caret-right-bold',
+      color: 'pilot',
+      variant: 'ghost',
+      icon: 'i-ph-caret-right',
     } as Partial<Button>,
   },
 }

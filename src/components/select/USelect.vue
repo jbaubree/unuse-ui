@@ -98,7 +98,7 @@ const selectClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant as string] || config.value.variant[props.variant as string]
   return classNames(
     config.value.base,
-    config.value.rounded,
+    config.value.rounded[props.size],
     config.value.size[props.size],
     props.isPadded ? config.value.padding[props.size] : 'p-0',
     variant?.replaceAll('{color}', props.color),
@@ -124,7 +124,7 @@ const trailingWrapperIconClass = computed(() => classNames(
 ))
 const trailingIconClass = computed(() => classNames(
   config.value.icon.base,
-  Object.keys(appConfig.ui.colors).includes(props.color) && config.value.icon.color.replaceAll('{color}', props.color),
+  config.value.icon.color.replaceAll('{color}', 'pilot'),
   config.value.icon.size[props.size],
   props.isLoading && !isLeading.value && 'animate-spin',
 ))

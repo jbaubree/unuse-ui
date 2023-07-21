@@ -4,16 +4,16 @@ export type TagVariant = 'solid'
 
 export const tag = {
   base: 'inline-flex items-center',
-  rounded: 'rounded-md',
+  rounded: 'rounded-full',
   font: 'font-medium',
   size: {
-    xs: 'text-xs px-1.5 py-0.5',
-    sm: 'text-xs px-2 py-1',
-    md: 'text-sm px-2 py-1',
-    lg: 'text-sm px-2.5 py-1.5',
+    xs: 'text-11px px-1.5 py-0.5',
+    sm: 'text-13px px-2.5 py-1',
+    md: 'text-13px px-3 py-1.25',
+    lg: 'text-13px px-4 py-1.75',
   },
   variant: {
-    solid: 'bg-{color}-50 dark:bg-{color}-400 dark:bg-opacity-10 text-{color}-500 dark:text-{color}-400 ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 ring-opacity-10 dark:ring-opacity-20',
+    solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-500 dark:text-{color}-400',
   },
   default: {
     size: 'sm' as Size,

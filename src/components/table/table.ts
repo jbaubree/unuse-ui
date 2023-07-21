@@ -1,28 +1,26 @@
-import type { Button } from '~/components/button/button'
-
 export const table = {
   wrapper: 'relative overflow-auto',
   base: 'min-w-full table-fixed',
-  divide: 'divide-y divide-dark-300 dark:divide-dark-300',
+  divide: 'divide-y divide-pilot-50 dark:divide-pilot-950',
   thead: '',
-  tbody: 'divide-y divide-dark-200 dark:divide-dark-400',
+  tbody: 'divide-y divide-light-400 dark:divide-dark-600',
   tr: {
     base: '',
-    selected: 'bg-dark-50/25 dark:bg-dark-600/50',
+    selected: 'bg-light-200 dark:bg-dark-700',
   },
   th: {
     base: 'text-left',
-    padding: 'px-3 py-3.5',
-    color: 'text-dark-900 dark:text-white',
-    font: 'font-semibold',
-    size: 'text-sm',
+    padding: 'px-3 py-2.5',
+    color: 'text-dark-500 dark:text-light-500',
+    font: '',
+    size: 'text-13px',
   },
   td: {
     base: 'whitespace-nowrap',
     padding: 'px-3 py-4',
-    color: 'text-dark-500 dark:text-dark-200',
+    color: 'text-dark-500 dark:text-light-500',
     font: '',
-    size: 'text-sm',
+    size: 'text-13px',
   },
   emptyState: {
     wrapper: 'flex flex-col items-center justify-center flex-1 px-6 py-14 sm:px-14',
@@ -30,19 +28,23 @@ export const table = {
     icon: 'w-6 h-6 mx-auto text-dark-400 dark:text-dark-200 mb-4',
   },
   default: {
-    sortAscIcon: 'i-ph-arrow-line-up-bold',
-    sortDescIcon: 'i-ph-arrow-line-down-bold',
+    sortAscIcon: 'i-ph-arrow-line-up',
+    sortDescIcon: 'i-ph-arrow-line-down',
     sortButton: {
-      icon: 'i-ph-arrows-down-up-bold',
-      trailing: true,
-      square: true,
-      color: 'gray',
-      variant: 'ghost',
+      icon: 'i-ph-caret-up-down-bold',
+      isTrailing: true,
+      isSquare: true,
+      color: 'dark',
+      variant: 'link',
       class: '-m-1.5',
-    } as Button,
+      ui: {
+        icon: { size: { md: 'h-2.5 w-2.5' } },
+        color: { dark: { link: 'text-{color}-600 dark:text-{color}-400' } },
+      },
+    },
     emptyState: {
       icon: 'i-ph-database-bold',
-      label: 'No items.',
+      label: 'Aucun élément.',
     },
   },
 }

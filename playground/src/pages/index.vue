@@ -91,7 +91,7 @@ const people = [{
 }]
 const tableCheck = ref([people[1]])
 const textArea = ref('')
-const selected = ref<{ id: number; name: string; title: string; email: string; role: string }[]>([])
+const selected = ref<{ id: number; name: string; title: string; email: string; role: string }>()
 const methods = [{
   name: 'email',
   value: 'email',
@@ -131,34 +131,38 @@ const links = [{
   avatar: {
     src: 'https://avatars.githubusercontent.com/u/50230578?s=40&v=4',
   },
-  badge: 100,
+  tag: 100,
 }, {
   label: 'Installation',
-  icon: 'i-ph-house-bold',
+  icon: 'i-ph-house',
 }, {
   label: 'Vertical Navigation',
-  icon: 'i-ph-chart-bar-bold',
+  icon: 'i-ph-chart-bar',
   to: '/',
+  tag: 12,
+  isDisabled: true,
 }, {
   label: 'Command Palette',
-  icon: 'i-ph-terminal-window-bold',
+  icon: 'i-ph-terminal-window',
 }]
 const plans = [
   {
+    icon: 'i-ph-folder',
     title: 'Startup',
     subtitle: '12GB/6 CPUs - 160 GB SSD disk',
     value: '1',
   },
   {
+    icon: 'i-ph-folder',
     title: 'Business',
     subtitle: '16GB/8 CPUs - 512 GB SSD disk',
     value: '2',
   },
   {
+    icon: 'i-ph-folder',
     title: 'Enterprise',
     subtitle: '32GB/12 CPUs - 1024 GB SSD disk',
     value: '3',
-    isDisabled: true,
   },
 ]
 const selectedPlan = ref(plans[0])
@@ -167,7 +171,7 @@ const date = ref()
 
 <template>
   <div>
-    <div class="sticky top-0 z-10 w-full border-b border-dark-100 bg-white dark:border-dark-400 dark-bg-dark-900">
+    <div class="sticky top-0 z-30 w-full border-b border-dark-100 bg-white dark:border-dark-400 dark-bg-dark-900">
       <UContainer class="flex items-center justify-between py-2.5">
         <div class="mr-5 flex flex flex-wrap gap-2.5">
           <div
@@ -212,7 +216,9 @@ const date = ref()
         <UDialog v-model="isDialogOpen">
           Content
         </UDialog>
-        <UToggle v-model="isActive" label="Primary toggle" />
+        <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" size="sm" />
+        <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" />
+
         <UCheckbox v-model="isChecked" label="Primary checkbox" is-required />
         <UButton label="Primary button" trailing-icon="i-ph-phone" />
         <UInput v-model="input" placeholder="Coucou" icon="i-ph-phone" />
@@ -262,12 +268,7 @@ const date = ref()
           </UTooltip>
         </div>
         <UTextarea v-model="textArea" placeholder="I am a textarea" />
-        <USelectMenu v-model="selected" :options="people" is-multiple option-attribute="name" is-searchable is-creatable>
-          <template #label>
-            <span v-if="selected.length" class="truncate">{{ selected.map(s => s.name).join(', ') }}</span>
-            <span v-else>Select people</span>
-          </template>
-        </USelectMenu>
+        <USelectMenu v-model="selected" :options="people" option-attribute="name" is-searchable is-creatable />
         <div>
           <URadio v-for="method of methods" :key="method.name" v-model="radio" v-bind="method" />
         </div>
@@ -294,7 +295,14 @@ const date = ref()
           </template>
         </UCard>
         <UCollapse :items="collapse" />
-        <UButton label="Show toast" @click="toast.add({ title: 'Hello world!' })" />
+        <UButton
+          label="Show toast"
+          @click="toast.add({
+            title: 'Do you want to share it?',
+            icon: 'i-ph-check-circle',
+            color: 'success',
+          })"
+        />
         <UFileUpload v-model="files" is-multiple>
           <UButton label="Upload" variant="outline" />
         </UFileUpload>

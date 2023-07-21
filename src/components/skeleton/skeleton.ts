@@ -1,5 +1,5 @@
 export const skeleton = {
   base: 'animate-pulse',
-  background: 'bg-gray-100 dark:bg-gray-800',
-  rounded: 'rounded-md',
+  background: 'bg-light-300 dark:bg-dark-600',
+  rounded: 'rounded-5px',
 }

@@ -42,7 +42,7 @@ const textareaClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant] || config.value.variant[props.variant]
   return classNames(
     config.value.base,
-    config.value.rounded,
+    config.value.rounded[props.size],
     config.value.placeholder,
     config.value.size[props.size],
     props.isPadded ? config.value.padding[props.size] : 'p-0',

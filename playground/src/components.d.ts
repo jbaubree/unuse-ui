@@ -21,6 +21,7 @@ declare module 'vue' {
     UDropdown: typeof import('unuse-ui')['UDropdown']
     UFileUpload: typeof import('unuse-ui')['UFileUpload']
     UFormGroup: typeof import('unuse-ui')['UFormGroup']
+    UIcon: typeof import('unuse-ui')['UIcon']
     UInput: typeof import('unuse-ui')['UInput']
     UNav: typeof import('unuse-ui')['UNav']
     UNotifications: typeof import('unuse-ui')['UNotifications']

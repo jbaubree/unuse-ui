@@ -6,7 +6,7 @@ export const dialog = {
   base: 'relative text-left overflow-hidden sm:my-8 w-full flex flex-col',
   overlay: {
     base: 'fixed inset-0 transition-opacity',
-    background: 'bg-dark-500/70',
+    background: 'bg-light-500/70 dark:bg-dark-500/70',
     transition: {
       enter: 'ease-out duration-300',
       enterFrom: 'opacity-0',

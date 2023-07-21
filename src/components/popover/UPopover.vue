@@ -90,7 +90,7 @@ onMounted(() => {
 
     <div v-if="open" ref="rContainer" :class="[config.container, config.width]" @mouseover="onMouseOver">
       <Transition appear v-bind="config.transition">
-        <PopoverPanel :class="[config.base, config.background, config.ring, config.rounded, config.shadow]" static>
+        <PopoverPanel :class="[config.base, config.background, config.padding, config.ring, config.rounded, config.shadow]" static>
           <slot name="panel" :open="open" :close="close" />
         </PopoverPanel>
       </Transition>

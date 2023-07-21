@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<{
   rows: () => [],
   columnAttribute: 'label',
   sort: () => ({}),
-  sortButton: () => useAppUi().table.default.sortButton,
+  sortButton: () => useAppUi().table.default.sortButton as Button,
   sortAscIcon: () => useAppUi().table.default.sortAscIcon,
   sortDescIcon: () => useAppUi().table.default.sortDescIcon,
   emptyState: () => useAppUi().table.default.emptyState,
@@ -58,12 +58,6 @@ function isSelected(row) {
   return selected.value.some(item => compare(toRaw(item), toRaw(row)))
 }
 function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
-  const direction = !column.direction || column.direction === 'asc' ? 'desc' : 'asc'
-  if (sort.value.direction === direction)
-    sort.value = merge({}, { column: null, direction: 'asc' }, props.sort)
-  else
-    sort.value.direction = sort.value.direction === 'asc' ? 'desc' : 'asc'
-
   if (sort.value.column === column.key)
     sort.value.direction = sort.value.direction === 'asc' ? 'desc' : 'asc'
   else
@@ -77,16 +71,16 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
       <thead :class="config.thead">
         <tr :class="config.tr.base">
           <th v-if="modelValue" scope="col" class="pl-4">
-            <UCheckbox :checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
+            <UCheckbox :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
           </th>
           <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
             <slot :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
               <UButton
                 v-if="column.sortable"
-                v-bind="{ ...config.default.sortButton, ...sortButton }"
+                v-bind="{ ...sortButton }"
                 :icon="
                   (!sort.column || sort.column !== column.key)
-                    ? (sortButton.icon || config.default.sortButton.icon)
+                    ? config.default.sortButton.icon
                     : sort.direction === 'asc'
                       ? sortAscIcon
                       : sortDescIcon
@@ -94,7 +88,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
                 :label="column[columnAttribute]"
                 @click="onSort(column)"
               />
-              <span v-else>{{ column[columnAttribute] }}</span>
+              <span v-else class="font-400">{{ column[columnAttribute] }}</span>
             </slot>
           </th>
         </tr>

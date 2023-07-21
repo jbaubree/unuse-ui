@@ -49,7 +49,7 @@ const config = computed(() => merge({}, useAppUi().radio, props.ui))
         @blur="emit('blur', $event)"
       >
     </div>
-    <div v-if="label || slots.label" class="ml-3 text-sm">
+    <div v-if="label || slots.label" class="ml-2.5 text-13px">
       <label :for="`${name}-${value}`" :class="config.label">
         <slot name="label">{{ label }}</slot>
         <span v-if="isRequired" :class="config.required">*</span>

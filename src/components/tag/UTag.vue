@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
 
 const config = computed(() => merge({}, useAppUi().tag, props.ui))
 
-const badgeClass = computed(() => {
+const tagClass = computed(() => {
   const variant = config.value.variant[props.variant]
   return classNames(
     config.value.base,
@@ -33,7 +33,7 @@ const badgeClass = computed(() => {
 </script>
 
 <template>
-  <span :class="badgeClass">
+  <span :class="tagClass">
     <slot>{{ label }}</slot>
   </span>
 </template>

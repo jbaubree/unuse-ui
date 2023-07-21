@@ -84,7 +84,7 @@ onUnmounted(() => {
     <div :class="[config.wrapper, config.background, config.rounded, config.shadow]" @mouseover="onMouseover" @mouseleave="onMouseleave">
       <div :class="[config.container, config.rounded, config.ring]">
         <div :class="config.padding">
-          <div class="flex gap-3" :class="{ 'items-start': description, 'items-center': !description }">
+          <div class="flex items-center gap-3">
             <UIcon v-if="!!icon" :name="icon" :class="iconClass" />
             <UAvatar v-if="avatar" v-bind="{ size: config.avatar.size, ...avatar }" :class="config.avatar.base" />
             <div class="w-0 flex-1">
@@ -94,12 +94,12 @@ onUnmounted(() => {
               <p v-if="description" :class="config.description">
                 {{ description }}
               </p>
-              <div v-if="description && actions.length" class="mt-3 flex items-center gap-2">
+              <div v-if="description && actions.length" class="mt-2.5 flex items-center gap-2.5">
                 <UButton v-for="(action, index) of actions" :key="index" v-bind="{ ...config.default.actionButton, ...action }" @click.stop="onAction(action)" />
               </div>
             </div>
             <div class="flex flex-shrink-0 items-center gap-3">
-              <div v-if="!description && actions.length" class="flex items-center gap-2">
+              <div v-if="!description && actions.length" class="flex items-center gap-2.5">
                 <UButton v-for="(action, index) of actions" :key="index" v-bind="{ ...config.default.actionButton, ...action }" @click.stop="onAction(action)" />
               </div>
               <UButton v-if="closeButton" v-bind="{ ...config.default.closeButton, ...closeButton }" @click.stop="onClose" />

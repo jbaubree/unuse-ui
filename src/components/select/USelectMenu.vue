@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { merge } from 'lodash-es'
-import { appConfig } from '~/config'
+import type { appConfig } from '~/config'
 import type { Color, DeepPartial, PopperOptions, Size } from '~/types'
 import type { InputColor, InputVariant } from '~/components/input/input'
 import { classNames } from '~/utils'
@@ -41,8 +41,9 @@ const props = withDefaults(defineProps<{
   loadingIcon: () => useAppUi().input.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
   selectedIcon: () => useAppUi().selectMenu.default.selectedIcon,
-  searchablePlaceholder: 'Search...',
+  searchablePlaceholder: 'Rechercher...',
   optionAttribute: 'label',
+  placeholder: 'Sélectionner',
   isPadded: true,
   size: () => useAppUi().select.default.size,
   color: () => useAppUi().select.default.color,
@@ -83,7 +84,7 @@ const selectMenuClass = computed(() => {
   const variant = configSelect.value.color?.[props.color]?.[props.variant] || configSelect.value.variant[props.variant]
   return classNames(
     configSelect.value.base,
-    configSelect.value.rounded,
+    configSelect.value.rounded[props.size],
     'text-left cursor-default',
     configSelect.value.size[props.size],
     configSelect.value.gap[props.size],
@@ -101,7 +102,7 @@ const leadingWrapperIconClass = computed(() => classNames(
 ))
 const leadingIconClass = computed(() => classNames(
   configSelect.value.icon.base,
-  Object.keys(appConfig.ui.colors).includes(props.color) && configSelect.value.icon.color.replaceAll('{color}', props.color),
+  configSelect.value.icon.color.replaceAll('{color}', 'pilot'),
   configSelect.value.icon.size[props.size],
   props.isLoading && 'animate-spin',
 ))
@@ -112,7 +113,7 @@ const trailingWrapperIconClass = computed(() => classNames(
 ))
 const trailingIconClass = computed(() => classNames(
   configSelect.value.icon.base,
-  Object.keys(appConfig.ui.colors).includes(props.color) && configSelect.value.icon.color.replaceAll('{color}', props.color),
+  configSelect.value.icon.color.replaceAll('{color}', 'pilot'),
   configSelect.value.icon.size[props.size],
   props.isLoading && !isLeading.value && 'animate-spin',
 ))
@@ -182,8 +183,16 @@ watch(container, value => value ? emit('open') : emit('close'))
             </slot>
           </span>
           <slot name="label">
-            <span v-if="isMultiple && Array.isArray(modelValue) && modelValue.length" class="block truncate">{{ modelValue.length }} selected</span>
-            <span v-else-if="!isMultiple && modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>
+            <div
+              v-if="isMultiple && Array.isArray(modelValue) && modelValue.length"
+              class="space-x-1"
+            >
+              <UTag v-for="selected, index in modelValue" :key="index" color="pilot" class="gap-1">
+                {{ selected.name }}
+                <UIcon class="cursor-pointer" name="i-ph-x" @click="modelValue.splice(index, 1)" />
+              </UTag>
+            </div>
+            <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>
             <span v-else class="block truncate" :class="config.placeholder">{{ placeholder || '&nbsp;' }}</span>
           </slot>
           <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
@@ -217,24 +226,26 @@ watch(container, value => value ? emit('open') : emit('close'))
             :value="option"
             :disabled="option.isDisabled"
           >
-            <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
-              <div :class="config.option.container">
-                <slot name="option" :option="option" :is-active="active" :selected="selected">
-                  <UIcon v-if="option.icon" :name="option.icon" :class="[config.option.icon.base, active ? config.option.icon.active : config.option.icon.inactive, option.iconClass]" aria-hidden="true" />
-                  <UAvatar
-                    v-else-if="option.avatar"
-                    v-bind="{ size: config.option.avatar.size, ...option.avatar }"
-                    :class="config.option.avatar.base"
-                    aria-hidden="true"
-                  />
-                  <span v-else-if="option.chip" :class="config.option.chip.base" :style="{ background: `#${option.chip}` }" />
-                  <span class="truncate">{{ typeof option === 'string' ? option : option[optionAttribute] }}</span>
-                </slot>
-              </div>
-              <span v-if="selected" :class="[config.option.selectedIcon.wrapper, config.option.selectedIcon.padding]">
-                <UIcon :name="selectedIcon" :class="config.option.selectedIcon.base" aria-hidden="true" />
-              </span>
-            </li>
+            <div :class="config.option.wrapper">
+              <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
+                <div :class="config.option.container">
+                  <slot name="option" :option="option" :is-active="active" :selected="selected">
+                    <UIcon v-if="option.icon" :name="option.icon" :class="[config.option.icon.base, active ? config.option.icon.active : config.option.icon.inactive, option.iconClass]" aria-hidden="true" />
+                    <UAvatar
+                      v-else-if="option.avatar"
+                      v-bind="{ size: config.option.avatar.size, ...option.avatar }"
+                      :class="config.option.avatar.base"
+                      aria-hidden="true"
+                    />
+                    <span v-else-if="option.chip" :class="config.option.chip.base" :style="{ background: `#${option.chip}` }" />
+                    <span class="truncate">{{ typeof option === 'string' ? option : option[optionAttribute] }}</span>
+                  </slot>
+                </div>
+                <span v-if="selected" :class="[config.option.selectedIcon.wrapper, config.option.selectedIcon.padding]">
+                  <UIcon :name="selectedIcon" :class="[config.option.selectedIcon.base, config.option.selectedIcon.color]" aria-hidden="true" />
+                </span>
+              </li>
+            </div>
           </component>
           <component :is="isSearchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive]">

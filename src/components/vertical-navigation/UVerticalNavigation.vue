@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
     iconClass?: string
     avatar?: Avatar
     onClick?: () => void
-    badge?: string | number
+    tag?: string | number
   }[]
   ui?: DeepPartial<typeof appConfig.ui.verticalNavigation>
 }>(), {
@@ -31,7 +31,7 @@ const config = computed(() => merge({}, useAppUi().verticalNavigation, props.ui)
       v-for="(link, index) of links"
       v-slot="{ isActive }"
       :key="index"
-      v-bind="omit(link, ['label', 'icon', 'iconClass', 'avatar', 'badge', 'click'])"
+      v-bind="omit(link, ['label', 'icon', 'iconClass', 'avatar', 'tag', 'click'])"
       :class="[config.base, config.padding, config.width, config.ring, config.rounded, config.font, config.size]"
       :active-class="config.active"
       :inactive-class="config.inactive"
@@ -55,9 +55,9 @@ const config = computed(() => merge({}, useAppUi().verticalNavigation, props.ui)
       <slot :link="link">
         <span v-if="link.label" :class="config.label">{{ link.label }}</span>
       </slot>
-      <slot name="badge" :link="link" :is-active="isActive">
-        <span v-if="link.badge" :class="[config.badge.base, isActive ? config.badge.active : config.badge.inactive]">
-          {{ link.badge }}
+      <slot name="tag" :link="link" :is-active="isActive">
+        <span v-if="link.tag" :class="[config.tag.base, isActive ? config.tag.active : config.tag.inactive]">
+          {{ link.tag }}
         </span>
       </slot>
     </ULinkCustom>
