@@ -39,35 +39,38 @@ function onClickNext() {
 
 <template>
   <div :class="config.wrapper">
-    <slot name="prev" :on-click="onClickPrev">
-      <UButton
-        v-if="prevButton"
-        :size="size"
-        :disabled="!canGoPrev"
-        :class="[config.base, config.rounded]"
-        v-bind="{ ...config.default.prevButton, ...prevButton }"
-        :ui="{
-          variant: { ghost: 'text-dark-500 dark:text-light-500 hover:bg-{color}-100 dark:hover:bg-{color}-900' },
-          square: { rounded: '' },
-          custom: 'ring-1 ring-inset ring-pilot-100 dark:ring-pilot-900',
-        }"
-        @click="onClickPrev"
-      />
-    </slot>
-    <slot name="next" :on-click="onClickNext">
-      <UButton
-        v-if="nextButton"
-        :size="size"
-        :disabled="!canGoNext"
-        :class="[config.base, config.rounded]"
-        v-bind="{ ...config.default.nextButton, ...nextButton }"
-        :ui="{
-          variant: { ghost: 'text-dark-500 dark:text-light-500 hover:bg-{color}-100 dark:hover:bg-{color}-900' },
-          square: { rounded: '' },
-          custom: 'ring-1 ring-inset ring-pilot-100 dark:ring-pilot-900',
-        }"
-        @click="onClickNext"
-      />
-    </slot>
+    <span :class="config.label">{{ ((currentPage - 1) * perPage) + 1 }}-{{ currentPage * perPage }} sur {{ total }}</span>
+    <div :class="config.btnWrapper">
+      <slot name="prev" :on-click="onClickPrev">
+        <UButton
+          v-if="prevButton"
+          :size="size"
+          :disabled="!canGoPrev"
+          :class="[config.base, config.rounded]"
+          v-bind="{ ...config.default.prevButton, ...prevButton }"
+          :ui="{
+            variant: { ghost: 'text-dark-500 dark:text-light-500 hover:bg-{color}-100 dark:hover:bg-{color}-900' },
+            square: { rounded: '' },
+            custom: 'ring-1 ring-inset ring-pilot-100 dark:ring-pilot-900',
+          }"
+          @click="onClickPrev"
+        />
+      </slot>
+      <slot name="next" :on-click="onClickNext">
+        <UButton
+          v-if="nextButton"
+          :size="size"
+          :disabled="!canGoNext"
+          :class="[config.base, config.rounded]"
+          v-bind="{ ...config.default.nextButton, ...nextButton }"
+          :ui="{
+            variant: { ghost: 'text-dark-500 dark:text-light-500 hover:bg-{color}-100 dark:hover:bg-{color}-900' },
+            square: { rounded: '' },
+            custom: 'ring-1 ring-inset ring-pilot-100 dark:ring-pilot-900',
+          }"
+          @click="onClickNext"
+        />
+      </slot>
+    </div>
   </div>
 </template>
