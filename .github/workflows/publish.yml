@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 18.x
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install -r
       - run: pnpm build
       - run: pnpm dlx changelogithub
         env:
