@@ -1,0 +1,32 @@
+name: CI publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm build
+      - run: pnpm dlx changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GTB_TOKEN }}
+      - run: npm config set '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'
+      - run: npm publish --no-git-checks  --access public
