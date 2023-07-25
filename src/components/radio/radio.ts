@@ -9,7 +9,7 @@ export const radioGroup = {
   wrapper: 'relative w-full',
   space: 'space-y-2.5',
   selectedIcon: {
-    wrapper: 'flex items-center justify-center bg-{color}-500 dark:bg-{color}-400',
+    wrapper: 'flex items-center justify-center bg-dark-500 dark:bg-light-500',
     padding: 'p-1.5',
     rounded: 'rounded-full',
     base: 'h-2.5 w-2.5 text-light-500 dark:text-dark-500 flex-shrink-0',
