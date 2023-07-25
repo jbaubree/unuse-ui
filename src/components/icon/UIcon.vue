@@ -3,5 +3,5 @@ defineProps<{ name?: string }>()
 </script>
 
 <template>
-  <span :class="name" />
+  <span :class="name" class="transition-all" />
 </template>
