@@ -27,7 +27,6 @@
     "build:lib": "vite build",
     "build:docs": "vitepress build docs",
     "lint": "eslint . --max-warnings 0",
-    "postinstall": "npx simple-git-hooks",
     "release": "bumpp --commit --push --tag",
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -r -I"
