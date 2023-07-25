@@ -139,6 +139,7 @@ const plugin = {
 
 export * from './types'
 export * from './preset'
+export * from './resolvers'
 
 export {
   UAvatar,
