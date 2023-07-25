@@ -73,8 +73,8 @@ export const input: Input = {
     'xl': 'gap-x-2',
   },
   padding: {
-    '2xs': 'p-2',
-    'xs': 'p-2.5',
+    '2xs': 'px-2 py-1',
+    'xs': 'p-2',
     'sm': 'p-2.5',
     'md': 'p-3',
     'lg': 'px-5 py-4',
@@ -148,7 +148,7 @@ export const input: Input = {
     },
   },
   default: {
-    size: 'sm',
+    size: '2xs',
     color: 'white',
     variant: 'outline',
     loadingIcon: 'i-ph-spinner-gap-bold',
