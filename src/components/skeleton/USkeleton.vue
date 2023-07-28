@@ -13,5 +13,7 @@ const config = computed(() => merge({}, useAppUi().skeleton, props.ui))
 </script>
 
 <template>
-  <div :class="[config.base, config.background, config.rounded]" />
+  <div :class="[config.base, config.background, config.rounded]">
+    <slot />
+  </div>
 </template>
