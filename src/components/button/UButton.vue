@@ -28,7 +28,7 @@ const isSquare = computed(() => props.isSquare || (!slots.default && !props.labe
 const leadingIconName = computed(() => props.isLoading ? props.loadingIcon : props.leadingIcon || props.icon)
 const trailingIconName = computed(() => (props.isLoading && !isLeading.value) ? props.loadingIcon : props.trailingIcon || props.icon)
 const buttonClass = computed(() => {
-  const variant = config.value.color?.[props.color]?.[props.variant] || config.value.color?.[primaryColor.value]?.[props.variant] || config.value.variant[props.variant]
+  const variant = config.value.color?.[props.color]?.[props.variant] || (props.color === 'primary' && config.value.color?.[primaryColor.value]?.[props.variant]) || config.value.variant[props.variant]
   return classNames(
     config.value.base,
     config.value.disabled,

@@ -20,7 +20,7 @@ const { primaryColor } = useAppTheme()
 
 const config = computed(() => merge({}, useAppUi().text, props.ui))
 const buttonClass = computed(() => {
-  const color = config.value.color?.[props.color] || config.value.color?.[primaryColor.value] || config.value.color.default
+  const color = config.value.color?.[props.color] || (props.color === 'primary' && config.value.color?.[primaryColor.value]) || config.value.color.default
   return classNames(
     color.replaceAll('{color}', props.color),
     config.value.color.base,
