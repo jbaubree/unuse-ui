@@ -36,7 +36,7 @@ const buttonClass = computed(() => {
     isSquare.value ? config.value.square.rounded : config.value.rounded,
     config.value.size[props.size],
     config.value.gap[props.size],
-    props.isPadded && isSquare.value ? config.value.square.padding[props.size] : config.value.padding[props.size],
+    props.isPadded && (isSquare.value ? config.value.square.padding[props.size] : config.value.padding[props.size]),
     variant?.replaceAll('{color}', props.color),
     props.isBlock ? 'w-full flex justify-center items-center' : 'inline-flex items-center',
     config.value.custom.replaceAll('{color}', props.color),
