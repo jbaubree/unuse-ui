@@ -23,6 +23,7 @@ import { skeleton } from '../components/skeleton/skeleton'
 import { slider } from '../components/slider/slider'
 import { table } from '../components/table/table'
 import { tag } from '../components/tag/tag'
+import { text } from '../components/text/text'
 import { textarea } from '../components/textarea/textarea'
 import { tooltip } from '../components/tooltip/tooltip'
 import { verticalNavigation } from '../components/vertical-navigation/vertical-navigation'
@@ -58,6 +59,7 @@ export const appConfig = {
     slider,
     table,
     tag,
+    text,
     textarea,
     tooltip,
     pagination,

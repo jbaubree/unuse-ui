@@ -194,6 +194,7 @@ const date = ref()
     </div>
     <UContainer class="py-5">
       <div class="flex flex-col items-center justify-center gap-5">
+        <UText label="I'm a text" color="primary" />
         <div class="flex flex-col gap-1">
           <div class="font-100">
             Font 100

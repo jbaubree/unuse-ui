@@ -34,6 +34,7 @@ import USkeleton from './components/skeleton/USkeleton.vue'
 import USlider from './components/slider/USlider.vue'
 import UTable from './components/table/UTable.vue'
 import UTag from './components/tag/UTag.vue'
+import UText from './components/text/UText.vue'
 import UTextarea from './components/textarea/UTextarea.vue'
 import UToggle from './components/toggle/UToggle.vue'
 import UTooltip from './components/tooltip/UTooltip.vue'
@@ -73,6 +74,7 @@ const components = {
   USlider,
   UTable,
   UTag,
+  UText,
   UTextarea,
   UToggle,
   UTooltip,
@@ -109,6 +111,7 @@ declare module 'vue' {
     USlider: typeof USlider
     UTable: typeof UTable
     UTag: typeof UTag
+    UText: typeof UText
     UTextarea: typeof UTextarea
     UToggle: typeof UToggle
     UTooltip: typeof UTooltip
@@ -170,6 +173,7 @@ export {
   USlider,
   UTable,
   UTag,
+  UText,
   UTextarea,
   UToggle,
   UTooltip,

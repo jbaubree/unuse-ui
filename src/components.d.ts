@@ -37,6 +37,7 @@ declare module 'vue' {
     USlider: typeof import('./components/slider/USlider.vue')['default']
     UTable: typeof import('./components/table/UTable.vue')['default']
     UTag: typeof import('./components/tag/UTag.vue')['default']
+    UText: typeof import('./components/text/UText.vue')['default']
     UTextarea: typeof import('./components/textarea/UTextarea.vue')['default']
     UToggle: typeof import('./components/toggle/UToggle.vue')['default']
     UTooltip: typeof import('./components/tooltip/UTooltip.vue')['default']
