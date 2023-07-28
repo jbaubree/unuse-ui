@@ -5,6 +5,6 @@ export const formGroup = {
     base: 'block text-13px text-dark-500 dark:text-light-500',
     required: 'after:content-[\'*\'] after:ml-0.5 after:text-red-500 dark:after:text-red-400',
   },
-  container: 'mt-1 relative',
+  container: 'mt-1 relative table-caption',
   error: 'mt-1.25 text-xs text-red-500 dark:text-red-400',
 }

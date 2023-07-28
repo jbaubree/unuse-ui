@@ -24,7 +24,7 @@ const config = computed(() => merge({}, useAppUi().formGroup, props.ui))
         {{ label }}
       </label>
     </div>
-    <div :class="{ [config.container]: !!label }">
+    <div :class="config.container">
       <slot />
       <p v-if="error" :class="config.error">
         {{ error }}
