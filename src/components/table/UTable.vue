@@ -97,7 +97,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
           <td v-if="selected" class="pl-4">
             <UCheckbox v-model="selected" :value="row" />
           </td>
-          <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size]">
+          <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size, column.class]">
             <slot :name="`${column.key}-data`" :column="column" :row="row">
               {{ row[column.key] }}
             </slot>
