@@ -8,7 +8,6 @@ import type { DeepPartial } from '~/types'
 interface Sort { column?: string; direction?: 'asc' | 'desc' }
 
 const props = withDefaults(defineProps<{
-  modelValue?: any[]
   sortBy?: string | ((a: unknown, b: unknown) => void)
   rows?: { [key: string]: any }[]
   columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
@@ -30,7 +29,7 @@ const props = withDefaults(defineProps<{
   emptyState: () => useAppUi().table.default.emptyState,
   ui: () => useAppUi().table,
 })
-const selected = defineModel<any[]>({ default: [] })
+const selected = defineModel<any[]>()
 
 const sort = ref<Sort>(merge({}, { column: null, direction: 'asc' }, props.sort))
 
@@ -70,7 +69,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
     <table :class="[config.base, config.divide]">
       <thead :class="config.thead">
         <tr :class="config.tr.base">
-          <th v-if="modelValue" scope="col" class="pl-4">
+          <th v-if="selected" scope="col" class="pl-4">
             <UCheckbox :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
           </th>
           <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
@@ -95,7 +94,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
       </thead>
       <tbody :class="config.tbody">
         <tr v-for="(row, index) in rows" :key="index" :class="[config.tr.base, isSelected(row) && config.tr.selected]">
-          <td v-if="modelValue" class="pl-4">
+          <td v-if="selected" class="pl-4">
             <UCheckbox v-model="selected" :value="row" />
           </td>
           <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size]">
