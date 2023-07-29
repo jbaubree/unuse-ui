@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
   ui?: DeepPartial<typeof appConfig.ui.formGroup>
 }>(), {
   ui: () => useAppUi().formGroup,
-  icon: 'i-ph-check-bold',
+  icon: 'icon-ph-check-bold',
 })
 
 const config = computed(() => merge({}, useAppUi().formGroup, props.ui))

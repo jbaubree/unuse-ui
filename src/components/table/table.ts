@@ -28,10 +28,10 @@ export const table = {
     icon: 'w-6 h-6 mx-auto text-dark-400 dark:text-dark-200 mb-4',
   },
   default: {
-    sortAscIcon: 'i-ph-arrow-line-up',
-    sortDescIcon: 'i-ph-arrow-line-down',
+    sortAscIcon: 'icon-ph-arrow-line-up',
+    sortDescIcon: 'icon-ph-arrow-line-down',
     sortButton: {
-      icon: 'i-ph-caret-up-down-bold',
+      icon: 'icon-ph-caret-up-down-bold',
       isTrailing: true,
       isSquare: true,
       color: 'dark',
@@ -43,7 +43,7 @@ export const table = {
       },
     },
     emptyState: {
-      icon: 'i-ph-database-bold',
+      icon: 'icon-ph-database-bold',
       label: 'Aucun élément.',
     },
   },

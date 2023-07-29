@@ -189,7 +189,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             >
               <UTag v-for="selected, index in modelValue" :key="index" color="pilot" class="gap-1">
                 {{ selected.name }}
-                <UIcon class="cursor-pointer" name="i-ph-x" @click="modelValue.splice(index, 1)" />
+                <UIcon class="cursor-pointer" name="icon-ph-x" @click="modelValue.splice(index, 1)" />
               </UTag>
             </div>
             <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>

@@ -13,7 +13,7 @@ export const collapse = {
     leaveActiveClass: 'overflow-hidden transition-height duration-200 ease-out',
   },
   default: {
-    openIcon: 'i-ph-caret-down-bold',
+    openIcon: 'icon-ph-caret-down-bold',
     closeIcon: '',
     variant: 'soft' as ButtonVariant,
   },

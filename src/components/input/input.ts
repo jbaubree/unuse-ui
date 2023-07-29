@@ -151,6 +151,6 @@ export const input: Input = {
     size: '2xs',
     color: 'white',
     variant: 'outline',
-    loadingIcon: 'i-ph-spinner-gap-bold',
+    loadingIcon: 'icon-ph-spinner-gap-bold',
   },
 }

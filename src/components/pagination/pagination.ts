@@ -12,12 +12,12 @@ export const pagination = {
     prevButton: {
       color: 'pilot',
       variant: 'ghost',
-      icon: 'i-ph-caret-left',
+      icon: 'icon-ph-caret-left',
     } as Partial<Button>,
     nextButton: {
       color: 'pilot',
       variant: 'ghost',
-      icon: 'i-ph-caret-right',
+      icon: 'icon-ph-caret-right',
     } as Partial<Button>,
   },
 }

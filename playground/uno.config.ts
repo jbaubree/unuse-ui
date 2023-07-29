@@ -8,6 +8,7 @@ export default defineConfig({
     presetUnuse(),
     presetForms(),
     presetIcons({
+      prefix: 'icon-',
       scale: 1,
       warn: true,
     }),

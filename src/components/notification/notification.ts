@@ -37,7 +37,7 @@ export const notification = {
     color: 'primary' as Color,
     icon: '',
     closeButton: {
-      icon: 'i-ph-x',
+      icon: 'icon-ph-x',
       color: 'dark' as ButtonColor,
       variant: 'link' as ButtonVariant,
       padded: false,

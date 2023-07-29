@@ -36,6 +36,6 @@ export const radioGroup = {
     },
   },
   default: {
-    selectedIcon: 'i-ph-check-bold',
+    selectedIcon: 'icon-ph-check-bold',
   },
 }

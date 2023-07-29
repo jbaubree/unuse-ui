@@ -130,6 +130,6 @@ export const button = {
     size: 'md' as Size,
     variant: 'solid' as ButtonVariant,
     color: 'primary' as Color | ButtonColor,
-    loadingIcon: 'i-ph-spinner-gap-bold',
+    loadingIcon: 'icon-ph-spinner-gap-bold',
   },
 }

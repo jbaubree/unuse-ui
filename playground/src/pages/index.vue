@@ -20,24 +20,24 @@ const dropdownItems = [
     },
   }], [{
     label: 'Edit',
-    icon: 'i-ph-note-pencil',
+    icon: 'icon-ph-note-pencil',
     onClick: () => {
       // eslint-disable-next-line no-console
       console.log('Edit')
     },
   }, {
     label: 'Duplicate',
-    icon: 'i-ph-copy',
+    icon: 'icon-ph-copy',
     isDisabled: true,
   }], [{
     label: 'Archive',
-    icon: 'i-ph-archive-box',
+    icon: 'icon-ph-archive-box',
   }, {
     label: 'Move',
-    icon: 'i-ph-arrow-right',
+    icon: 'icon-ph-arrow-right',
   }], [{
     label: 'Delete',
-    icon: 'i-ph-trash',
+    icon: 'icon-ph-trash',
   }],
 ]
 const currentPage = ref(1)
@@ -108,21 +108,21 @@ const methods = [{
 const radio = ref('sms')
 const collapse = [{
   label: 'Getting Started',
-  icon: 'i-ph-info-bold',
+  icon: 'icon-ph-info-bold',
   isDefaultOpen: true,
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Installation',
-  icon: 'i-ph-download-bold',
+  icon: 'icon-ph-download-bold',
   isDisabled: true,
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Theming',
-  icon: 'i-ph-eyedropper-bold',
+  icon: 'icon-ph-eyedropper-bold',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }, {
   label: 'Layouts',
-  icon: 'i-ph-layout-bold',
+  icon: 'icon-ph-layout-bold',
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.',
 }]
 const files = ref([])
@@ -134,32 +134,32 @@ const links = [{
   tag: 100,
 }, {
   label: 'Installation',
-  icon: 'i-ph-house',
+  icon: 'icon-ph-house',
 }, {
   label: 'Vertical Navigation',
-  icon: 'i-ph-chart-bar',
+  icon: 'icon-ph-chart-bar',
   to: '/',
   tag: 12,
   isDisabled: true,
 }, {
   label: 'Command Palette',
-  icon: 'i-ph-terminal-window',
+  icon: 'icon-ph-terminal-window',
 }]
 const plans = [
   {
-    icon: 'i-ph-folder',
+    icon: 'icon-ph-folder',
     title: 'Startup',
     subtitle: '12GB/6 CPUs - 160 GB SSD disk',
     value: '1',
   },
   {
-    icon: 'i-ph-folder',
+    icon: 'icon-ph-folder',
     title: 'Business',
     subtitle: '16GB/8 CPUs - 512 GB SSD disk',
     value: '2',
   },
   {
-    icon: 'i-ph-folder',
+    icon: 'icon-ph-folder',
     title: 'Enterprise',
     subtitle: '32GB/12 CPUs - 1024 GB SSD disk',
     value: '3',
@@ -189,7 +189,7 @@ const date = ref()
             <div class="min-h-4 min-w-4 rounded-full" :class="`bg-${color}-400`" />
           </div>
         </div>
-        <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
+        <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="icon-ph-sun" on-icon="icon-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
       </UContainer>
     </div>
     <UContainer class="py-5">
@@ -218,13 +218,13 @@ const date = ref()
           Content
         </UDialog>
         <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" size="sm" />
-        <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" off-icon="i-ph-sun" on-icon="i-ph-moon" />
+        <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" off-icon="icon-ph-sun" on-icon="icon-ph-moon" />
 
         <UCheckbox v-model="isChecked" label="Primary checkbox" is-required />
-        <UButton label="Primary button" trailing-icon="i-ph-phone" />
-        <UInput v-model="input" placeholder="Coucou" icon="i-ph-phone" />
+        <UButton label="Primary button" trailing-icon="icon-ph-phone" />
+        <UInput v-model="input" placeholder="Coucou" icon="icon-ph-phone" />
         <UFormGroup label="Phone" is-required error="Error">
-          <UInput v-model="input" icon="i-ph-phone" type="number" />
+          <UInput v-model="input" icon="icon-ph-phone" type="number" />
         </UFormGroup>
         <UNav
           v-model="activeItem"
@@ -244,7 +244,7 @@ const date = ref()
           ]"
         />
         <UDropdown :items="dropdownItems">
-          <UButton label="Options" trailing-icon="i-ph-caret-down-bold" />
+          <UButton label="Options" trailing-icon="icon-ph-caret-down-bold" />
         </UDropdown>
         <UPagination v-model="currentPage" :total="100" :per-page="20" />
         <USelect v-model="country" :options="countries" />
@@ -300,7 +300,7 @@ const date = ref()
           label="Show toast"
           @click="toast.add({
             title: 'Do you want to share it?',
-            icon: 'i-ph-check-circle',
+            icon: 'icon-ph-check-circle',
             color: 'success',
           })"
         />

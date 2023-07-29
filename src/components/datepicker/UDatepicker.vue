@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
   ui?: DeepPartial<typeof appConfig.ui.datepicker>
 }>(), {
   defaultStep: 'year',
-  icon: 'i-ph-calendar-blank',
+  icon: 'icon-ph-calendar-blank',
   popper: () => ({}),
   disabledTypes: () => [],
   days: () => DATEPICKER_DAYS,

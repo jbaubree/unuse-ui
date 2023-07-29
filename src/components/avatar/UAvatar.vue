@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<Avatar>(), {
   size: () => useAppUi().avatar.default.size,
   chipPosition: () => useAppUi().avatar.default.chipPosition,
   ui: () => useAppUi().avatar,
-  icon: 'i-ph-check-bold',
+  icon: 'icon-ph-check-bold',
 })
 
 const error = ref(false)

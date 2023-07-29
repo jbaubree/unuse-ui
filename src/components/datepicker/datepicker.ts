@@ -4,11 +4,11 @@ export const datepicker = {
     wrapper: 'flex items-center justify-between border-b border-pilot-200 px-3.5 py-2',
     space: 'space-x-1',
     previous: {
-      icon: 'i-ph-caret-left',
+      icon: 'icon-ph-caret-left',
       rounded: 'rounded-full',
     },
     next: {
-      icon: 'i-ph-caret-right',
+      icon: 'icon-ph-caret-right',
       rounded: 'rounded-full',
     },
   },
@@ -17,7 +17,7 @@ export const datepicker = {
     // disabled: 'text-11px px-2 py-1.5 text-center text-dark-300',
   },
   default: {
-    closeIcon: 'i-ph-x-bold',
+    closeIcon: 'icon-ph-x-bold',
     wrap: 'flex flex-wrap',
     minHeight: 'min-h-130px',
   },
