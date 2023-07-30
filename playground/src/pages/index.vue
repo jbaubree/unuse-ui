@@ -253,6 +253,7 @@ const date = ref()
           <USlider v-model="isSliderOpen" />
         </div>
         <UTable v-model="tableCheck" class="w-full" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
+        <UTag size="xs" label="I'm a tag" />
         <UTag label="I'm a tag" />
         <div class="flex gap-2.5">
           <UTooltip text="Hi bro !" :popper="{ placement: 'left' }">

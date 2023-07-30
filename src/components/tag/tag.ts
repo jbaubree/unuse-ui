@@ -12,6 +12,26 @@ export const tag = {
     md: 'text-13px px-3 py-1.25',
     lg: 'text-13px px-4 py-1.75',
   },
+  color: {
+    fluo: {
+      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+    },
+    cyan: {
+      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+    },
+    yellow: {
+      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+    },
+    silver: {
+      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+    },
+    dark: {
+      solid: 'bg-{color}-50 dark:bg-{color}-600 text-dark-500 dark:text-light-500',
+    },
+    light: {
+      solid: 'bg-{color}-200 dark:bg-{color}-600 text-{color}-800 dark:text-{color}-200',
+    },
+  },
   variant: {
     solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-500 dark:text-{color}-400',
   },

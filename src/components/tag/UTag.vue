@@ -18,10 +18,11 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().tag,
 })
 
-const config = computed(() => merge({}, useAppUi().tag, props.ui))
+const { primaryColor } = useAppTheme()
 
+const config = computed(() => merge({}, useAppUi().tag, props.ui))
 const tagClass = computed(() => {
-  const variant = config.value.variant[props.variant]
+  const variant = config.value.color?.[props.color]?.[props.variant] || (props.color === 'primary' && config.value.color?.[primaryColor.value]?.[props.variant]) || config.value.variant[props.variant]
   return classNames(
     config.value.base,
     config.value.font,
