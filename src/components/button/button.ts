@@ -106,7 +106,9 @@ export const button = {
       ghost: 'text-dark-500 dark:text-light-500 hover:bg-dark-50 dark:hover:bg-light-900',
       link: 'text-dark-600 dark:text-light-400 underline-offset-4 hover:underline',
     },
-    light: {},
+    light: {
+      solid: 'text-dark-500 dark:text-light-500 bg-light-300 hover:bg-light-400 disabled:bg-light-300 dark:bg-dark-500 dark:hover:bg-light-900 dark:disabled:bg-dark-500',
+    },
   } as Record<ButtonColor, Partial<Record<ButtonVariant, string>>>,
   variant: {
     solid: 'text-white dark:text-dark-500 bg-{color}-500 hover:bg-{color}-600 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-300 dark:disabled:bg-{color}-400',
