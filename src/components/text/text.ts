@@ -1,7 +1,7 @@
 import type { Color } from '~/types'
 
 export const text = {
-  font: 'font-400',
+  font: 'font-normal',
   size: 'text-13px',
   color: {
     base: 'transition-colors',

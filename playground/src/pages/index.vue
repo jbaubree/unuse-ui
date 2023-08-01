@@ -181,7 +181,7 @@ const date = ref()
             @click="primaryColor = color"
           >
             <span
-              class="font-500 capitalize transition-colors"
+              class="font-medium capitalize transition-colors"
               :class="primaryColor === color && `text-${color}-700 dark:text-${color}-300`"
             >
               {{ color }}
@@ -196,20 +196,20 @@ const date = ref()
       <div class="flex flex-col items-center justify-center gap-5">
         <UText label="I'm a text" color="primary" />
         <div class="flex flex-col gap-1">
-          <div class="font-100">
+          <div class="font-thin">
             Font 100
           </div>
-          <div class="font-300">
+          <div class="font-light">
             Font 300
           </div>
           <div>Font 400</div>
-          <div class="font-500">
+          <div class="font-medium">
             Font 500
           </div>
-          <div class="font-700">
+          <div class="font-bold">
             Font 700
           </div>
-          <div class="font-900">
+          <div class="font-black">
             Font 900
           </div>
         </div>

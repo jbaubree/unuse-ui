@@ -33,7 +33,7 @@ export const button = {
   base: 'outline-none focus:outline-none focus-visible:outline-0 flex-shrink-0 transition-colors',
   disabled: 'disabled:cursor-not-allowed disabled:opacity-20',
   custom: '',
-  font: 'font-400',
+  font: 'font-base',
   rounded: 'rounded-5px',
   size: {
     '2xs': 'text-10px',

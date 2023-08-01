@@ -25,7 +25,7 @@ export const radioGroup = {
       base: 'h-4.5 w-4.5 text-dark-500 dark:text-light-500 flex-shrink-0',
     },
     title: {
-      base: 'font-300 text-xl transition-colors',
+      base: 'font-light text-xl transition-colors',
       active: 'text-dark-500 dark:text-light-500',
       inactive: 'text-dark-500 dark:text-light-500',
     },

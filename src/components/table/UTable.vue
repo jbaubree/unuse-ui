@@ -87,7 +87,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
                 :label="column[columnAttribute]"
                 @click="onSort(column)"
               />
-              <span v-else class="font-400">{{ column[columnAttribute] }}</span>
+              <span v-else class="font-normal">{{ column[columnAttribute] }}</span>
             </slot>
           </th>
         </tr>
