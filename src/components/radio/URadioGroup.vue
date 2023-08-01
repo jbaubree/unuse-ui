@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { merge } from 'lodash-es'
 import { RadioGroup, RadioGroupOption } from '@headlessui/vue'
+import type { RouteLocationRaw } from 'vue-router'
 import type { ButtonColor } from '../button/button'
 import type { appConfig } from '~/config'
 import type { Color, DeepPartial } from '~/types'
@@ -12,6 +13,8 @@ const props = withDefaults(defineProps<{
     subtitle?: string
     isDisabled?: boolean
     icon?: string
+    onClick?: () => void
+    to?: RouteLocationRaw
   } & Record<any, any>)[]
   selectedIcon?: string
   ui?: DeepPartial<typeof appConfig.ui.radioGroup>
@@ -31,7 +34,7 @@ const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
     <RadioGroup v-model="selected">
       <div :class="config.space">
         <RadioGroupOption v-for="(item, index) in items" :key="index" v-slot="{ checked: isChecked, disabled }" as="template" :value="item" :disabled="item.isDisabled">
-          <slot name="item">
+          <slot name="item" :item="item">
             <UButton
               class="w-full"
               size="xl"
@@ -47,6 +50,8 @@ const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
                     },
                   },
                 }"
+              :to="item.to"
+              @click="item.onClick"
             >
               <div :class="config.item.wrapper">
                 <slot name="icon">
