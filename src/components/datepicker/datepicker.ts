@@ -13,9 +13,6 @@ export const datepicker = {
     },
   },
   padding: 'p-2.5',
-  day: {
-    // disabled: 'text-11px px-2 py-1.5 text-center text-dark-300',
-  },
   default: {
     closeIcon: 'icon-ph-x-bold',
     wrap: 'flex flex-wrap',

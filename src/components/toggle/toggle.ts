@@ -10,7 +10,7 @@ export const toggle = {
   button: {
     base: 'transition-colors relative inline-flex flex-shrink-0 border-2 border-transparent rounded-full focus:outline-none',
     active: 'bg-primary-500 dark:bg-primary-400',
-    disabled: 'opacity-20 cursor-not-allowed',
+    disabled: 'opacity-50 cursor-not-allowed',
     inactive: 'bg-light-400 dark:bg-dark-500',
     size: {
       sm: 'h-4 w-7',

@@ -9,7 +9,7 @@ export const table = {
     selected: 'bg-light-200 dark:bg-dark-700',
   },
   th: {
-    base: 'text-left',
+    base: 'text-left font-normal',
     padding: 'px-3 py-2.5',
     color: 'text-dark-500 dark:text-light-500',
     font: '',

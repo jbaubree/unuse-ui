@@ -19,7 +19,7 @@ export const radioGroup = {
     contentWrapper: 'w-full flex items-center justify-between',
     base: 'flex flex-col items-start',
     icon: {
-      wrapper: 'flex items-center justify-center bg-{color}-200 dark:bg-{color}-800',
+      wrapper: 'flex items-center justify-center bg-{color}-200 dark:bg-{color}-900',
       padding: 'p-2',
       rounded: 'rounded-3px',
       base: 'h-4.5 w-4.5 text-dark-500 dark:text-light-500 flex-shrink-0',
@@ -32,7 +32,7 @@ export const radioGroup = {
     subtitle: {
       base: 'inline text-left text-13px transition-colors',
       active: 'text-dark-500 dark:text-light-500',
-      inactive: 'text-dark-200 dark:text-light-700',
+      inactive: 'text-light-800 dark:text-dark-200',
     },
   },
   default: {

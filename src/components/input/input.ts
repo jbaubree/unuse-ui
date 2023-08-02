@@ -46,7 +46,7 @@ export interface Input {
 
 export const input: Input = {
   wrapper: 'relative',
-  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-20 focus:outline-none border-0',
+  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none border-0',
   placeholder: 'placeholder-dark-100 placeholder-text-13px dark:placeholder-light-900',
   rounded: {
     '2xs': 'rounded-3px',

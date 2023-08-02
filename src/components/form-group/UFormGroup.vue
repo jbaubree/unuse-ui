@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<{
   name?: string
   label?: string
   isRequired?: boolean
+  isDisabled?: boolean
   error?: string
   ui?: DeepPartial<typeof appConfig.ui.formGroup>
 }>(), {
@@ -20,7 +21,12 @@ const config = computed(() => merge({}, useAppUi().formGroup, props.ui))
 <template>
   <div :class="config.wrapper">
     <div v-if="label" :class="config.label.wrapper">
-      <label :for="name" :class="[config.label.base, { [config.label.required]: props.isRequired }]">
+      <label
+        :for="name" :class="[config.label.base, {
+          [config.label.required]: props.isRequired,
+          [config.label.disabled]: props.isDisabled,
+        }]"
+      >
         {{ label }}
       </label>
     </div>
