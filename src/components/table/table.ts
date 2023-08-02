@@ -1,11 +1,11 @@
 export const table = {
-  wrapper: 'relative overflow-auto',
+  wrapper: 'relative',
   base: 'min-w-full table-fixed',
   divide: 'divide-y divide-pilot-50 dark:divide-pilot-950',
   thead: '',
   tbody: 'divide-y divide-light-400 dark:divide-dark-600',
   tr: {
-    base: '',
+    base: 'relative',
     selected: 'bg-light-200 dark:bg-dark-700',
   },
   th: {
@@ -39,7 +39,7 @@ export const table = {
       class: '-m-1.5',
       ui: {
         icon: { size: { md: 'h-2.5 w-2.5' } },
-        color: { dark: { link: 'text-{color}-600 dark:text-{color}-400' } },
+        color: { dark: { link: 'text-dark-500 dark:text-light-500' } },
       },
     },
     emptyState: {

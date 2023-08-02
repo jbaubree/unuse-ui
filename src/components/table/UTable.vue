@@ -66,56 +66,58 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
 
 <template>
   <div :class="config.wrapper">
-    <table :class="[config.base, config.divide]">
-      <thead :class="config.thead">
-        <tr :class="config.tr.base">
-          <th v-if="selected" scope="col" class="pl-4">
-            <UCheckbox :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
-          </th>
-          <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
-            <slot :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
-              <UButton
-                v-if="column.sortable"
-                v-bind="{ ...sortButton }"
-                :icon="
-                  (!sort.column || sort.column !== column.key)
-                    ? config.default.sortButton.icon
-                    : sort.direction === 'asc'
-                      ? sortAscIcon
-                      : sortDescIcon
-                "
-                :label="column[columnAttribute]"
-                @click="onSort(column)"
-              />
-              <span v-else class="font-normal">{{ column[columnAttribute] }}</span>
-            </slot>
-          </th>
-        </tr>
-      </thead>
-      <tbody :class="config.tbody">
-        <tr v-for="(row, index) in rows" :key="index" :class="[config.tr.base, isSelected(row) && config.tr.selected]">
-          <td v-if="selected" class="pl-4">
-            <UCheckbox v-model="selected" :value="row" />
-          </td>
-          <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size, column.class]">
-            <slot :name="`${column.key}-data`" :column="column" :row="row">
-              {{ row[column.key] }}
-            </slot>
-          </td>
-        </tr>
-        <tr v-if="emptyState && !rows.length">
-          <td :colspan="columns.length">
-            <slot name="empty-state">
-              <div :class="config.emptyState.wrapper">
-                <UIcon v-if="emptyState.icon" :name="emptyState.icon" :class="config.emptyState.icon" aria-hidden="true" />
-                <p :class="config.emptyState.label">
-                  {{ emptyState.label }}
-                </p>
-              </div>
-            </slot>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <UContainer>
+      <table :class="[config.base, config.divide]">
+        <thead :class="config.thead">
+          <tr :class="config.tr.base">
+            <div v-if="selected" col="0" class="absolute left--4 top-1/2 translate-y--1/2 lg:left--7 sm:left--5.25">
+              <UCheckbox :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
+            </div>
+            <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
+              <slot :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
+                <UButton
+                  v-if="column.sortable"
+                  v-bind="{ ...sortButton }"
+                  :icon="
+                    (!sort.column || sort.column !== column.key)
+                      ? config.default.sortButton.icon
+                      : sort.direction === 'asc'
+                        ? sortAscIcon
+                        : sortDescIcon
+                  "
+                  :label="column[columnAttribute]"
+                  @click="onSort(column)"
+                />
+                <span v-else class="font-normal">{{ column[columnAttribute] }}</span>
+              </slot>
+            </th>
+          </tr>
+        </thead>
+        <tbody :class="config.tbody">
+          <tr v-for="(row, index) in rows" :key="index" :class="[config.tr.base, isSelected(row) && config.tr.selected]">
+            <td v-if="selected" class="absolute left--4 top-1/2 translate-y--1/2 lg:left--7 sm:left--5.25">
+              <UCheckbox v-model="selected" :value="row" />
+            </td>
+            <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size, column.class]">
+              <slot :name="`${column.key}-data`" :column="column" :row="row">
+                {{ row[column.key] }}
+              </slot>
+            </td>
+          </tr>
+          <tr v-if="emptyState && !rows.length">
+            <td :colspan="columns.length">
+              <slot name="empty-state">
+                <div :class="config.emptyState.wrapper">
+                  <UIcon v-if="emptyState.icon" :name="emptyState.icon" :class="config.emptyState.icon" aria-hidden="true" />
+                  <p :class="config.emptyState.label">
+                    {{ emptyState.label }}
+                  </p>
+                </div>
+              </slot>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </UContainer>
   </div>
 </template>
