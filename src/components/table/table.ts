@@ -1,5 +1,5 @@
 export const table = {
-  wrapper: 'relative w-full',
+  wrapper: 'relative w-full overflow-auto',
   base: 'min-w-full table-fixed',
   divide: 'divide-y divide-pilot-50 dark:divide-pilot-950',
   thead: '',
