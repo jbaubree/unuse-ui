@@ -1,11 +1,11 @@
 export const table = {
-  wrapper: 'relative',
+  wrapper: 'relative w-full',
   base: 'min-w-full table-fixed',
   divide: 'divide-y divide-pilot-50 dark:divide-pilot-950',
   thead: '',
   tbody: 'divide-y divide-light-400 dark:divide-dark-600',
   tr: {
-    base: 'relative',
+    base: '',
     selected: 'bg-light-200 dark:bg-dark-700',
   },
   th: {

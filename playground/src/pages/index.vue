@@ -192,7 +192,7 @@ const date = ref()
         <UToggle v-model="isDarkModeActive" name="dark-mode" off-icon="icon-ph-sun" on-icon="icon-ph-moon" @update:model-value="(value: boolean) => toggleDark(value)" />
       </UContainer>
     </div>
-    <UContainer class="py-5">
+    <UContainer>
       <div class="flex flex-col items-center justify-center gap-5">
         <UText label="I'm a text" color="primary" />
         <div class="flex flex-col gap-1">
@@ -252,7 +252,7 @@ const date = ref()
           <UButton label="Open slider" @click="isSliderOpen = true" />
           <USlider v-model="isSliderOpen" />
         </div>
-        <UTable v-model="tableCheck" class="w-full" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
+        <UTable v-model="tableCheck" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
         <UTag size="xs" label="I'm a tag" />
         <UTag label="I'm a tag" />
         <div class="flex gap-2.5">
