@@ -69,7 +69,7 @@ const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
                       </span>
                     </slot>
                     <slot name="subtitle" :item="item">
-                      <span :class="[config.item.subtitle.base, isChecked ? config.item.subtitle.active : config.item.subtitle.inactive]">
+                      <span v-if="item.subtitle" :class="[config.item.subtitle.base, isChecked ? config.item.subtitle.active : config.item.subtitle.inactive]">
                         {{ item.subtitle }}
                       </span>
                     </slot>
