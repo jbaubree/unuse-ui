@@ -10,6 +10,7 @@ import { dropdown } from '../components/dropdown/dropdown'
 import { dialog } from '../components/dialog/dialog'
 import { fileUpload } from '../components/file-upload/file-upload'
 import { toggle } from '../components/toggle/toggle'
+import { icon } from '../components/icon/icon'
 import { input } from '../components/input/input'
 import { pagination } from '../components/pagination/pagination'
 import { formGroup } from '../components/form-group/form-group'
@@ -46,6 +47,7 @@ export const appConfig = {
     dialog,
     fileUpload,
     formGroup,
+    icon,
     input,
     nav,
     notification,

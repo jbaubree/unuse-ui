@@ -194,6 +194,7 @@ const date = ref()
     </div>
     <UContainer>
       <div class="flex flex-col items-center justify-center gap-5">
+        <UIcon name="icon-ph-check-circle" color="primary" />
         <UText label="I'm a text" color="primary" />
         <div class="flex flex-col gap-1">
           <div class="font-thin">
