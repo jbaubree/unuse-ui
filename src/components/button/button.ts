@@ -56,7 +56,7 @@ export const button = {
     'xs': 'px-2.5 py-1.25',
     'sm': 'px-2.5 py-1.25',
     'md': 'px-5 py-2.5',
-    'lg': 'px-5 py-2.5',
+    'lg': 'px-7.5 py-3.75',
     'xl': 'px-5 py-2.5',
   } as Record<Size, string>,
   square: {
