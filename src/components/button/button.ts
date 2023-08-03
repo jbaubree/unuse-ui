@@ -40,7 +40,7 @@ export const button = {
     'xs': 'text-11px',
     'sm': 'text-xs',
     'md': 'text-13px',
-    'lg': 'text-sm',
+    'lg': 'text-base',
     'xl': 'text-base',
   } as Record<Size, string>,
   gap: {
