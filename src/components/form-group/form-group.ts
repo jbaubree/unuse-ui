@@ -6,6 +6,9 @@ export const formGroup = {
     required: 'after:content-[\'*\'] after:ml-0.5 after:text-red-500 dark:after:text-red-400',
     disabled: 'opacity-50',
   },
-  container: 'mt-1 relative',
+  container: {
+    base: 'relative',
+    space: 'mt-1',
+  },
   error: 'mt-1.25 text-xs text-red-500 dark:text-red-400',
 }
