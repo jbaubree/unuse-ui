@@ -17,14 +17,16 @@ const props = withDefaults(defineProps<{
     to?: RouteLocationRaw
   } & Record<any, any>)[]
   selectedIcon?: string
+  valueAttribute?: string
   ui?: DeepPartial<typeof appConfig.ui.radioGroup>
 }>(), {
   color: 'primary',
+  valueAttribute: 'value',
   items: () => [],
   selectedIcon: () => useAppUi().radioGroup.default.selectedIcon,
   ui: () => useAppUi().radioGroup,
 })
-const selected = defineModel<string | number | object>({ default: '' })
+const selected = defineModel<any>({ default: '' })
 
 const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
 </script>
@@ -33,7 +35,7 @@ const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
   <div :class="config.wrapper">
     <RadioGroup v-model="selected">
       <div :class="config.space">
-        <RadioGroupOption v-for="(item, index) in items" :key="index" v-slot="{ checked: isChecked, disabled }" as="template" :value="item" :disabled="item.isDisabled">
+        <RadioGroupOption v-for="(item, index) in items" :key="index" v-slot="{ checked: isChecked, disabled }" as="template" :value="item[valueAttribute]" :disabled="item.isDisabled">
           <slot name="item" :item="item">
             <UButton
               class="w-full"

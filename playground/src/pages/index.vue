@@ -165,7 +165,7 @@ const plans = [
     value: '3',
   },
 ]
-const selectedPlan = ref(plans[0])
+const selectedPlan = ref('1')
 const date = ref()
 </script>
 
