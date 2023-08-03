@@ -9,7 +9,6 @@ const props = withDefaults(defineProps<{
   color?: Color
   ui?: DeepPartial<typeof appConfig.ui.icon>
 }>(), {
-  color: () => useAppUi().icon.default.color,
   ui: () => useAppUi().icon,
 })
 
@@ -18,7 +17,11 @@ const { primaryColor } = useAppTheme()
 const config = computed(() => merge({}, useAppUi().icon, props.ui))
 
 const iconClass = computed(() => {
-  const color = config.value.color?.[props.color] || (props.color === 'primary' && config.value.color?.[primaryColor.value]) || config.value.color.default
+  const color = props.color && (
+    config.value.color?.[props.color]
+      || (props.color === 'primary' && config.value.color?.[primaryColor.value])
+      || config.value.color.default
+  )
   return classNames(
     props.name,
     color?.replaceAll('{color}', props.color),
