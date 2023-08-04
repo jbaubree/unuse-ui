@@ -48,7 +48,7 @@ const config = computed(() => merge({}, useAppUi().radioGroup, props.ui))
                 : {
                   color: {
                     light: {
-                      soft: `ring-1 ring-transparent text-dark-500 dark:text-${color}-300 bg-light-300 hover:ring-${color}-500 dark:bg-dark-500`,
+                      soft: `ring-1 ring-transparent text-dark-500 dark:text-${color}-300 bg-light-300 hover:ring-${color}-500 disabled:hover:ring-transparent dark:bg-dark-500`,
                     },
                   },
                 }"
