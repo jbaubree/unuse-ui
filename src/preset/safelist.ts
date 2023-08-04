@@ -1,7 +1,7 @@
 import { colors } from './colors'
 
 const safeAttrs = ['text', 'bg', 'border', 'ring']
-const safeStates = ['hover', 'dark', 'dark:hover']
+const safeStates = ['disabled', 'hover', 'dark', 'disabled:hover', 'dark:hover', 'dark:disabled', 'dark:disabled:hover']
 
 const attrsSafelist = Object.keys(colors).flatMap((color) => {
   return Object.keys((colors as any)[color]).flatMap((number) => {
