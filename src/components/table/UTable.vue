@@ -29,6 +29,9 @@ const props = withDefaults(defineProps<{
   emptyState: () => useAppUi().table.default.emptyState,
   ui: () => useAppUi().table,
 })
+const emit = defineEmits<{
+  (eventName: 'rowClicked', value: { [key: string]: any }): void
+}>()
 const selected = defineModel<any[]>()
 
 const sort = ref<Sort>(merge({}, { column: null, direction: 'asc' }, props.sort))
@@ -94,7 +97,11 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
         </tr>
       </thead>
       <tbody :class="config.tbody">
-        <tr v-for="(row, index) in rows" :key="index" :class="[config.tr.base, isSelected(row) && config.tr.selected]">
+        <tr
+          v-for="(row, index) in rows" :key="index"
+          :class="[config.tr.base, isSelected(row) && config.tr.selected]"
+          @click="emit('rowClicked', row)"
+        >
           <td class="w-0 pl-4">
             <UCheckbox v-if="selected" v-model="selected" :value="row" />
             <div v-else class="h-3.75 w-3.75" />
