@@ -1,15 +1,15 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends { [key: string]: any }">
 import { capitalize, merge, orderBy } from 'lodash-es'
 import type { appConfig } from '~/config'
 import { defaultComparator } from '~/utils'
 import type { Button } from '~/components/button/button'
 import type { DeepPartial } from '~/types'
 
-interface Sort { column?: string; direction?: 'asc' | 'desc' }
+export interface Sort { column?: string; direction?: 'asc' | 'desc' }
 
 const props = withDefaults(defineProps<{
   sortBy?: string | ((a: unknown, b: unknown) => void)
-  rows?: { [key: string]: any }[]
+  rows?: T[]
   columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
   columnAttribute?: string
   sort?: Sort
@@ -30,9 +30,9 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().table,
 })
 const emit = defineEmits<{
-  (eventName: 'rowClicked', value: { [key: string]: any }): void
+  (eventName: 'rowClicked', value: T): void
 }>()
-const selected = defineModel<any[]>()
+const selected = defineModel<T[]>()
 
 const sort = ref<Sort>(merge({}, { column: null, direction: 'asc' }, props.sort))
 
@@ -54,7 +54,7 @@ function compare(a, z) {
   }
   return props.sortBy(a, z)
 }
-function isSelected(row) {
+function isSelected(row: T) {
   if (!selected.value)
     return false
   return selected.value.some(item => compare(toRaw(item), toRaw(row)))
