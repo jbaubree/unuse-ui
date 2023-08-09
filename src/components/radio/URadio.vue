@@ -17,14 +17,14 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
-  (eventName: 'update:modelValue', value?: U): void
+  (eventName: 'update:model-value', value?: U): void
 }>()
 const isChecked = computed({
   get() {
     return props.modelValue
   },
   set(value) {
-    emit('update:modelValue', value)
+    emit('update:model-value', value)
   },
 })
 

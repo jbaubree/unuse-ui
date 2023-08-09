@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().table,
 })
 const emit = defineEmits<{
-  (eventName: 'rowClicked', value: T): void
+  (eventName: 'row-clicked', value: T): void
 }>()
 const selected = defineModel<T[]>()
 
@@ -100,7 +100,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
         <tr
           v-for="(row, index) in rows" :key="index"
           :class="[config.tr.base, isSelected(row) && config.tr.selected]"
-          @click="emit('rowClicked', row)"
+          @click="emit('row-clicked', row)"
         >
           <td class="w-0 pl-4">
             <UCheckbox v-if="selected" v-model="selected" :value="row" />
