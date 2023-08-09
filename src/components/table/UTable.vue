@@ -103,7 +103,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
           @click="emit('row-clicked', row)"
         >
           <td class="w-0 pl-4">
-            <UCheckbox v-if="selected" v-model="selected" :value="row" />
+            <UCheckbox v-if="selected" v-model="selected" :value="row" @click.stop />
             <div v-else class="h-3.75 w-3.75" />
           </td>
           <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size, column.class]">
