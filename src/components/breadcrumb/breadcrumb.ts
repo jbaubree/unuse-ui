@@ -1,8 +1,3 @@
-export interface BreadcrumbItem {
-  label: string
-  to?: string
-}
-
 export const breadcrumb = {
   wrapper: 'flex flex-wrap items-center gap-1',
   link: {

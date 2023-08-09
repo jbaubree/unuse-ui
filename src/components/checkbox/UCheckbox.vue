@@ -3,9 +3,11 @@ import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
 import type { DeepPartial } from '~/types'
 
+export type T = string | number | boolean | Record<any, any>
+
 const props = withDefaults(defineProps<{
   modelValue?: boolean | any[]
-  value?: string | number | boolean | Record<any, any>
+  value?: T
   isChecked?: boolean
   isDisabled?: boolean
   isRequired?: boolean
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
-  (eventName: 'update:modelValue', value?: boolean | any[]): void
+  (eventName: 'update:modelValue', value?: boolean | T[]): void
 }>()
 const isChecked = computed({
   get() {

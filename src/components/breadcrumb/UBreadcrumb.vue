@@ -1,11 +1,15 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends BreadcrumbItem">
 import { merge } from 'lodash-es'
-import type { BreadcrumbItem } from './breadcrumb'
 import type { appConfig } from '~/config'
 import type { Color, DeepPartial } from '~/types'
 
+export interface BreadcrumbItem {
+  label: string
+  to?: string
+}
+
 const props = withDefaults(defineProps<{
-  items: BreadcrumbItem[]
+  items: T[]
   color?: Color
   ui?: DeepPartial<typeof appConfig.ui.breadcrumb>
 }>(), {

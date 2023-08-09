@@ -1,10 +1,4 @@
-import type { Color, Size } from '~/types'
-
-export interface NavItem {
-  title: string
-  value: string
-  color?: Color
-}
+import type { Size } from '~/types'
 
 export const nav = {
   wrapper: 'relative flex flex-wrap rounded-5px p-5px bg-{color}-50 dark:bg-{color}-950 transition-colors',

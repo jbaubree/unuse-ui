@@ -1,11 +1,16 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends NavItem">
 import { merge } from 'lodash-es'
-import type { NavItem } from './nav'
 import type { appConfig } from '~/config'
 import type { Color, DeepPartial, Size } from '~/types'
 
+export interface NavItem {
+  title: string
+  value: string
+  color?: Color
+}
+
 const props = withDefaults(defineProps<{
-  items: NavItem[]
+  items: T[]
   color?: Color
   size?: Size
   ui?: DeepPartial<typeof appConfig.ui.nav>

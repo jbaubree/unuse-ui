@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends string | number | boolean, U extends T | object">
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
 import type { DeepPartial } from '~/types'
 
 const props = withDefaults(defineProps<{
-  modelValue?: string | number | boolean | object
-  value?: string | number | boolean
+  modelValue?: U
+  value?: T
   name?: string
   isDisabled?: boolean
   isRequired?: boolean
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
-  (eventName: 'update:modelValue', value?: string | number | boolean | object): void
+  (eventName: 'update:modelValue', value?: U): void
 }>()
 const isChecked = computed({
   get() {
