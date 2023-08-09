@@ -20,6 +20,9 @@ const emit = defineEmits<{
   (eventName: 'close'): void
 }>()
 const isOpen = defineModel<boolean>({ default: false })
+
+const rDialogContent = ref<HTMLDivElement>()
+
 const config = computed(() => merge({}, useAppUi().slider, props.ui))
 const transitionClass = computed(() => {
   if (!props.hasTransition)
@@ -42,16 +45,17 @@ function onClose(value: boolean) {
 
 <template>
   <TransitionRoot as="template" :appear="appear" :show="isOpen">
-    <Dialog :class="[config.wrapper, { 'justify-end': side === 'right' }]" @close="onClose">
+    <Dialog :initial-focus="rDialogContent" @close="onClose">
       <TransitionChild v-if="hasOverlay" as="template" :appear="appear" v-bind="config.overlay.transition">
         <div :class="[config.overlay.base, config.overlay.background]" />
       </TransitionChild>
-
-      <TransitionChild as="template" :appear="appear" v-bind="transitionClass">
-        <DialogPanel :class="[config.base, config.width, config.background, config.ring, config.padding]">
-          <slot />
-        </DialogPanel>
-      </TransitionChild>
+      <div ref="rDialogContent" :class="[config.wrapper, { 'justify-end': side === 'right' }]">
+        <TransitionChild as="template" :appear="appear" v-bind="transitionClass">
+          <DialogPanel :class="[config.base, config.width, config.background, config.ring, config.padding]">
+            <slot />
+          </DialogPanel>
+        </TransitionChild>
+      </div>
     </Dialog>
   </TransitionRoot>
 </template>
