@@ -24,6 +24,7 @@ export const avatar = {
     'md': 'h-10 w-10 text-sm',
     'lg': 'h-12 w-12 text-base',
     'xl': 'h-14 w-14 text-lg',
+    '2xl': 'h-18.75 w-18.75 text-lg',
   } as Record<Size, string>,
   chip: {
     base: 'absolute block rounded-full ring-1 ring-white dark:ring-dark-500',
