@@ -7,6 +7,7 @@ export const table = {
   tr: {
     base: '',
     selected: 'bg-light-200 dark:bg-dark-700',
+    hover: 'hover:bg-light-200 hover:dark:bg-dark-700',
   },
   th: {
     base: 'text-left font-normal',
