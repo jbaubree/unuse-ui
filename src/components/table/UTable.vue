@@ -8,7 +8,7 @@ import type { DeepPartial } from '~/types'
 export interface Sort { column?: string; direction?: 'asc' | 'desc' }
 
 const props = withDefaults(defineProps<{
-  sortBy?: string | ((a: unknown, b: unknown) => void)
+  sortBy?: string | ((a: T, b: T) => void)
   rows?: T[]
   columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
   columnAttribute?: string
@@ -47,7 +47,7 @@ const rows = computed(() => {
   return orderBy(props.rows, column, direction)
 })
 
-function compare(a, z) {
+function compare(a: T, z: T) {
   if (typeof props.sortBy === 'string') {
     const property = props.sortBy
     return a?.[property] === z?.[property]
