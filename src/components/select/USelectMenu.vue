@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
   color?: Color | InputColor
   variant?: InputVariant | InputColor
   optionAttribute?: string
-  searchablePlaceholder?: string
+  searchPlaceholder?: string
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
   ui?: DeepPartial<typeof appConfig.ui.selectMenu>
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<{
   loadingIcon: () => useAppUi().input.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
   selectedIcon: () => useAppUi().selectMenu.default.selectedIcon,
-  searchablePlaceholder: 'Rechercher...',
+  searchPlaceholder: 'Rechercher...',
   optionAttribute: 'label',
   placeholder: 'Sélectionner',
   isPadded: true,
@@ -64,7 +64,7 @@ function reduceOptions(options: T[]): T[] {
   }, []) as T[]
 }
 
-const modelValue = defineModel<string | number | object | any[]>({ default: '' })
+const modelValue = defineModel<T | T[]>({ default: props.isMultiple ? [] : undefined })
 
 const query = ref('')
 const searchInput = ref<ComponentPublicInstance<HTMLElement>>()
@@ -134,7 +134,7 @@ const queryOption = computed(() => {
 
 const [trigger, container] = usePopper(popper.value)
 
-function onUpdate(event: any) {
+function onUpdate(event: T | T[]) {
   if (query.value && searchInput.value?.$el) {
     query.value = ''
     searchInput.value.$el.value = ''
@@ -209,7 +209,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             ref="searchInput"
             :display-value="() => query"
             name="q"
-            :placeholder="searchablePlaceholder"
+            :placeholder="searchPlaceholder"
             autofocus
             autocomplete="off"
             :class="config.input"
