@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
   size?: Size
   color?: Color | InputColor
   variant?: InputVariant | InputColor
-  optionAttribute?: string
+  optionAttribute?: keyof T
   searchPlaceholder?: string
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
@@ -173,7 +173,7 @@ watch(container, value => value ? emit('open') : emit('close'))
       role="button"
       class="w-full inline-flex"
     >
-      <slot :open="open" :is-disabled="isDisabled" :loading="isLoading">
+      <slot :open="open" :is-disabled="isDisabled" :is-loading="isLoading">
         <button :class="selectMenuClass" :disabled="isDisabled || isLoading" type="button">
           <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
             <slot name="leading" :is-disabled="isDisabled" :is-loading="isLoading">
@@ -248,7 +248,7 @@ watch(container, value => value ? emit('open') : emit('close'))
           <component :is="isSearchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive]">
               <div :class="config.option.container">
-                <slot name="option-create" :option="queryOption" :is-active="active" :selected="selected">
+                <slot name="option-create" :option="queryOption" :is-active="active" :is-selected="selected">
                   <span class="block truncate">Create "{{ queryOption[optionAttribute] }}"</span>
                 </slot>
               </div>
