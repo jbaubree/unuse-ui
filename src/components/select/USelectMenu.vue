@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<{
   variant?: InputVariant | InputColor
   optionAttribute?: string
   searchablePlaceholder?: string
-  searchAttributes?: any[]
+  searchAttributes?: (keyof T)[]
   popper?: PopperOptions
   ui?: DeepPartial<typeof appConfig.ui.selectMenu>
   uiSelect?: Partial<typeof appConfig.ui.select>
@@ -123,7 +123,7 @@ const filteredOptions = computed(() => {
   return query.value === ''
     ? opt
     : opt.filter((option) => {
-      return (props.searchAttributes?.length ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute: any) => {
+      return (props.searchAttributes?.length ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute) => {
         return (option[searchAttribute] && option[searchAttribute].search(new RegExp(query.value, 'i')) !== -1)
       })
     })
