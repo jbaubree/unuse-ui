@@ -64,7 +64,7 @@ function reduceOptions(options: T[]): T[] {
   }, []) as T[]
 }
 
-const modelValue = defineModel<T | T[]>({ default: props.isMultiple ? [] : undefined })
+const modelValue = defineModel<T | T[]>()
 
 const query = ref('')
 const searchInput = ref<ComponentPublicInstance<HTMLElement>>()
