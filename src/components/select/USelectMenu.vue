@@ -176,7 +176,7 @@ watch(container, value => value ? emit('open') : emit('close'))
       <slot :open="open" :is-disabled="isDisabled" :loading="isLoading">
         <button :class="selectMenuClass" :disabled="isDisabled || isLoading" type="button">
           <span v-if="(isLeading && leadingIconName) || slots.leading" :class="leadingWrapperIconClass">
-            <slot name="leading" :disabled="isDisabled" :loading="isLoading">
+            <slot name="leading" :is-disabled="isDisabled" :is-loading="isLoading">
               <UIcon :name="leadingIconName" :class="leadingIconClass" />
             </slot>
           </span>
@@ -194,7 +194,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             <span v-else class="block truncate" :class="config.placeholder">{{ placeholder || '&nbsp;' }}</span>
           </slot>
           <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
-            <slot name="trailing" :is-disabled="isDisabled" :loading="isLoading">
+            <slot name="trailing" :is-disabled="isDisabled" :is-loading="isLoading">
               <UIcon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
             </slot>
           </span>
@@ -227,7 +227,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             <div :class="config.option.wrapper">
               <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
                 <div :class="config.option.container">
-                  <slot name="option" :option="option" :is-active="active" :selected="selected">
+                  <slot name="option" :option="option" :is-active="active" :is-selected="selected">
                     <UIcon v-if="option.icon" :name="option.icon" :class="[config.option.icon.base, active ? config.option.icon.active : config.option.icon.inactive, option.iconClass]" aria-hidden="true" />
                     <UAvatar
                       v-else-if="option.avatar"
