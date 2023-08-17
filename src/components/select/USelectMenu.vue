@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends { [key: string]: any; isDisabled?: boolean } | string">
+<script setup lang="ts" generic="T extends { [key: string]: any; isDisabled?: boolean }">
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
@@ -118,13 +118,13 @@ const trailingIconClass = computed(() => classNames(
 const filteredOptions = computed(() => {
   const opt = Array.isArray(modelValue.value) && props.isMultiple
     ? reduceOptions([...props.options, ...modelValue.value])
-    : props.options as any
+    : props.options
 
   return query.value === ''
     ? opt
-    : opt.filter((option: any) => {
+    : opt.filter((option) => {
       return (props.searchAttributes?.length ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute: any) => {
-        return typeof option === 'string' ? option.search(new RegExp(query.value, 'i')) !== -1 : (option[searchAttribute] && option[searchAttribute].search(new RegExp(query.value, 'i')) !== -1)
+        return (option[searchAttribute] && option[searchAttribute].search(new RegExp(query.value, 'i')) !== -1)
       })
     })
 })
