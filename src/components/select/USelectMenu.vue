@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends { [key: string]: any; isDisabled?: boolean } | string">
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
@@ -6,11 +6,9 @@ import type { Color, DeepPartial, PopperOptions, Size } from '~/types'
 import type { InputColor, InputVariant } from '~/components/input/input'
 import { classNames } from '~/utils'
 
-type Option = { [key: string]: any; isDisabled?: boolean } | string
-
 const props = withDefaults(defineProps<{
   sortBy?: string
-  options?: Option[]
+  options?: T[]
   name?: string
   isRequired?: boolean
   icon?: string
@@ -58,12 +56,12 @@ const emit = defineEmits<{
   (eventName: 'close'): void
 }>()
 
-function reduceOptions(options: Option[]): Option[] {
+function reduceOptions(options: T[]): T[] {
   return options.reduce((c, v) => {
-    if (!(c as Option[]).find(el => typeof el === 'string' ? el === v : el[props.optionAttribute] === v[props.optionAttribute]))
-      (c as Option[]).push(v)
+    if (!(c as T[]).find(el => typeof el === 'string' ? el === v : el[props.optionAttribute] === v[props.optionAttribute]))
+      (c as T[]).push(v)
     return c
-  }, []) as Option[]
+  }, []) as T[]
 }
 
 const modelValue = defineModel<string | number | object | any[]>({ default: '' })
