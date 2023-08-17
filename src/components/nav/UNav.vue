@@ -51,11 +51,6 @@ watch([activeItem, width], () => {
     setItemsSizes()
   })
 })
-
-onMounted(() => {
-  if (!modelValue.value)
-    modelValue.value = props.items[0].value
-})
 </script>
 
 <template>
