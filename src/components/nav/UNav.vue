@@ -9,6 +9,9 @@ export interface NavItem {
   color?: Color
 }
 
+defineOptions({
+  inheritAttrs: false,
+})
 const props = withDefaults(defineProps<{
   items: T[]
   color?: Color
@@ -25,6 +28,7 @@ const modelValue = defineModel<string>()
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate<{ value: string; index: number }>()
 
+const attrs = useAttrs()
 const { width } = useWindowSize()
 
 const rItems = ref()
@@ -72,7 +76,7 @@ onMounted(() => {
       </div>
     </div>
   </DefineTemplate>
-  <div :class="wrapperClass">
+  <div :class="wrapperClass" v-bind="{ ...attrs }">
     <div :class="config.variant[variant].active" :style="activeNavItemStyle" />
     <ReuseTemplate v-for="{ title, value }, i in items" :key="value" :value="value" :index="i">
       <span ref="rItems">{{ title }}</span>
