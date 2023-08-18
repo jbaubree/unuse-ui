@@ -9,7 +9,7 @@ export const nav = {
         wrapper: 'relative inline-block flex-1',
         base: 'min-w-max text-13px flex cursor-pointer justify-center transition-colors',
         active: 'text-dark-500 dark:text-light-500',
-        inactive: 'text-{color}-500 dark:text-{color}-400',
+        inactive: 'text-{color}-600 dark:text-{color}-400',
       },
       size: {
         '2xs': 'px-1.5 py-1.25',
