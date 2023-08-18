@@ -37,7 +37,7 @@ const activeNavItemStyle = computed(() => `
   width: ${activeItemSizes.w}px;
   height: ${props.variant === 'light' ? '2' : activeItemSizes.h}px;
   left: ${activeItemSizes.ol}px;
-  top: ${activeItemSizes.or + activeItemSizes.h}px;
+  top: ${props.variant === 'light' ? activeItemSizes.or + activeItemSizes.h : activeItemSizes.or}px;
 `)
 
 function setItemsSizes() {
