@@ -191,7 +191,9 @@ watch(container, value => value ? emit('open') : emit('close'))
               </UTag>
             </div>
             <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>
-            <span v-else class="block truncate" :class="config.placeholder">{{ placeholder || '&nbsp;' }}</span>
+            <UText v-else color="light" class="block truncate" :class="config.placeholder">
+              {{ placeholder || '&nbsp;' }}
+            </UText>
           </slot>
           <span v-if="(isTrailing && trailingIconName) || slots.trailing" :class="trailingWrapperIconClass">
             <slot name="trailing" :is-disabled="isDisabled" :is-loading="isLoading">
