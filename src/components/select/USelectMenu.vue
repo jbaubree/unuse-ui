@@ -21,7 +21,8 @@ const props = withDefaults(defineProps<{
   selectedIcon?: string
   isDisabled?: boolean
   isMultiple?: boolean
-  isSearchable?: boolean
+  searchable?: boolean | ((query: string) => Promise<T[]> | T[])
+  debounce?: number
   isCreatable?: boolean
   placeholder?: string
   isPadded?: boolean
@@ -35,6 +36,7 @@ const props = withDefaults(defineProps<{
   ui?: DeepPartial<typeof appConfig.ui.selectMenu>
   uiSelect?: Partial<typeof appConfig.ui.select>
 }>(), {
+  debounce: 200,
   options: () => [],
   loadingIcon: () => useAppUi().input.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
@@ -54,15 +56,8 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'open'): void
   (eventName: 'close'): void
+  (eventName: 'search', value: string): void
 }>()
-
-function reduceOptions(options: T[]): T[] {
-  return options.reduce((c, v) => {
-    if (!(c as T[]).find(el => typeof el === 'string' ? el === v : el[props.optionAttribute] === v[props.optionAttribute]))
-      (c as T[]).push(v)
-    return c
-  }, []) as T[]
-}
 
 const modelValue = defineModel<T | T[]>()
 
@@ -115,18 +110,19 @@ const trailingIconClass = computed(() => classNames(
   configSelect.value.icon.size[props.size],
   props.isLoading && !isLeading.value && 'animate-spin',
 ))
-const filteredOptions = computed(() => {
-  const opt = Array.isArray(modelValue.value) && props.isMultiple
-    ? reduceOptions([...props.options, ...modelValue.value])
-    : props.options
+const debouncedSearch = typeof props.searchable === 'function' ? useDebounceFn(props.searchable, props.debounce) : undefined
+const filteredOptions = computedAsync(async () => {
+  if (props.searchable && debouncedSearch)
+    return await debouncedSearch(query.value)
 
-  return query.value === ''
-    ? opt
-    : opt.filter((option) => {
-      return (props.searchAttributes?.length ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute) => {
-        return (option[searchAttribute] && option[searchAttribute].search(new RegExp(query.value, 'i')) !== -1)
-      })
+  if (query.value === '')
+    return props.options
+
+  return (props.options).filter((option) => {
+    return (props.searchAttributes?.length ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute) => {
+      return (option[searchAttribute] && option[searchAttribute].search(new RegExp(query.value, 'i')) !== -1)
     })
+  })
 })
 const queryOption = computed(() => {
   return query.value === '' ? null : { [props.optionAttribute]: query.value }
@@ -147,7 +143,7 @@ watch(container, value => value ? emit('open') : emit('close'))
 
 <template>
   <component
-    :is="isSearchable ? Combobox : Listbox"
+    :is="searchable ? Combobox : Listbox"
     v-slot="{ open }"
     :by="sortBy"
     :name="name"
@@ -167,7 +163,7 @@ watch(container, value => value ? emit('open') : emit('close'))
       aria-hidden="true"
     >
     <component
-      :is="isSearchable ? ComboboxButton : ListboxButton"
+      :is="searchable ? ComboboxButton : ListboxButton"
       ref="trigger"
       as="div"
       role="button"
@@ -205,9 +201,9 @@ watch(container, value => value ? emit('open') : emit('close'))
     </component>
     <div v-if="open" ref="container" :class="[config.container, config.width]">
       <Transition v-bind="config.transition">
-        <component :is="isSearchable ? ComboboxOptions : ListboxOptions" static :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.padding, config.height]">
+        <component :is="searchable ? ComboboxOptions : ListboxOptions" static :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.padding, config.height]">
           <ComboboxInput
-            v-if="isSearchable"
+            v-if="searchable"
             ref="searchInput"
             :display-value="() => query"
             name="q"
@@ -218,7 +214,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             @change="query = $event.target.value"
           />
           <component
-            :is="isSearchable ? ComboboxOption : ListboxOption"
+            :is="searchable ? ComboboxOption : ListboxOption"
             v-for="(option, index) in filteredOptions"
             v-slot="{ active, selected, disabled: optionDisabled }"
             :key="index"
@@ -247,7 +243,7 @@ watch(container, value => value ? emit('open') : emit('close'))
               </li>
             </div>
           </component>
-          <component :is="isSearchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
+          <component :is="searchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive]">
               <div :class="config.option.container">
                 <slot name="option-create" :option="queryOption" :is-active="active" :is-selected="selected">
@@ -256,7 +252,7 @@ watch(container, value => value ? emit('open') : emit('close'))
               </div>
             </li>
           </component>
-          <p v-else-if="isSearchable && query && !filteredOptions.length" :class="config.option.empty">
+          <p v-else-if="searchable && query && !filteredOptions.length" :class="config.option.empty">
             <slot name="option-empty" :query="query">
               No results for "{{ query }}".
             </slot>
