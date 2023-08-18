@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
   size?: Size
   color?: Color | InputColor
   variant?: InputVariant | InputColor
-  optionAttribute?: keyof T
+  optionAttribute?: string
   searchPlaceholder?: string
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
