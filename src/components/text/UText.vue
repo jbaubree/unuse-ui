@@ -31,7 +31,7 @@ const buttonClass = computed(() => {
 </script>
 
 <template>
-  <component :is="as" :class="[buttonClass, { 'text-left break-all line-clamp-1': isTruncate }]">
+  <component :is="as" :class="[buttonClass, { 'text-left break-all text-wrap line-clamp-1': isTruncate }]">
     <slot>
       {{ label }}
     </slot>
