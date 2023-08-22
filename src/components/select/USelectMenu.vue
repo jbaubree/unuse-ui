@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<{
   variant?: InputVariant | InputColor
   optionAttribute?: string
   searchPlaceholder?: string
+  formatter?: (v: T) => any
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
   ui?: DeepPartial<typeof appConfig.ui.selectMenu>
@@ -41,6 +42,7 @@ const props = withDefaults(defineProps<{
   loadingIcon: () => useAppUi().input.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
   selectedIcon: () => useAppUi().selectMenu.default.selectedIcon,
+  formatter: (v: T) => v,
   searchPlaceholder: 'Rechercher...',
   optionAttribute: 'label',
   placeholder: 'Sélectionner',
@@ -186,7 +188,7 @@ watch(container, value => value ? emit('open') : emit('close'))
                 <UIcon class="cursor-pointer" name="icon-ph-x" @click="modelValue.splice(index, 1)" />
               </UTag>
             </div>
-            <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ typeof modelValue === 'string' ? modelValue : modelValue[optionAttribute] }}</span>
+            <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ typeof modelValue === 'string' ? formatter(modelValue) : formatter(modelValue[optionAttribute]) }}</span>
             <UText v-else color="light" class="block truncate" :class="config.placeholder">
               {{ placeholder || '&nbsp;' }}
             </UText>
