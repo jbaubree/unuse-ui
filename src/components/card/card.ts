@@ -8,7 +8,7 @@ export const card = {
   body: {
     base: 'text-13px',
     background: '',
-    padding: 'px-3.75 py-5',
+    padding: 'p-5',
   },
   header: {
     base: 'text-13px',
