@@ -17,7 +17,9 @@ const slots = useSlots()
 const { primaryColor } = useAppTheme()
 
 const config = computed(() => merge({}, useAppUi().button, props.ui))
-const component = computed(() => props.to ? 'RouterLink' : 'button')
+
+const isExternalLink = computed(() => typeof props.to === 'string' && props.to.startsWith('http'))
+const component = computed(() => props.to ? isExternalLink ? 'a' : 'RouterLink' : 'button')
 const buttonProps = computed(() => props.to
   ? { to: props.to, target: props.target }
   : { disabled: props.isDisabled || props.isLoading, type: props.type },
