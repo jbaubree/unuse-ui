@@ -14,12 +14,11 @@ const props = withDefaults(defineProps<Button>(), {
 })
 
 const slots = useSlots()
+const attrs = useAttrs()
 const { primaryColor } = useAppTheme()
 
 const config = computed(() => merge({}, useAppUi().button, props.ui))
-
-const isExternalLink = computed(() => typeof props.to === 'string' && props.to.startsWith('http'))
-const component = computed(() => props.to ? isExternalLink ? 'a' : 'RouterLink' : 'button')
+const component = computed(() => props.to ? 'RouterLink' : attrs.href ? 'a' : 'button')
 const buttonProps = computed(() => props.to
   ? { to: props.to, target: props.target }
   : { disabled: props.isDisabled || props.isLoading, type: props.type },
@@ -62,7 +61,6 @@ const trailingIconClass = computed(() => classNames(
     :class="buttonClass"
     :aria-label="ariaLabel"
     v-bind="buttonProps"
-    :href="isExternalLink ? to : undefined"
   >
     <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
       <UIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="leadingIconClass" />
