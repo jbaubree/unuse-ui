@@ -21,7 +21,8 @@ export interface Button {
   trailingIcon?: string
   isTrailing?: boolean
   isLeading?: boolean
-  to?: string | RouteLocationRaw
+  to?: RouteLocationRaw
+  href?: string
   target?: string
   ariaLabel?: string
   isSquare?: boolean

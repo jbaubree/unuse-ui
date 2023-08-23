@@ -14,14 +14,15 @@ const props = withDefaults(defineProps<Button>(), {
 })
 
 const slots = useSlots()
-const attrs = useAttrs()
 const { primaryColor } = useAppTheme()
 
 const config = computed(() => merge({}, useAppUi().button, props.ui))
-const component = computed(() => props.to ? 'RouterLink' : attrs.href ? 'a' : 'button')
+const component = computed(() => props.to ? 'RouterLink' : props.href ? 'a' : 'button')
 const buttonProps = computed(() => props.to
   ? { to: props.to, target: props.target }
-  : { disabled: props.isDisabled || props.isLoading, type: props.type },
+  : props.href
+    ? { href: props.href, target: props.target }
+    : { disabled: props.isDisabled || props.isLoading, type: props.type },
 )
 const isLeading = computed(() => (props.icon && props.isLeading) || (props.icon && !props.isTrailing) || (props.isLoading && !props.isTrailing) || props.leadingIcon)
 const isTrailing = computed(() => (props.icon && props.isTrailing) || (props.isLoading && props.isTrailing) || props.trailingIcon)
@@ -60,7 +61,7 @@ const trailingIconClass = computed(() => classNames(
     :is="component"
     :class="buttonClass"
     :aria-label="ariaLabel"
-    v-bind="{ ...buttonProps, ...attrs }"
+    v-bind="buttonProps"
   >
     <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
       <UIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="leadingIconClass" />
