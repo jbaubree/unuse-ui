@@ -62,6 +62,7 @@ const trailingIconClass = computed(() => classNames(
     :class="buttonClass"
     :aria-label="ariaLabel"
     v-bind="buttonProps"
+    :href="isExternalLink ? to : undefined"
   >
     <slot name="leading" :is-disabled="isDisabled" :loading="isLoading">
       <UIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="leadingIconClass" />
