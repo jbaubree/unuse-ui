@@ -113,7 +113,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
           </td>
         </tr>
         <tr v-if="emptyState && !rows.length">
-          <td :colspan="columns.length">
+          <td :colspan="columns.length + 1">
             <slot name="empty-state">
               <div :class="config.emptyState.wrapper">
                 <UIcon v-if="emptyState.icon" :name="emptyState.icon" :class="config.emptyState.icon" aria-hidden="true" />
