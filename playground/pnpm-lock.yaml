@@ -20,8 +20,8 @@ dependencies:
 
 devDependencies:
   '@unocss/preset-web-fonts':
-    specifier: ^0.54.2
-    version: 0.54.2
+    specifier: ^0.55.2
+    version: 0.55.2
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
@@ -308,14 +308,14 @@ packages:
     resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
     dev: false
 
-  /@unocss/core@0.54.2:
-    resolution: {integrity: sha512-PyyJOJtZ2K0BVSawAA/5X46w3Vgj/39jy+2EGKrT0KD4pbYid8oQo84OkXEEms5gAnIAAZHayGqs43zi/FRp0A==}
+  /@unocss/core@0.55.2:
+    resolution: {integrity: sha512-ZLEES8RDgWoK/vttUzl3PM2bZqL3HvhLgj8xdDa09Xw+JiTlR4c66s+hLn52oCoJTnT9lGsD2j7tTGN9ToSiTA==}
     dev: true
 
-  /@unocss/preset-web-fonts@0.54.2:
-    resolution: {integrity: sha512-VEF/o3ZGXRm4aYMvqiwl9E8dwwwqhRWIAIqUVyjtO7X6v/1QDT/t5ytO4JpESH5mEuL3CWukZ+PC9TRW+KtP2g==}
+  /@unocss/preset-web-fonts@0.55.2:
+    resolution: {integrity: sha512-kRnrfZPDkU2r9tp507rsh4kwhUzZ76XBTZLmElYm8tlP6HZzIHcFF8fdW15J4nh81b/IGw8ZOS7aQmqtHu3A8A==}
     dependencies:
-      '@unocss/core': 0.54.2
+      '@unocss/core': 0.55.2
       ofetch: 1.1.1
     dev: true
 
