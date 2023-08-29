@@ -21,7 +21,7 @@ export const nav = {
       },
     },
     light: {
-      wrapper: 'relative bg-transparent flex gap-3.75',
+      wrapper: 'relative bg-transparent flex flex-wrap gap-3.75',
       active: 'absolute translate-y--100% bg-pilot-500 dark:bg-pilot-400 transition-all',
       item: {
         wrapper: 'relative inline-block flex-1',
