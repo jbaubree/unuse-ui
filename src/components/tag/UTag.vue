@@ -25,7 +25,7 @@ const tagClass = computed(() => {
   const variant = config.value.color?.[props.color]?.[props.variant] || (props.color === 'primary' && config.value.color?.[primaryColor.value]?.[props.variant]) || config.value.variant[props.variant]
   return classNames(
     config.value.base,
-    config.value.font,
+    config.value.font[props.size],
     config.value.rounded,
     config.value.size[props.size],
     variant?.replaceAll('{color}', props.color),

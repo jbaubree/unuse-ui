@@ -5,12 +5,17 @@ export type TagVariant = 'solid'
 export const tag = {
   base: 'inline-flex items-center',
   rounded: 'rounded-full',
-  font: 'font-medium',
+  font: {
+    xs: 'font-medium',
+    sm: 'font-medium',
+    md: 'font-medium',
+    lg: 'font-normal',
+  },
   size: {
     xs: 'text-11px px-1.5 py-0.5',
     sm: 'text-13px px-2.5 py-1',
     md: 'text-13px px-3 py-1.25',
-    lg: 'text-13px px-4 py-1.75',
+    lg: 'text-16px px-.5 py-.25',
   },
   color: {
     fluo: {
