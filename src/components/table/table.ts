@@ -12,9 +12,9 @@ export const table = {
   th: {
     base: 'text-left font-normal',
     padding: 'px-3 py-2.5',
-    color: 'text-dark-500 dark:text-light-500',
+    color: 'text-dark-400 dark:text-light-600',
     font: '',
-    size: 'text-13px',
+    size: 'text-11px',
   },
   td: {
     base: 'whitespace-nowrap',

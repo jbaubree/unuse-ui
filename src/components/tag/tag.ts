@@ -26,7 +26,7 @@ export const tag = {
       solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
     },
     dark: {
-      solid: 'bg-{color}-50 dark:bg-{color}-600 text-dark-500 dark:text-light-500',
+      solid: 'bg-{color}-50 dark:bg-{color}-500 text-dark-500 dark:text-light-500',
     },
     light: {
       solid: 'bg-{color}-300 dark:bg-{color}-600 text-{color}-800 dark:text-{color}-200',
