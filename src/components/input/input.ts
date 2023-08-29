@@ -59,9 +59,9 @@ export const input: Input = {
   size: {
     '2xs': 'text-11px',
     'xs': 'text-11px',
-    'sm': 'text-13px',
-    'md': 'text-13px',
-    'lg': 'text-13px',
+    'sm': 'text-13px leading-5',
+    'md': 'text-13px leading-5',
+    'lg': 'text-13px leading-5',
     'xl': 'text-base',
   },
   gap: {
