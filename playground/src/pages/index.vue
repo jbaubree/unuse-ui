@@ -254,7 +254,9 @@ const date = ref()
           <USlider v-model="isSliderOpen" />
         </div>
         <UTable v-model="tableCheck" :columns="columns" :rows="people" :sort="{ column: 'name' }" />
-        <UTag size="xs" label="I'm a tag" />
+        <UTag size="xs" label="I'm a tag" variant="solid" />
+        <UTag size="xs" label="I'm a tag" variant="solid" color="dark" />
+        <UTag size="xs" label="I'm a tag" variant="solid" color="light" />
         <UTag label="I'm a tag" />
         <div class="flex gap-2.5">
           <UTooltip text="Hi bro !" :popper="{ placement: 'left' }">

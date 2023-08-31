@@ -1,6 +1,6 @@
 import type { Color, Size } from '~/types'
 
-export type TagVariant = 'solid'
+export type TagVariant = 'solid' | 'light'
 
 export const tag = {
   base: 'inline-flex items-center',
@@ -19,30 +19,37 @@ export const tag = {
   },
   color: {
     fluo: {
-      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      light: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      solid: 'bg-{color}-600 dark:bg-{color}-300 text-light-500 dark:text-dark-500',
     },
     cyan: {
-      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      light: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      solid: 'bg-{color}-600 dark:bg-{color}-300 text-light-500 dark:text-dark-500',
     },
     yellow: {
-      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      light: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      solid: 'bg-{color}-600 dark:bg-{color}-300 text-light-500 dark:text-dark-500',
     },
     silver: {
-      solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      light: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-600 dark:text-{color}-300',
+      solid: 'bg-{color}-600 dark:bg-{color}-300 text-light-500 dark:text-dark-500',
     },
     dark: {
-      solid: 'bg-{color}-50 dark:bg-{color}-500 text-dark-500 dark:text-light-500',
+      light: 'bg-{color}-50 dark:bg-{color}-500 text-dark-500 dark:text-light-500',
+      solid: 'bg-dark-500 dark:bg-light-500 text-white dark:text-dark-500',
     },
     light: {
-      solid: 'bg-{color}-300 dark:bg-{color}-600 text-{color}-800 dark:text-{color}-200',
+      light: 'bg-{color}-300 dark:bg-{color}-600 text-{color}-800 dark:text-{color}-200',
+      solid: 'text-dark-500 dark:text-light-500 bg-light-300 dark:bg-dark-500',
     },
   },
   variant: {
-    solid: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-500 dark:text-{color}-400',
+    solid: 'bg-{color}-500 dark:bg-{color}-400 text-light-500 dark:text-dark-500',
+    light: 'bg-{color}-50 dark:bg-{color}-950 text-{color}-500 dark:text-{color}-400',
   },
   default: {
     size: 'sm' as Size,
-    variant: 'solid' as TagVariant,
+    variant: 'light' as TagVariant,
     color: 'primary' as Color,
   },
 }
