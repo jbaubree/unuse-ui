@@ -79,6 +79,7 @@ onMounted(() => {
       :disabled="isDisabled"
       class="w-full inline-flex"
       role="button"
+      aria-label="popover"
       @mouseover="onMouseOver"
     >
       <slot :open="open" :close="close">
