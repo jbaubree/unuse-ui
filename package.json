@@ -5,6 +5,7 @@
   "packageManager": "pnpm@8.7.4",
   "license": "MIT",
   "repository": "https://github.com/jbaubree/unuse-ui",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/unuse-ui.js",
