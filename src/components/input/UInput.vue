@@ -40,7 +40,7 @@ const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
 }>()
-const modelValue = defineModel<string | number>({ default: '' })
+const modelValue = defineModel<string | number | undefined>({ default: '' })
 
 const slots = useSlots()
 
