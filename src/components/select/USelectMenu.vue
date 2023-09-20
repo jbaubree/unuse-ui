@@ -61,7 +61,7 @@ const emit = defineEmits<{
   (eventName: 'search', value: string): void
 }>()
 
-const modelValue = defineModel<T | T[]>({ required: false })
+const modelValue = defineModel<T | T[] | null>({ required: false })
 
 const query = ref('')
 const searchInput = ref<ComponentPublicInstance<HTMLElement>>()
