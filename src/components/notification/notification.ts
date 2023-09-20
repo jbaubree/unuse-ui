@@ -12,7 +12,7 @@ export const notification = {
   shadow: 'shadow',
   rounded: 'rounded-5px',
   padding: 'p-5',
-  ring: 'ring-1 ring-primary-500 dark:ring-primary-400',
+  ring: 'ring-1 ring-{color}-500 dark:ring-{color}-400',
   icon: {
     base: 'flex-shrink-0 w-5 h-5',
     color: 'text-{color}-500 dark:text-{color}-400',
@@ -23,7 +23,7 @@ export const notification = {
   },
   progress: {
     base: 'absolute bottom-0 end-0 start-0 h-1',
-    background: 'bg-primary-500 dark:bg-primary-400',
+    background: 'bg-{color}-500 dark:bg-{color}-400',
   },
   transition: {
     enterActiveClass: 'transform ease-out duration-300 transition',
