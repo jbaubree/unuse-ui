@@ -82,7 +82,7 @@ onUnmounted(() => {
 <template>
   <Transition appear v-bind="config.transition">
     <div :class="[config.wrapper, config.background, config.rounded, config.shadow]" @mouseover="onMouseover" @mouseleave="onMouseleave">
-      <div :class="[config.container, config.rounded, config.ring]">
+      <div :class="[config.container, config.rounded, config.ring.replaceAll('{color}', props.color)]">
         <div :class="config.padding">
           <div class="flex items-center gap-3">
             <UIcon v-if="!!icon" :name="icon" :class="iconClass" />
