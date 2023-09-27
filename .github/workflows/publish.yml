@@ -28,5 +28,5 @@ jobs:
       - run: pnpm dlx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GTB_TOKEN }}
-      - run: npm config set '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'
+      - run: npm config set 'https://registry.npmjs.org/:_authToken=${NPM_TOKEN}'
       - run: npm publish --no-git-checks  --access public
