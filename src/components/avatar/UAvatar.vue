@@ -23,6 +23,7 @@ const wrapperClass = computed(() => classNames(
 ))
 const avatarClass = computed(() => classNames(
   config.value.rounded,
+  config.value.image,
   config.value.size[props.size],
 ))
 const chipClass = computed(() => classNames(

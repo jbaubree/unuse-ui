@@ -16,6 +16,7 @@ export const avatar = {
   wrapper: 'relative inline-flex items-center justify-center',
   background: 'bg-dark-50 dark:bg-dark-400',
   rounded: 'rounded-full',
+  image: 'object-cover',
   placeholder: 'font-normal leading-none text-dark-500 dark:text-white truncate',
   size: {
     '2xs': 'h-6 w-6 text-10px',
