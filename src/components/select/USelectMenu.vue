@@ -190,7 +190,7 @@ watch(container, value => value ? emit('open') : emit('close'))
               </UTag>
             </div>
             <span v-else-if="!isMultiple && !!modelValue" class="block truncate">{{ formatter(modelValue, optionAttribute) }}</span>
-            <UText v-else color="light" class="block truncate" :class="[config.placeholder, config.option.size[size]]">
+            <UText v-else color="light" class="block truncate" :class="[config.placeholder]" :ui="{ size: config.option.size[size] }">
               {{ placeholder || '&nbsp;' }}
             </UText>
           </slot>
