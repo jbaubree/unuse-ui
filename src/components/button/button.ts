@@ -109,6 +109,7 @@ export const button = {
     },
     light: {
       solid: 'text-dark-500 dark:text-light-500 bg-light-300 hover:bg-light-400 disabled:hover:bg-light-300 disabled:bg-light-300 dark:bg-dark-500 dark:hover:bg-light-900 dark:disabled:hover:bg-dark-500 dark:disabled:bg-dark-500',
+      outline: 'text-{color}-600 dark:text-{color}-400 disabled:hover:text-{color}-500 dark:hover:text-dark-500 dark:disabled:hover:text-{color}-400 hover:bg-{color}-500 disabled:hover:bg-transparent dark:hover:bg-{color}-400 dark:disabled:hover:bg-transparent ring-1 ring-{color}-500 dark:ring-{color}-400',
     },
   } as Record<ButtonColor, Partial<Record<ButtonVariant, string>>>,
   variant: {
