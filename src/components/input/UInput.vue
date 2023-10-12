@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
   isLeading?: boolean
   isLoading?: boolean
   isPadded?: boolean
+  value?: string | number | null
   size?: Size
   color?: Color | InputColor
   variant?: InputVariant | InputColor
@@ -110,7 +111,7 @@ onMounted(() => {
       :id="name"
       ref="input"
       :name="name"
-      :value="modelValue"
+      :value="modelValue || value"
       :type="type"
       :required="isRequired"
       :placeholder="placeholder"
