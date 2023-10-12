@@ -30,8 +30,9 @@ const props = withDefaults(defineProps<{
   color?: Color | InputColor
   variant?: InputVariant | InputColor
   optionAttribute?: string
+  valueAttribute?: string
   searchPlaceholder?: string
-  formatter?: (a: T | T[], b?: keyof T) => any
+  formatter?: (a: T | T[] | string, b?: keyof T) => any
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
   ui?: DeepPartial<typeof appConfig.ui.selectMenu>
@@ -42,7 +43,7 @@ const props = withDefaults(defineProps<{
   loadingIcon: () => useAppUi().input.default.loadingIcon,
   trailingIcon: () => useAppUi().select.default.trailingIcon,
   selectedIcon: () => useAppUi().selectMenu.default.selectedIcon,
-  formatter: (a: T | T[], b?: keyof T) => (b ? Array.isArray(a) ? a.map(a => a[b]).join(', ') : a[b] : a),
+  formatter: (a: T | T[] | string, b?: keyof T) => (b ? Array.isArray(a) ? a.map(a => a[b]).join(', ') : typeof a !== 'string' ? a[b] : a : a),
   searchPlaceholder: 'Rechercher...',
   optionAttribute: 'label',
   placeholder: 'Sélectionner',
@@ -61,7 +62,7 @@ const emit = defineEmits<{
   (eventName: 'search', value: string): void
 }>()
 
-const modelValue = defineModel<T | T[] | null>({ required: false })
+const modelValue = defineModel<T | T[] | string | null>({ required: false })
 
 const query = ref('')
 const searchInput = ref<ComponentPublicInstance<HTMLElement>>()
@@ -221,7 +222,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             v-slot="{ active, selected, disabled: optionDisabled }"
             :key="index"
             as="template"
-            :value="option"
+            :value="valueAttribute ? option[valueAttribute] : option"
             :disabled="option.isDisabled"
           >
             <div :class="config.option.wrapper">
