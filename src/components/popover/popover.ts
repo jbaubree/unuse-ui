@@ -5,7 +5,7 @@ export const popover = {
   background: 'bg-white dark:bg-black',
   rounded: 'rounded-10px',
   padding: '',
-  ring: '',
+  ring: 'dark:ring-1 dark:ring-dark-500',
   shadow: 'shadow-lg',
   base: 'overflow-hidden focus:outline-none text-13px text-dark-500 dark:text-light-500',
   transition: {
