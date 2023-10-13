@@ -3,9 +3,9 @@ export const popover = {
   container: 'z-20',
   width: '',
   background: 'bg-white dark:bg-black',
-  rounded: 'rounded-5px',
+  rounded: 'rounded-10px',
   padding: '',
-  ring: 'ring-1 ring-light-300 dark:ring-dark-500',
+  ring: '',
   shadow: 'shadow-lg',
   base: 'overflow-hidden focus:outline-none text-13px text-dark-500 dark:text-light-500',
   transition: {
