@@ -226,7 +226,7 @@ watch(container, value => value ? emit('open') : emit('close'))
             :disabled="option.isDisabled"
           >
             <div :class="config.option.wrapper">
-              <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size, config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
+              <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size[props.size], config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
                 <div :class="config.option.container">
                   <slot name="option" :option="option" :is-active="active" :is-selected="selected">
                     <UIcon v-if="option.icon" :name="option.icon" :class="[config.option.icon.base, active ? config.option.icon.active : config.option.icon.inactive, option.iconClass]" aria-hidden="true" />
