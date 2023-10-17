@@ -32,6 +32,7 @@ const props = withDefaults(defineProps<{
   optionAttribute?: string
   valueAttribute?: string
   searchPlaceholder?: string
+  searchIcon?: string
   formatter?: (a: T | T[] | string | number, b?: keyof T) => any
   searchAttributes?: (keyof T)[]
   popper?: PopperOptions
@@ -45,6 +46,7 @@ const props = withDefaults(defineProps<{
   selectedIcon: () => useAppUi().selectMenu.default.selectedIcon,
   formatter: (a: T | T[] | string | number, b?: keyof T) => (b ? Array.isArray(a) ? a.map(a => a[b]).join(', ') : typeof a !== 'string' && typeof a !== 'number' ? a[b] : a : a),
   searchPlaceholder: 'Rechercher...',
+  searchIcon: 'icon-ph-magnifying-glass',
   optionAttribute: 'label',
   placeholder: 'Sélectionner',
   isPadded: true,
@@ -205,17 +207,20 @@ watch(container, value => value ? emit('open') : emit('close'))
     <div v-if="open" ref="container" :class="[config.container, config.width]">
       <Transition v-bind="config.transition">
         <component :is="searchable ? ComboboxOptions : ListboxOptions" static :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.padding, config.height]">
-          <ComboboxInput
-            v-if="searchable"
-            ref="searchInput"
-            :display-value="() => query"
-            name="q"
-            :placeholder="searchPlaceholder"
-            autofocus
-            autocomplete="off"
-            :class="config.input"
-            @change="query = $event.target.value"
-          />
+          <div class="relative">
+            <ComboboxInput
+              v-if="searchable"
+              ref="searchInput"
+              :display-value="() => query"
+              name="q"
+              :placeholder="searchPlaceholder"
+              autofocus
+              autocomplete="off"
+              :class="config.input"
+              @change="query = $event.target.value"
+            />
+            <UIcon color="light" class="absolute right-2.5 top-1/2 z-10 -translate-y-1/2" :name="searchIcon" />
+          </div>
           <component
             :is="searchable ? ComboboxOption : ListboxOption"
             v-for="(option, index) in filteredOptions"
