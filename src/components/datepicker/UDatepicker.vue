@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().datepicker,
 })
 
-const date = defineModel<Date>()
+const date = defineModel<Date | null>()
 
 const years = ref<Array<number>>([])
 const currentSelection = ref<DateType>()
