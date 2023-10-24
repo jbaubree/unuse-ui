@@ -33,7 +33,7 @@ const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
 }>()
-const modelValue = defineModel<string | number>({ default: '' })
+const modelValue = defineModel<string | number | null>({ default: '' })
 
 const textarea = ref<HTMLTextAreaElement | null>(null)
 
@@ -91,7 +91,7 @@ onMounted(() => {
     <textarea
       :id="name"
       ref="textarea"
-      :value="modelValue"
+      :value="modelValue || ''"
       :name="name"
       :rows="rows"
       :required="isRequired"
