@@ -10,6 +10,7 @@ export interface Sort { column?: string; direction?: 'asc' | 'desc' }
 const props = withDefaults(defineProps<{
   sortBy?: string | ((a: T, b: T) => void)
   rows?: T[]
+  hideHeader?: boolean
   columns?: { key: string; sortable?: boolean; class?: string; [key: string]: any }[]
   columnAttribute?: string
   sort?: Sort
@@ -70,7 +71,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
 <template>
   <div :class="config.wrapper">
     <table :class="[config.base, config.divide]">
-      <thead :class="config.thead">
+      <thead v-if="!hideHeader" :class="config.thead">
         <tr :class="config.tr.base">
           <th scope="col" class="pl-4">
             <UCheckbox v-if="selected" :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
