@@ -251,7 +251,7 @@ watch(container, value => value ? emit('open') : emit('close'))
               </li>
             </div>
           </component>
-          <component :is="searchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="queryOption" as="template">
+          <component :is="searchable ? ComboboxOption : ListboxOption" v-if="isCreatable && queryOption && !filteredOptions.length" v-slot="{ active, selected }" :value="valueAttribute ? queryOption[valueAttribute] : queryOption" as="template">
             <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size[size], config.option.color, active ? config.option.active : config.option.inactive]">
               <div :class="config.option.container">
                 <slot name="option-create" :option="queryOption" :is-active="active" :is-selected="selected">
