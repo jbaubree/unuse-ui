@@ -184,7 +184,7 @@ watch(container, value => value ? emit('open') : emit('close'))
           <slot name="label">
             <div
               v-if="isMultiple && Array.isArray(modelValue) && modelValue.length"
-              class="space-x-1"
+              class="space-x-1 space-y-1"
             >
               <UTag v-for="selected, index in modelValue" :key="index" color="pilot" class="gap-1">
                 {{ valueAttribute ? formatter(selected, optionAttribute) : selected.name }}
