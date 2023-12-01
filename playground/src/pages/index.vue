@@ -274,6 +274,16 @@ const date = ref()
         </div>
         <UTextarea v-model="textArea" placeholder="I am a textarea" />
         <USelectMenu v-model="selected" :options="people" option-attribute="name" is-creatable searchable />
+        <USelectMenu
+          v-model="selected"
+          :options="people"
+
+          option-attribute="name"
+          value-attribute="id"
+
+          is-creatable searchable is-multiple
+          :formatter="(a) => people.find(p => p.id === a)?.name"
+        />
         <div>
           <URadio v-for="method of methods" :key="method.name" v-model="radio" v-bind="method" />
         </div>

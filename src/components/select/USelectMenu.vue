@@ -187,7 +187,7 @@ watch(container, value => value ? emit('open') : emit('close'))
               class="space-x-1"
             >
               <UTag v-for="selected, index in modelValue" :key="index" color="pilot" class="gap-1">
-                {{ selected.name }}
+                {{ valueAttribute ? formatter(selected, optionAttribute) : selected.name }}
                 <UIcon class="cursor-pointer" name="icon-ph-x" @click="modelValue.splice(index, 1)" />
               </UTag>
             </div>
