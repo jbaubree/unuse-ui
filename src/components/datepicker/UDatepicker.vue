@@ -81,7 +81,7 @@ function isToday(date: number): boolean {
   return today === d
 }
 function isSelectedDate(d: number) {
-  return date.value?.toDateString() === new Date(year.value, month.value, d).toDateString()
+  return date.value?.toDateString() === new Date(year.value, month.value, d)?.toDateString()
 }
 function onPreviousButtonClick() {
   if (currentSelection.value === 'day') {
