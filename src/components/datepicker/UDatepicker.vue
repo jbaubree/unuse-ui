@@ -76,12 +76,12 @@ function setDate(dateNumber = 1) {
   date.value = new Date(year.value, month.value, dateNumber)
 }
 function isToday(date: number): boolean {
-  const today = new Date()?.toDateString()
-  const d = new Date(year.value, month.value, date)?.toDateString()
+  const today = new Date().toDateString()
+  const d = new Date(year.value, month.value, date).toDateString()
   return today === d
 }
 function isSelectedDate(d: number) {
-  return date.value?.toDateString() === new Date(year.value, month.value, d)?.toDateString()
+  return date.value?.toDateString() === new Date(year.value, month.value, d).toDateString()
 }
 function onPreviousButtonClick() {
   if (currentSelection.value === 'day') {
