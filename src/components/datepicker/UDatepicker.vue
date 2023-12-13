@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<{
   ui: () => useAppUi().datepicker,
 })
 
-const date = defineModel<Date | null>()
+const date = defineModel<Date | string | null>()
 
 const years = ref<Array<number>>([])
 const currentSelection = ref<DateType>()
@@ -81,7 +81,7 @@ function isToday(date: number): boolean {
   return today === d
 }
 function isSelectedDate(d: number) {
-  return date.value?.toDateString() === new Date(year.value, month.value, d).toDateString()
+  return date.value && new Date(date.value).toDateString() === new Date(year.value, month.value, d).toDateString()
 }
 function onPreviousButtonClick() {
   if (currentSelection.value === 'day') {
@@ -170,7 +170,7 @@ onMounted(() => {
 <template>
   <UPopover :popper="popper">
     <slot>
-      <UButton color="pilot" :icon="icon" :label="label || date?.toLocaleDateString() || 'Select date'">
+      <UButton color="pilot" :icon="icon" :label="label || date ? new Date(date as Date | string)?.toLocaleDateString() : 'Select date'">
         <template v-if="date && isClearable" #trailing>
           <UTooltip :text="clearLabel || 'Clear date'" :popper="{ placement: 'right' }" :ui="{ transition: config.tooltip.transition }">
             <UIcon :name="config.default.closeIcon" @click.stop="date = undefined" />
