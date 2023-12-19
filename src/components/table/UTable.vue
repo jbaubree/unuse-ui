@@ -74,7 +74,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
       <thead v-if="!hideHeader" :class="config.thead">
         <tr :class="config.tr.base">
           <th scope="col" class="pl-4">
-            <UCheckbox v-if="selected" :is-checked="isIndeterminate || selected?.length === rows.length" :is-indeterminate="isIndeterminate" @change="selected = $event.target.checked ? rows : []" />
+            <UCheckbox v-if="selected" :items="[{ isChecked: isIndeterminate || selected?.length === rows.length, isIndeterminate }]" @change="selected = $event.target.checked ? rows : []" />
             <div v-else class="h-3.75 w-3.75" />
           </th>
           <th v-for="(column, index) in columns" :key="index" scope="col" :class="[config.th.base, config.th.padding, config.th.color, config.th.font, config.th.size, column.class]">
@@ -104,7 +104,7 @@ function onSort(column: { key: string; direction?: 'asc' | 'desc' }) {
           @click="emit('row-clicked', row)"
         >
           <td class="w-0 pl-4">
-            <UCheckbox v-if="selected" v-model="selected" :value="row" @click.stop />
+            <UCheckbox v-if="selected" v-model="selected" :items="[{ value: row }]" @click.stop />
             <div v-else class="h-3.75 w-3.75" />
           </td>
           <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[config.td.base, config.td.padding, config.td.color, config.td.font, config.td.size, column.class]">

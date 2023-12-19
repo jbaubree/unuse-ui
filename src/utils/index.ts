@@ -11,3 +11,9 @@ export function omit(obj: object, keys: string[]) {
 export function defaultComparator<T>(a: T, z: T): boolean {
   return a === z
 }
+
+let _id = 0
+
+export function uid() {
+  return `nuid-${_id++}`
+}

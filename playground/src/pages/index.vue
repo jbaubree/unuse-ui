@@ -3,6 +3,7 @@ import { colors, useAppTheme, useToast } from 'unuse-ui'
 
 const isActive = ref(false)
 const isChecked = ref(false)
+const checkMultiple = ref([])
 const isDarkModeActive = ref(isDark.value)
 const isDialogOpen = ref(false)
 const input = ref('')
@@ -221,7 +222,13 @@ const date = ref()
         <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" size="sm" />
         <UToggle v-model="isActive" label="Primary toggle" name="dark-mode" off-icon="icon-ph-sun" on-icon="icon-ph-moon" />
 
-        <UCheckbox v-model="isChecked" label="Primary checkbox" is-required />
+        <UCheckbox v-model="isChecked" :items="[{ label: 'Primary checkbox', isRequired: true }]" />
+        <UCheckbox
+          v-model="checkMultiple" :items="[
+            { label: 'Primary checkbox', value: 'Primary checkbox value' },
+            { label: 'Primary checkbox 2', value: 'Primary checkbox value 2' },
+          ]"
+        />
         <UButton label="Primary button" trailing-icon="icon-ph-phone" />
         <UInput v-model="input" placeholder="Coucou" icon="icon-ph-phone" />
         <UFormGroup label="Phone" is-required error="Error">
