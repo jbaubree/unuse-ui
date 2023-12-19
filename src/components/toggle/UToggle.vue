@@ -27,7 +27,7 @@ watch(isActive, () => {
 </script>
 
 <template>
-  <Switch v-if="isActive" v-model="isActive" :disabled="isDisabled" :name="name" :aria-label="name" :class="config.wrapper">
+  <Switch v-if="typeof isActive === 'boolean'" v-model="isActive" :disabled="isDisabled" :name="name" :aria-label="name" :class="config.wrapper">
     <span v-if="label" :class="[config.label.base, config.label.size[size]]">{{ label }}</span>
     <div :class="[isActive ? config.button.active : config.button.inactive, config.button.size[size], config.button.base, { [config.button.disabled]: isDisabled }]">
       <span :class="[isActive ? [config.slider.active, config.slider.translate[size]] : config.slider.inactive, config.slider.base, config.slider.size[size]]">
