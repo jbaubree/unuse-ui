@@ -6,7 +6,7 @@ import type { DeepPartial } from '~/types'
 export type T = string | number | boolean | Record<any, any>
 
 const props = withDefaults(defineProps<{
-  modelValue?: boolean | any[]
+  modelValue?: boolean | any[] | null
   value?: T
   isChecked?: boolean
   isDisabled?: boolean
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (eventName: 'focus', value: FocusEvent): void
   (eventName: 'blur', value: FocusEvent): void
-  (eventName: 'update:model-value', value?: boolean | T[]): void
+  (eventName: 'update:model-value', value?: boolean | T[] | null): void
 }>()
 const isChecked = computed({
   get() {
