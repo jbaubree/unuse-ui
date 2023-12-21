@@ -38,7 +38,7 @@ const selected = defineModel<T[]>()
 const sort = ref<Sort>(merge({}, { column: null, direction: 'asc' }, props.sort))
 
 const config = computed(() => merge({}, useAppUi().table, props.ui))
-const columns = computed(() => props.columns ?? Object.keys(props.rows[0] ?? {}).map(key => ({ key, label: capitalize(key), sortable: false })))
+const columns = computed(() => props.columns ?? Object.keys(props.rows[0] ?? {}).map(key => ({ key, label: capitalize(key), sortable: false, class: '' })))
 const isIndeterminate = computed(() => selected.value && selected.value.length > 0 && selected.value.length < props.rows.length)
 const emptyState = computed(() => ({ ...config.value.default.emptyState, ...props.emptyState }))
 const rows = computed(() => {
