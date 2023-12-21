@@ -25,7 +25,7 @@ jobs:
       - name: Install
         run: pnpm -v
       - name: Install
-        run: npde -v
+        run: node -v
       - name: Install
         run: pnpm install -r
       - name: Lint
