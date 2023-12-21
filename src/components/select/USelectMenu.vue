@@ -144,6 +144,11 @@ function onUpdate(event: T | T[] | string | number | null) {
 }
 
 watch(container, value => value ? emit('open') : emit('close'))
+
+onMounted(() => {
+  if (props.isMultiple && !modelValue.value)
+    modelValue.value = []
+})
 </script>
 
 <template>
