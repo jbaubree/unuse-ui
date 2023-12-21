@@ -1,3 +1,3 @@
-export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> | undefined; }
-
-export type InferableProp<T> = () => T
+export type DeepPartial<T> = Partial<{
+  [P in keyof T]: DeepPartial<T[P]> | { [key: string]: string | object }
+}>
