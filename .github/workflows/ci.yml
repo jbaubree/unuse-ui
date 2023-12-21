@@ -23,10 +23,6 @@ jobs:
           node-version: 18.x
           cache: pnpm
       - name: Install
-        run: pnpm -v
-      - name: Install
-        run: node -v
-      - name: Install
         run: pnpm install -r
       - name: Lint
         run: pnpm lint
