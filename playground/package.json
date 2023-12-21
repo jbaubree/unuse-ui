@@ -7,16 +7,16 @@
     "dev": "vite dev"
   },
   "dependencies": {
-    "@vueuse/core": "^10.4.1",
+    "@vueuse/core": "^10.7.0",
     "unuse-ui": "workspace:*",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@unocss/preset-web-fonts": "^0.55.7",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "unplugin-vue-components": "^0.25.2",
     "unplugin-vue-router": "^0.6.4",
-    "vite": "^4.4.9"
+    "vite": "^4.4.12"
   }
 }
