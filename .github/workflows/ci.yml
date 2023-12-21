@@ -18,14 +18,14 @@ jobs:
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
-        with:
-          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
           cache: pnpm
       - name: Install
         run: pnpm -v
+      - name: Install
+        run: npde -v
       - name: Install
         run: pnpm install -r
       - name: Lint
