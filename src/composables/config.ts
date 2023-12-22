@@ -1,7 +1,7 @@
+import { useHead } from '@vueuse/head'
 import type { RemovableRef } from '@vueuse/core'
-import type { ComputedRef } from 'vue'
-import { colors } from '~/preset'
 import { APP_UI } from '~/symbols'
+import { colors } from '~/preset'
 import type { appConfig } from '~/config'
 
 export function useAppUi() {
@@ -10,11 +10,10 @@ export function useAppUi() {
 
 export function useAppTheme(): {
   primaryColor: RemovableRef<keyof typeof colors>
-  root: ComputedRef<string>
 } {
   const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo')
 
-  const hexToRgb = (hex: string) => {
+  const hexToRgb = (hex) => {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
     hex = hex.replace(shorthandRegex, (_, r, g, b) => {
@@ -30,8 +29,11 @@ export function useAppTheme(): {
     ${Object.keys(colors.primary).map(key => `--color-primary-${key}: ${hexToRgb(colors[primaryColor.value]?.[key])};`).join('\n')}
   }`)
 
+  useHead({
+    style: [{ innerHTML: root }],
+  })
+
   return {
     primaryColor,
-    root,
   }
 }
