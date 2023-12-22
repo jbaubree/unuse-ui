@@ -128,12 +128,13 @@ const plugin = {
   install(app: App, options: DeepPartial<PluginOptions> = {}) {
     const config: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
 
+    app.use(createHead())
+
     if (options.registerComponents) {
       Object.entries(components).forEach(([name, component]) => {
         app.component(name, component)
       })
     }
-    app.use(createHead())
 
     app.provide(APP_UI, config.ui)
   },
