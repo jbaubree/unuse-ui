@@ -12,7 +12,7 @@ export function useAppTheme(): {
   primaryColor: RemovableRef<keyof typeof colors>
   setPrimaryColor: (color: keyof typeof colors) => void
 } {
-  const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo')
+  const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo', { flush: 'sync' })
 
   function setPrimaryColor(color: keyof typeof colors) {
     primaryColor.value = color
