@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Color } from 'unuse-ui'
 import { colors, useAppTheme, useToast } from 'unuse-ui'
 
 const isActive = ref(false)
@@ -8,7 +9,7 @@ const isDarkModeActive = ref(isDark.value)
 const isDialogOpen = ref(false)
 const input = ref('')
 const activeItem = ref()
-const { primaryColor, setPrimaryColor } = useAppTheme()
+const { primaryColor } = useAppTheme()
 const toast = useToast()
 const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
   return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
@@ -179,7 +180,7 @@ const date = ref()
             v-for="color, index in primaryOptions"
             :key="index"
             class="flex cursor-pointer items-center gap-1"
-            @click="setPrimaryColor(color)"
+            @click="primaryColor = color as Color"
           >
             <span
               class="font-medium capitalize transition-colors"
