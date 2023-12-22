@@ -8,7 +8,7 @@ const isDarkModeActive = ref(isDark.value)
 const isDialogOpen = ref(false)
 const input = ref('')
 const activeItem = ref()
-const { primaryColor } = useAppTheme()
+const { primaryColor, setPrimaryColor } = useAppTheme()
 const toast = useToast()
 const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
   return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
@@ -179,7 +179,7 @@ const date = ref()
             v-for="color, index in primaryOptions"
             :key="index"
             class="flex cursor-pointer items-center gap-1"
-            @click="primaryColor = color"
+            @click="setPrimaryColor(color)"
           >
             <span
               class="font-medium capitalize transition-colors"

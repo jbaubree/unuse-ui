@@ -10,8 +10,13 @@ export function useAppUi() {
 
 export function useAppTheme(): {
   primaryColor: RemovableRef<keyof typeof colors>
+  setPrimaryColor: (color: keyof typeof colors) => void
 } {
   const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo')
+
+  function setPrimaryColor(color: keyof typeof colors) {
+    primaryColor.value = color
+  }
 
   const hexToRgb = (hex) => {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -35,5 +40,6 @@ export function useAppTheme(): {
 
   return {
     primaryColor,
+    setPrimaryColor,
   }
 }
