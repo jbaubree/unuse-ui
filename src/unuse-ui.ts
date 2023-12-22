@@ -4,7 +4,7 @@ import type { App } from 'vue'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 
-import { createHead } from '@vueuse/head'
+import { createHead, useHead } from '@vueuse/head'
 
 import UAvatar from './components/avatar/UAvatar.vue'
 import UButton from './components/button/UButton.vue'
@@ -44,6 +44,7 @@ import { useAppTheme, useAppUi } from './composables/config'
 import { useToast } from './composables/toast'
 import { APP_UI } from './symbols'
 import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
+import { colors } from './preset'
 
 const components = {
   UAvatar,
@@ -128,13 +129,35 @@ const plugin = {
   install(app: App, options: DeepPartial<PluginOptions> = {}) {
     const config: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
 
-    app.use(createHead())
+    const { primaryColor } = useAppTheme()
+
+    const hexToRgb = (hex: string) => {
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+      hex = hex.replace(shorthandRegex, (_, r, g, b) => {
+        return r + r + g + g + b + b
+      })
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+      return result
+        ? `${Number.parseInt(result[1], 16)}, ${Number.parseInt(result[2], 16)}, ${Number.parseInt(result[3], 16)}`
+        : null
+    }
+
+    const root = computed(() => `:root {
+      ${Object.keys(colors.primary).map(key => `--color-primary-${key}: ${hexToRgb(colors[primaryColor.value]?.[key])};`).join('\n')}
+    }`)
 
     if (options.registerComponents) {
       Object.entries(components).forEach(([name, component]) => {
         app.component(name, component)
       })
     }
+    app.use(createHead())
+    app.runWithContext(() => {
+      useHead({
+        style: [{ innerHTML: root }],
+      })
+    })
 
     app.provide(APP_UI, config.ui)
   },
