@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<{
     label?: string
     name?: string
   }[]
+  isMultiple?: boolean
   ui?: DeepPartial<typeof appConfig.ui.checkbox>
 }>(), {
   ui: () => useAppUi().checkbox,
@@ -42,6 +43,11 @@ const config = computed(() => merge({}, useAppUi().checkbox, props.ui))
 
 const ids = computed(() => {
   return props.items.map(() => uid())
+})
+
+onMounted(() => {
+  if (props.isMultiple && !modelValue.value)
+    modelValue.value = []
 })
 </script>
 
