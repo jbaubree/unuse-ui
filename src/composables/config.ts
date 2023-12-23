@@ -10,7 +10,7 @@ export function useAppUi() {
 export function useAppTheme(): {
   primaryColor: RemovableRef<keyof typeof colors>
 } {
-  const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo', { flush: 'post' })
+  const primaryColor = useLocalStorage<keyof typeof colors>('unuse-ui-primary', 'fluo')
 
   return {
     primaryColor,
