@@ -11,8 +11,11 @@ const props = withDefaults(defineProps<{
 }>(), {
   ui: () => useAppUi().fileUpload,
 })
-const files = defineModel<UploadFile | UploadFile[]>()
+const emit = defineEmits<{
+  (eventName: 'drop', value: UploadFile[]): void
+}>()
 
+const files = defineModel<UploadFile | UploadFile[]>()
 const rInputFile = ref<HTMLInputElement>()
 
 const config = computed(() => merge({}, useAppUi().fileUpload, props.ui))
@@ -24,15 +27,17 @@ function mapFile(file: File) {
   }
 }
 function handleFileUpload() {
-  if (rInputFile.value?.files?.length) {
-    const f: UploadFile[] = Array.from(rInputFile.value.files).map(file => mapFile(file))
-    if (!files.value)
-      files.value = props.isMultiple ? [...f] : f[0]
-    else
-      files.value = props.isMultiple ? [...(files.value as UploadFile[]), ...f] : f[0]
-    rInputFile.value.type = 'text'
-    rInputFile.value.type = 'file'
-  }
+  if (!rInputFile.value?.files?.length)
+    return
+
+  const f: UploadFile[] = Array.from(rInputFile.value.files).map(file => mapFile(file))
+  emit('drop', f)
+  if (!files.value)
+    files.value = props.isMultiple ? [...f] : f[0]
+  else
+    files.value = props.isMultiple ? [...(files.value as UploadFile[]), ...f] : f[0]
+  rInputFile.value.type = 'text'
+  rInputFile.value.type = 'file'
 }
 </script>
 
@@ -45,7 +50,8 @@ function handleFileUpload() {
       :disabled="isDisabled"
       :multiple="isMultiple"
       :accept="accept?.join(',')"
-      @change="handleFileUpload()"
+      @change="handleFileUpload"
+      @drop="handleFileUpload"
     >
     <slot :is-disabled="isDisabled">
       <button :disabled="isDisabled">
