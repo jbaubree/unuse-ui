@@ -5,6 +5,9 @@ import { appConfig } from '~/config'
 import type { Color, DeepPartial, Size } from '~/types'
 import { classNames } from '~/utils'
 
+defineOptions({
+  inheritAttrs: false,
+})
 const props = withDefaults(defineProps<{
   type?: string
   name?: string
@@ -43,6 +46,7 @@ const emit = defineEmits<{
 }>()
 const modelValue = defineModel<string | number | undefined | null>({ default: '' })
 
+const attrs = useAttrs()
 const slots = useSlots()
 
 const input = ref<HTMLInputElement | null>(null)
@@ -120,6 +124,7 @@ onMounted(() => {
       :autocomplete="autocomplete"
       :spellcheck="spellcheck"
       :class="inputClass"
+      v-bind="attrs"
       @focus="emit('focus', $event)"
       @blur="emit('blur', $event)"
       @input="onInput"
