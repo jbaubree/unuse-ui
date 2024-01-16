@@ -98,21 +98,18 @@ function autoFocus() {
   if (props.autofocus)
     input.value?.focus()
 }
+function onBlur(event: FocusEvent) {
+  if (props.type !== 'number')
+    return
+  if (modelValue.value && attrs.min && Number((event.target as HTMLInputElement).value) < Number(attrs.min))
+    modelValue.value = Number(attrs.min)
+  if (modelValue.value && attrs.max && Number((event.target as HTMLInputElement).value) > Number(attrs.max))
+    modelValue.value = Number(attrs.max)
+
+  emit('blur', event)
+}
 function onInput(event: Event) {
-  if (props.type === 'number') {
-    if (attrs.min && event < attrs.min) {
-      modelValue.value = Number(attrs.min)
-      return
-    }
-    if (attrs.max && event > attrs.max) {
-      modelValue.value = Number(attrs.max)
-      return
-    }
-    modelValue.value = (event.target as HTMLInputElement).value
-  }
-  else {
-    modelValue.value = (event.target as HTMLInputElement).value
-  }
+  modelValue.value = (event.target as HTMLInputElement).value
 }
 
 onMounted(() => {
@@ -139,7 +136,7 @@ onMounted(() => {
       :class="inputClass"
       v-bind="attrs"
       @focus="emit('focus', $event)"
-      @blur="emit('blur', $event)"
+      @blur="onBlur"
       @input="onInput"
     >
     <slot />
