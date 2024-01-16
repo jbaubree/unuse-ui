@@ -235,7 +235,7 @@ onMounted(() => {
             :value="valueAttribute ? option[valueAttribute] : option"
             :disabled="option.isDisabled"
           >
-            <div v-if="!selected" :class="config.option.wrapper">
+            <div v-if="!selected || !isMultiple" :class="config.option.wrapper">
               <li :class="[config.option.base, config.option.rounded, config.option.padding, config.option.size[props.size], config.option.color, active ? config.option.active : config.option.inactive, selected && config.option.selected, optionDisabled && config.option.disabled]">
                 <div :class="config.option.container">
                   <slot name="option" :option="option" :is-active="active" :is-selected="selected">
@@ -250,6 +250,9 @@ onMounted(() => {
                     <span class="truncate">{{ typeof option === 'string' ? option : option[optionAttribute] }}</span>
                   </slot>
                 </div>
+                <span v-if="selected" :class="[config.option.selectedIcon.wrapper, config.option.selectedIcon.padding]">
+                  <UIcon :name="selectedIcon" :class="[config.option.selectedIcon.base, config.option.selectedIcon.color]" aria-hidden="true" />
+                </span>
               </li>
             </div>
           </component>
