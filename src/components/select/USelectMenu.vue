@@ -140,7 +140,7 @@ function onUpdate(event: T | T[] | string | number | null) {
     query.value = ''
     searchInput.value.$el.value = ''
   }
-  modelValue.value = event
+  modelValue.value = JSON.stringify(modelValue.value) === JSON.stringify(event) ? undefined : event
 }
 
 watch(container, value => value ? emit('open') : emit('close'))
