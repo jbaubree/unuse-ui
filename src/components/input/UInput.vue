@@ -99,7 +99,20 @@ function autoFocus() {
     input.value?.focus()
 }
 function onInput(event: Event) {
-  modelValue.value = (event.target as HTMLInputElement).value
+  if (props.type === 'number') {
+    if (attrs.min && event < attrs.min) {
+      modelValue.value = Number(attrs.min)
+      return
+    }
+    if (attrs.max && event > attrs.max) {
+      modelValue.value = Number(attrs.max)
+      return
+    }
+    modelValue.value = (event.target as HTMLInputElement).value
+  }
+  else {
+    modelValue.value = (event.target as HTMLInputElement).value
+  }
 }
 
 onMounted(() => {
