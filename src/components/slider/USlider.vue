@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<{
   side?: 'right' | 'left'
   hasOverlay?: boolean
   hasTransition?: boolean
+  preventClose?: boolean
   ui?: DeepPartial<typeof appConfig.ui.slider>
 }>(), {
   side: 'right',
@@ -38,6 +39,9 @@ const transitionClass = computed(() => {
 })
 
 function onClose(value: boolean) {
+  if (props.preventClose)
+    return
+
   isOpen.value = value
   emit('close')
 }
