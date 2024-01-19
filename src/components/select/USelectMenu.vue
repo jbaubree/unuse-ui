@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<{
   isTrailing?: boolean
   isLeading?: boolean
   isLoading?: boolean
+  isClearable?: boolean
   selectedIcon?: string
   isDisabled?: boolean
   isMultiple?: boolean
@@ -50,6 +51,7 @@ const props = withDefaults(defineProps<{
   optionAttribute: 'label',
   placeholder: 'Sélectionner',
   isPadded: true,
+  isClearable: true,
   size: () => useAppUi().select.default.size,
   color: () => useAppUi().select.default.color,
   variant: () => useAppUi().select.default.variant,
@@ -140,7 +142,7 @@ function onUpdate(event: T | T[] | string | number | null) {
     query.value = ''
     searchInput.value.$el.value = ''
   }
-  modelValue.value = JSON.stringify(modelValue.value) === JSON.stringify(event) ? undefined : event
+  modelValue.value = props.isClearable && JSON.stringify(modelValue.value) === JSON.stringify(event) ? undefined : event
 }
 
 watch(container, value => value ? emit('open') : emit('close'))
