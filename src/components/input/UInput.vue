@@ -109,7 +109,10 @@ function onBlur(event: FocusEvent) {
   emit('blur', event)
 }
 function onInput(event: Event) {
-  modelValue.value = (event.target as HTMLInputElement).value
+  modelValue.value
+  = (event.target as HTMLInputElement).value
+      ? (event.target as HTMLInputElement).value
+      : props.type === 'number' ? 0 : ''
 }
 
 onMounted(() => {

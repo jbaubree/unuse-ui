@@ -214,9 +214,8 @@ onMounted(() => {
     <div v-if="open" ref="container" :class="[config.container, config.width]">
       <Transition v-bind="config.transition">
         <component :is="searchable ? ComboboxOptions : ListboxOptions" static :class="[config.base, config.divide, config.ring, config.rounded, config.shadow, config.background, config.padding, config.height]">
-          <div class="relative">
+          <div v-if="searchable" class="relative">
             <ComboboxInput
-              v-if="searchable"
               ref="searchInput"
               :display-value="() => query"
               name="q"
