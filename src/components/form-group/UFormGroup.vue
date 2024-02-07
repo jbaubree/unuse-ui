@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { MaybeRef } from '@vueuse/core'
 import { merge } from 'lodash-es'
 import type { appConfig } from '~/config'
 import type { DeepPartial } from '~/types'
@@ -8,7 +9,7 @@ const props = withDefaults(defineProps<{
   label?: string
   isRequired?: boolean
   isDisabled?: boolean
-  error?: string
+  error?: MaybeRef<string>
   ui?: DeepPartial<typeof appConfig.ui.formGroup>
 }>(), {
   ui: () => useAppUi().formGroup,
