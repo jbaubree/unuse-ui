@@ -1,6 +1,6 @@
 // @unocss-include
 import { createApp } from 'vue'
-import { UnuseUI } from 'unuse-ui'
+import { createUnuseUi } from 'unuse-ui'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 
 import App from './App.vue'
@@ -14,6 +14,6 @@ const router = createRouter({
 })
 
 createApp(App)
-  .use(UnuseUI, options)
+  .use(createUnuseUi(options))
   .use(router)
   .mount('#app')
