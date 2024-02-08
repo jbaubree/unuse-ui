@@ -1,6 +1,6 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
-import { createUnuseUi } from 'unuse-ui'
+import { UnuseUI } from 'unuse-ui'
 import Theme from 'vitepress/theme'
 
 import 'unuse-ui/dist/style.css'
@@ -15,6 +15,6 @@ export default {
     })
   },
   enhanceApp({ app }) {
-    app.use(createUnuseUi())
+    app.use(UnuseUI)
   },
 }

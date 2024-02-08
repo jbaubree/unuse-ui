@@ -125,46 +125,44 @@ const configDefaults: ResolvedPluginOptions = {
   appConfig,
 }
 
-function createUnuseUi(options: DeepPartial<PluginOptions> = {}) {
-  return {
-    install(app: App) {
-      const config: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
+const plugin = {
+  install(app: App, options: DeepPartial<PluginOptions> = {}) {
+    const config: typeof appConfig = merge({}, configDefaults.appConfig, options.appConfig)
 
-      const { primaryColor } = useAppTheme()
+    const { primaryColor } = useAppTheme()
 
-      app.use(createHead())
+    app.use(createHead())
 
-      if (options.registerComponents) {
-        Object.entries(components).forEach(([name, component]) => {
-          app.component(name, component)
-        })
-      }
+    if (options.registerComponents) {
+      Object.entries(components).forEach(([name, component]) => {
+        app.component(name, component)
+      })
+    }
 
-      const hexToRgb = (hex: string) => {
+    const hexToRgb = (hex: string) => {
       // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-        const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-        hex = hex.replace(shorthandRegex, (_, r, g, b) => {
-          return r + r + g + g + b + b
-        })
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-        return result
-          ? `${Number.parseInt(result[1], 16)}, ${Number.parseInt(result[2], 16)}, ${Number.parseInt(result[3], 16)}`
-          : null
-      }
+      const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+      hex = hex.replace(shorthandRegex, (_, r, g, b) => {
+        return r + r + g + g + b + b
+      })
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+      return result
+        ? `${Number.parseInt(result[1], 16)}, ${Number.parseInt(result[2], 16)}, ${Number.parseInt(result[3], 16)}`
+        : null
+    }
 
-      const root = computed(() => `:root {
+    const root = computed(() => `:root {
       ${Object.keys(colors.primary).map(key => `--color-primary-${key}: ${hexToRgb(colors[primaryColor.value]?.[key])};`).join('\n')}
     }`)
 
-      app.runWithContext(() => {
-        useHead({
-          style: [{ innerHTML: root }],
-        })
+    app.runWithContext(() => {
+      useHead({
+        style: [{ innerHTML: root }],
       })
+    })
 
-      app.provide(APP_UI, config.ui)
-    },
-  }
+    app.provide(APP_UI, config.ui)
+  },
 }
 
 export * from './types'
@@ -210,6 +208,5 @@ export {
   useToast,
 }
 
-export { createUnuseUi }
-
-export default createUnuseUi
+export { plugin as UnuseUI }
+export default plugin
