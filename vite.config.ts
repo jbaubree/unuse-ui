@@ -59,7 +59,7 @@ const config = defineConfig({
     lib: {
       entry: {
         ...entry,
-        index: fileURLToPath(new URL('src/unuse-ui.ts', import.meta.url)),
+        index: fileURLToPath(new URL('src/index.ts', import.meta.url)),
       },
       formats: ['es'],
     },

@@ -22,7 +22,7 @@
     ],
     "paths": {
       "~/*": ["src/*"],
-      "unuse-ui": ["./src/unuse-ui.ts"]
+      "unuse-ui": ["./src/index.ts"]
     }
   },
   "exclude": ["dist", "node_modules"]
