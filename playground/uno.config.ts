@@ -24,7 +24,7 @@ export default defineConfig({
   ],
   content: {
     pipeline: {
-      include: [/.*\/unuse-ui\.js(.*)?$/, './**/*.vue'],
+      include: [/.*\/unuse-ui\/.*[^/]+\.js$/, './**/*.vue'],
     },
   },
 })

@@ -8,13 +8,12 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/unuse-ui.js",
-      "require": "./dist/unuse-ui.umd.cjs"
+      "import": "./dist/index.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/assets/style.css"
   },
-  "main": "./dist/unuse-ui.umd.cjs",
-  "module": "./dist/unuse-ui.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/unuse-ui.d.ts",
   "files": [
     "dist"
