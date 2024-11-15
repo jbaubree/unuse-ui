@@ -66,6 +66,7 @@ const config = defineConfig({
     rollupOptions: {
       external: [
         'vue',
+        '@vueuse/head',
       ],
       output: {
         assetFileNames: 'assets/[name][extname]',
