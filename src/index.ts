@@ -46,42 +46,6 @@ import { APP_UI } from './symbols'
 import type { DeepPartial, PluginOptions, ResolvedPluginOptions } from './types'
 import { colors } from '~/preset'
 
-const components = {
-  UAvatar,
-  UButton,
-  UBreadcrumb,
-  UCard,
-  UCheckbox,
-  UCollapse,
-  UContainer,
-  UDatepicker,
-  UDialog,
-  UDropdown,
-  UFileUpload,
-  UFormGroup,
-  UIcon,
-  UInput,
-  ULinkCustom,
-  UNav,
-  UNotification,
-  UNotifications,
-  UPopover,
-  UPagination,
-  URadio,
-  URadioGroup,
-  USelect,
-  USelectMenu,
-  USkeleton,
-  USlider,
-  UTable,
-  UTag,
-  UText,
-  UTextarea,
-  UToggle,
-  UTooltip,
-  UVerticalNavigation,
-}
-
 declare module 'vue' {
   export interface GlobalComponents {
     UAvatar: typeof UAvatar
@@ -121,7 +85,6 @@ declare module 'vue' {
 }
 
 const configDefaults: ResolvedPluginOptions = {
-  registerComponents: true,
   appConfig,
 }
 
@@ -132,12 +95,6 @@ const plugin = {
     const { primaryColor } = useAppTheme()
 
     app.use(createHead())
-
-    if (options.registerComponents) {
-      Object.entries(components).forEach(([name, component]) => {
-        app.component(name, component)
-      })
-    }
 
     const hexToRgb = (hex: string) => {
       // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")

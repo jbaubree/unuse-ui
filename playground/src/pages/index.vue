@@ -11,7 +11,7 @@ const input = ref('')
 const activeItem = ref()
 const { primaryColor } = useAppTheme()
 const toast = useToast()
-const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).filter((color) => {
+const primaryOptions = computed(() => (Object.keys(colors) as (keyof typeof colors)[]).map(color => color.toString()).filter((color) => {
   return !['inherit', 'current', 'black', 'white', 'light', 'dark', 'transparent', 'primary', 'pilot', 'success', 'danger'].includes(color)
 }))
 const dropdownItems = [

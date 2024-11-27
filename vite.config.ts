@@ -50,6 +50,10 @@ const config = defineConfig({
             file.code = file.code.replace(/},\s*h\s*=\s*{/g, '}, hh = {')
             file.code = file.code.replace(/:\s*h\s*,/g, ': hh,')
           }
+          if (file.type === 'chunk' && file.code && fileName === 'index.js') {
+            file.code = file.code.replace(/, h\s=\s/g, ', hh = ')
+            file.code = file.code.replace(/\.{3}h/g, '...hh')
+          }
         }
       },
     },
